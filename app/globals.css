@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #10233f;
+  --navy-2: #18365f;
+  --gold: #b18a3d;
+  --gold-light: #d8bb73;
+  --cream: #fbf8f1;
+  --ink: #172033;
+  --muted: #667085;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { text-decoration: none; }
+
+.container-site {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.gold-line {
+  width: 72px;
+  height: 3px;
+  background: var(--gold);
+  margin: 14px auto 0;
+}
+
+.section-pad { padding: 84px 0; }
+
+.glass {
+  background: rgba(255,255,255,.86);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.55);
+}
+
+.leaflet-container { height: 100%; width: 100%; z-index: 0; }

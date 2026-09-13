@@ -1,0 +1,11 @@
+import SectionTitle from "@/components/SectionTitle";
+
+export default function About() {
+  return (
+    <div>
+      <section className="bg-[#10233f] py-24 text-white"><div className="container-site"><div className="max-w-3xl"><div className="text-xs font-bold tracking-[.25em] text-[#d8bb73]">OUR PARISH</div><h1 className="mt-3 text-5xl font-bold">About St. Paul&apos;s Church</h1><p className="mt-5 text-lg leading-8 text-slate-300">Faith, fellowship, service and prayer in the heart of Rathinapuri.</p></div></div></section>
+      <section className="section-pad"><div className="container-site grid gap-10 md:grid-cols-2"><img src="/images/church-front.png" alt="St. Paul's Church" className="rounded-3xl object-cover" /><div><SectionTitle eyebrow="WHO WE ARE" title="A Catholic parish community" description="St. Paul's Church in Coimbatore is a Roman Catholic parish located in the Rathinapuri area of the city. It falls under the jurisdiction of the Coimbatore Diocese and is situated on Nehru Street in the Tatabad locality." /><div className="grid gap-4 sm:grid-cols-3"><div className="rounded-2xl bg-[#f2eee5] p-5 text-center font-semibold">Faith</div><div className="rounded-2xl bg-[#f2eee5] p-5 text-center font-semibold">Fellowship</div><div className="rounded-2xl bg-[#f2eee5] p-5 text-center font-semibold">Service</div></div></div></div></section>
+      <section className="bg-[#f2eee5] section-pad"><div className="container-site"><SectionTitle eyebrow="LEADERSHIP" title="Parish Clergy" /><div className="grid gap-8 md:grid-cols-2"><div className="rounded-3xl bg-white p-6 text-center shadow-sm"><img src="/images/parish-priest.png" alt="Parish priest" className="mx-auto h-80 w-full rounded-2xl object-contain bg-slate-50" /><h3 className="mt-5 text-xl font-bold text-[#10233f]">Parish Priest</h3><p className="mt-2 text-slate-500">Name and biography can be managed from the admin dashboard.</p></div><div className="rounded-3xl bg-white p-6 text-center shadow-sm"><img src="/images/assistant-priest.png" alt="Assistant priest" className="mx-auto h-80 w-full rounded-2xl object-contain bg-slate-50" /><h3 className="mt-5 text-xl font-bold text-[#10233f]">Assistant Priest</h3><p className="mt-2 text-slate-500">Name and biography can be managed from the admin dashboard.</p></div></div></div></section>
+    </div>
+  );
+}
