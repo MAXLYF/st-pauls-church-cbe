@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container-site grid gap-10 py-14 md:grid-cols-3">
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <img src="/images/logo.jpg" alt="" className="h-12 w-12 rounded-full bg-white object-cover" />
+            <img src="/images/logo.jpg" alt="St. Paul's Church logo" className="h-12 w-12 rounded-full bg-white object-cover" />
             <div>
               <div className="font-semibold tracking-[.12em]">ST. PAUL&apos;S CHURCH</div>
               <div className="text-xs tracking-[.28em] text-slate-300">RATHINAPURI</div>
@@ -19,10 +19,17 @@ export default function Footer() {
         <div>
           <h3 className="mb-4 font-semibold">Quick Links</h3>
           <div className="grid grid-cols-2 gap-3 text-sm text-slate-300">
-            <Link href="/about">About</Link><Link href="/mass-timings">Mass Timings</Link>
-            <Link href="/events">Events</Link><Link href="/gallery">Gallery</Link>
-            <Link href="/videos">Videos</Link><Link href="/prayer-request">Prayer Request</Link>
-            <Link href="/ministries">Ministries</Link><Link href="/contact">Contact</Link>
+            <Link href="/about">About Parish</Link>
+            <Link href="/about/pastors">Our Pastors</Link>
+            <Link href="/about/sons-of-parish">Sons of Parish</Link>
+            <Link href="/mass-timings">Mass Timings</Link>
+            <Link href="/prayer">Prayer Resources</Link>
+            <Link href="/prayer-request">Prayer Request</Link>
+            <Link href="/events">Events</Link>
+            <Link href="/gallery">Gallery</Link>
+            <Link href="/videos">Videos</Link>
+            <Link href="/ministries">Ministries</Link>
+            <Link href="/contact">Contact</Link>
           </div>
         </div>
         <div>
