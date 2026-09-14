@@ -1,3 +1,20 @@
-"use client";
-import { useState } from "react";
-export default function PrayerRequest(){const [sent,setSent]=useState(false); return <section className="section-pad"><div className="container-site max-w-3xl"><div className="mb-10 text-center"><div className="text-xs font-bold tracking-[.25em] text-[#b18a3d]">PRAYER</div><h1 className="mt-2 text-4xl font-bold text-[#10233f]">Prayer Request</h1><div className="gold-line"/><p className="mt-5 text-slate-600">Share an intention privately with the parish team.</p></div>{sent?<div className="rounded-3xl bg-[#10233f] p-10 text-center text-white"><h2 className="text-2xl font-bold">Prayer request received</h2><p className="mt-3 text-slate-300">Thank you for sharing your intention.</p></div>:<form onSubmit={(e)=>{e.preventDefault();setSent(true)}} className="space-y-5 rounded-3xl border bg-white p-8 shadow-sm"><label className="block"><span className="text-sm font-semibold">Name</span><input required className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-[#b18a3d]" /></label><label className="block"><span className="text-sm font-semibold">Email (optional)</span><input type="email" className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-[#b18a3d]" /></label><label className="block"><span className="text-sm font-semibold">Prayer intention</span><textarea required rows={7} className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-[#b18a3d]" /></label><button className="w-full rounded-xl bg-[#10233f] px-5 py-3 font-semibold text-white">Submit Prayer Request</button><p className="text-xs leading-5 text-slate-500">Prayer requests should be treated as private parish information and should not be displayed publicly.</p></form>}</div></section>}
+import type { Metadata } from "next";
+import PrayerRequestClient from "./PrayerRequestClient";
+
+export const metadata: Metadata = {
+  title: "Prayer Request | ஜெப வேண்டுகோள் | St. Paul's Church Rathinapuri",
+  description:
+    "Submit your prayer intention privately to the parish prayer group and priests of St. Paul's Church, Rathinapuri, Coimbatore. Support in English and Tamil.",
+  keywords: [
+    "Prayer Request Coimbatore",
+    "St Paul's Church Prayer Request",
+    "ஜெப வேண்டுகோள்",
+    "Catholic Prayer Intentions Rathinapuri",
+    "Online Catholic Prayer Coimbatore",
+    "Parish Prayer Team Intentions"
+  ]
+};
+
+export default function PrayerRequestPage() {
+  return <PrayerRequestClient />;
+}

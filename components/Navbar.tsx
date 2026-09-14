@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
@@ -18,14 +19,18 @@ const mainLinks = [
   { label: "Gallery", href: "/gallery" },
   { label: "Videos", href: "/videos" },
   { label: "Prayer", href: "/prayer" },
+  { label: "Prayer Request", href: "/prayer-request", tamilLabel: "ஜெப வேண்டுகோள்" },
   { label: "Contact", href: "/contact" }
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  const isAboutActive = pathname.startsWith("/about");
 
   // Close desktop dropdown when clicking outside
   useEffect(() => {
@@ -43,11 +48,11 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
       <div className="container-site flex h-20 items-center justify-between gap-6">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 shrink-0">
           <img
             src="/images/logo.jpg"
             alt="St. Paul's Church logo"
-            className="h-12 w-12 rounded-full object-cover"
+            className="h-12 w-12 rounded-full object-cover shadow-xs"
           />
           <div>
             <div className="text-sm font-semibold tracking-[.18em] text-[#b18a3d]">
@@ -60,10 +65,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-5 xl:gap-6 lg:flex">
+        <nav className="hidden items-center gap-4 xl:gap-5 lg:flex">
           <Link
             href="/"
-            className="text-sm font-medium text-slate-700 transition hover:text-[#b18a3d]"
+            className={`text-sm font-medium transition hover:text-[#b18a3d] ${
+              pathname === "/" ? "text-[#b18a3d] font-bold" : "text-slate-700"
+            }`}
           >
             Home
           </Link>
@@ -84,7 +91,9 @@ export default function Navbar() {
               aria-expanded={aboutDropdownOpen}
               aria-haspopup="true"
               aria-label="About menu"
-              className="flex items-center gap-1 text-sm font-medium text-slate-700 transition hover:text-[#b18a3d] focus:outline-none"
+              className={`flex items-center gap-1 text-sm font-medium transition hover:text-[#b18a3d] focus:outline-none ${
+                isAboutActive ? "text-[#b18a3d] font-bold" : "text-slate-700"
+              }`}
             >
               <span>About</span>
               <ChevronDown
@@ -98,40 +107,61 @@ export default function Navbar() {
             {aboutDropdownOpen && (
               <div className="absolute top-full left-0 z-50 mt-2 w-72 origin-top-left rounded-2xl border border-[#e7dec8] bg-white p-2 shadow-xl ring-1 ring-black/5 animate-in fade-in slide-in-from-top-2">
                 <div className="space-y-1">
-                  {aboutSubmenu.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setAboutDropdownOpen(false)}
-                      className="group flex flex-col rounded-xl px-3.5 py-2.5 transition hover:bg-[#fbf8f1] hover:text-[#b18a3d]"
-                    >
-                      <span className="text-sm font-bold text-[#10233f] group-hover:text-[#b18a3d]">
-                        {item.label}
-                      </span>
-                      <span className="text-xs text-slate-500 line-clamp-1">
-                        {item.description}
-                      </span>
-                    </Link>
-                  ))}
+                  {aboutSubmenu.map((item) => {
+                    const isSubActive = pathname === item.href;
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setAboutDropdownOpen(false)}
+                        className={`group flex flex-col rounded-xl px-3.5 py-2.5 transition hover:bg-[#fbf8f1] ${
+                          isSubActive ? "bg-[#fbf8f1] text-[#b18a3d]" : ""
+                        }`}
+                      >
+                        <span
+                          className={`text-sm font-bold ${
+                            isSubActive ? "text-[#b18a3d]" : "text-[#10233f] group-hover:text-[#b18a3d]"
+                          }`}
+                        >
+                          {item.label}
+                        </span>
+                        <span className="text-xs text-slate-500 line-clamp-1">
+                          {item.description}
+                        </span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             )}
           </div>
 
-          {/* Other Main Links */}
-          {mainLinks.slice(1).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-slate-700 transition hover:text-[#b18a3d]"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {/* Other Main Links (Mass, Ministries, Events, Gallery, Videos, Prayer, Prayer Request, Contact) */}
+          {mainLinks.slice(1).map((link) => {
+            const isActive = pathname === link.href;
+            const isPrayerReq = link.href === "/prayer-request";
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                title={link.tamilLabel ? `${link.label} (${link.tamilLabel})` : link.label}
+                className={`text-sm font-medium transition hover:text-[#b18a3d] whitespace-nowrap ${
+                  isActive
+                    ? "text-[#b18a3d] font-bold"
+                    : isPrayerReq
+                    ? "text-[#0f4c3a] font-semibold hover:text-[#b18a3d]"
+                    : "text-slate-700"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
 
           <Link
             href="/live"
-            className="rounded-full bg-[#10233f] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#18365f] transition shadow-xs"
+            className="rounded-full bg-[#10233f] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#18365f] transition shadow-xs whitespace-nowrap ml-1"
           >
             Live Mass
           </Link>
@@ -154,7 +184,9 @@ export default function Navbar() {
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="py-2 text-sm font-medium text-slate-800"
+              className={`py-2 text-sm font-medium ${
+                pathname === "/" ? "text-[#b18a3d] font-bold" : "text-slate-800"
+              }`}
             >
               Home
             </Link>
@@ -164,7 +196,9 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className="flex w-full items-center justify-between py-2 text-sm font-medium text-slate-800"
+                className={`flex w-full items-center justify-between py-2 text-sm font-medium ${
+                  isAboutActive ? "text-[#b18a3d] font-bold" : "text-slate-800"
+                }`}
               >
                 <span>About</span>
                 <ChevronDown
@@ -176,30 +210,45 @@ export default function Navbar() {
 
               {mobileAboutOpen && (
                 <div className="mb-2 space-y-1 pl-3 border-l-2 border-[#b18a3d]/40">
-                  {aboutSubmenu.map((subItem) => (
-                    <Link
-                      key={subItem.href}
-                      href={subItem.href}
-                      onClick={() => setOpen(false)}
-                      className="block py-1.5 text-xs font-semibold text-[#10233f] hover:text-[#b18a3d]"
-                    >
-                      {subItem.label}
-                    </Link>
-                  ))}
+                  {aboutSubmenu.map((subItem) => {
+                    const isSubActive = pathname === subItem.href;
+                    return (
+                      <Link
+                        key={subItem.href}
+                        href={subItem.href}
+                        onClick={() => setOpen(false)}
+                        className={`block py-1.5 text-xs font-semibold ${
+                          isSubActive
+                            ? "text-[#b18a3d] font-bold"
+                            : "text-[#10233f] hover:text-[#b18a3d]"
+                        }`}
+                      >
+                        {subItem.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
 
-            {mainLinks.slice(1).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="py-2 text-sm font-medium text-slate-800"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {mainLinks.slice(1).map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`flex items-center justify-between py-2 text-sm font-medium ${
+                    isActive ? "text-[#b18a3d] font-bold" : "text-slate-800"
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {link.tamilLabel && (
+                    <span className="text-xs text-[#b18a3d] font-normal">{link.tamilLabel}</span>
+                  )}
+                </Link>
+              );
+            })}
 
             <Link
               href="/live"
