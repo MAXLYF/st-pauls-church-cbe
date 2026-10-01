@@ -4,14 +4,6 @@ export interface LocationOption {
   labelTa: string;
 }
 
-export interface ParishAnbiyamMap {
-  [parishValue: string]: LocationOption[];
-}
-
-export interface CityParishMap {
-  [cityValue: string]: LocationOption[];
-}
-
 export interface DistrictCityMap {
   [districtValue: string]: LocationOption[];
 }
@@ -156,85 +148,6 @@ export const citiesByDistrict: DistrictCityMap = {
   ]
 };
 
-// 5. Parishes / Churches by City / Area
-export const parishesByCity: CityParishMap = {
-  RATHINAPURI: [
-    { value: "ST_PAULS_RATHINAPURI", labelEn: "St. Paul's Church, Rathinapuri", labelTa: "புனித பவுல் ஆலயம், ரத்தினபுரி" },
-    { value: "OTHER_PARISH", labelEn: "Other Nearby Parish", labelTa: "பிற அருகிலுள்ள பங்கு" }
-  ],
-  TATABAD: [
-    { value: "ST_PAULS_RATHINAPURI", labelEn: "St. Paul's Church, Rathinapuri (Serving Tatabad)", labelTa: "புனித பவுல் ஆலயம், ரத்தினபுரி" },
-    { value: "ST_MICHAELS_CATHEDRAL", labelEn: "St. Michael's Cathedral", labelTa: "புனித மிக்கேல் பேராலயம்" },
-    { value: "OTHER_PARISH", labelEn: "Other Parish", labelTa: "பிற பங்கு" }
-  ],
-  GANDHIPURAM: [
-    { value: "ST_PAULS_RATHINAPURI", labelEn: "St. Paul's Church, Rathinapuri", labelTa: "புனித பவுல் ஆலயம், ரத்தினபுரி" },
-    { value: "ST_MICHAELS_CATHEDRAL", labelEn: "St. Michael's Cathedral, Big Bazaar St", labelTa: "புனித மிக்கேல் பேராலயம்" },
-    { value: "OTHER_PARISH", labelEn: "Other Parish", labelTa: "பிற பங்கு" }
-  ],
-  GANAPATHY: [
-    { value: "ST_FRANCIS_GANAPATHY", labelEn: "St. Francis of Assisi Church, Ganapathy", labelTa: "புனித பிரான்சிஸ் அசிசியார் ஆலயம், கணபதி" },
-    { value: "ST_PAULS_RATHINAPURI", labelEn: "St. Paul's Church, Rathinapuri", labelTa: "புனித பவுல் ஆலயம், ரத்தினபுரி" },
-    { value: "OTHER_PARISH", labelEn: "Other Parish", labelTa: "பிற பங்கு" }
-  ],
-  RAMANATHAPURAM: [
-    { value: "HOLY_TRINITY_RAMANATHAPURAM", labelEn: "Holy Trinity Church, Ramanathapuram", labelTa: "மூவொரு இறைவன் ஆலயம், இராமநாதபுரம்" },
-    { value: "OTHER_PARISH", labelEn: "Other Parish", labelTa: "பிற பங்கு" }
-  ],
-  UKKADAM: [
-    { value: "ST_MICHAELS_CATHEDRAL", labelEn: "St. Michael's Cathedral, Big Bazaar St", labelTa: "புனித மிக்கேல் பேராலயம்" },
-    { value: "OTHER_PARISH", labelEn: "Other Parish", labelTa: "பிற பங்கு" }
-  ],
-  PODANUR: [
-    { value: "LOURDU_MATHA_PODANUR", labelEn: "Our Lady of Lourdes Church, Podanur", labelTa: "லூர்து மாதா ஆலயம், போத்தனூர்" },
-    { value: "OTHER_PARISH", labelEn: "Other Parish", labelTa: "பிற பங்கு" }
-  ],
-  KOVAI_PUDUR: [
-    { value: "INFANT_JESUS_KOVAI_PUDUR", labelEn: "Infant Jesus Shrine, Kovaipudur", labelTa: "குழந்தை இயேசு திருத்தலம், கோவைப்புதூர்" },
-    { value: "OTHER_PARISH", labelEn: "Other Parish", labelTa: "பிற பங்கு" }
-  ]
-};
-
-// 6. Anbiyam Communities (Specifically for St. Paul's Church, Rathinapuri)
-export const anbiyamsByParish: ParishAnbiyamMap = {
-  ST_PAULS_RATHINAPURI: [
-    { value: "ST_PAUL", labelEn: "St. Paul Anbiyam (புனித பவுல் அன்பியம்)", labelTa: "புனித பவுல் அன்பியம்" },
-    { value: "ST_ANTONY", labelEn: "St. Antony Anbiyam (புனித அந்தோனியார் அன்பியம்)", labelTa: "புனித அந்தோனியார் அன்பியம்" },
-    { value: "ST_JOSEPH", labelEn: "St. Joseph Anbiyam (புனித சூசையப்பர் அன்பியம்)", labelTa: "புனித சூசையப்பர் அன்பியம்" },
-    { value: "MOTHER_TERESA", labelEn: "Mother Teresa Anbiyam (புனித அன்னை தெரசா அன்பியம்)", labelTa: "புனித அன்னை தெரசா அன்பியம்" },
-    { value: "VELANKANNI_MATHA", labelEn: "Our Lady of Velankanni Anbiyam (வேளாங்கண்ணி மாதா அன்பியம்)", labelTa: "வேளாங்கண்ணி மாதா அன்பியம்" },
-    { value: "LOURDU_MATHA", labelEn: "Our Lady of Lourdes Anbiyam (லூர்து மாதா அன்பியம்)", labelTa: "லூர்து மாதா அன்பியம்" },
-    { value: "INFANT_JESUS", labelEn: "Infant Jesus Anbiyam (குழந்தை இயேசு அன்பியம்)", labelTa: "குழந்தை இயேசு அன்பியம்" },
-    { value: "DON_BOSCO", labelEn: "St. John Bosco Anbiyam (புனித தொன்போஸ்கோ அன்பியம்)", labelTa: "புனித தொன்போஸ்கோ அன்பியம்" },
-    { value: "ST_JUDE", labelEn: "St. Jude Thaddeus Anbiyam (புனித யூதா ததேயு அன்பியம்)", labelTa: "புனித யூதா ததேயு அன்பியம்" },
-    { value: "ST_THERESA", labelEn: "St. Little Flower Theresa Anbiyam (புனித குழந்தை தெரசா அன்பியம்)", labelTa: "புனித குழந்தை தெரசா அன்பியம்" },
-    { value: "GENERAL_PARISHIONER", labelEn: "General Parishioner / Other Anbiyam", labelTa: "பொது பங்கு உறுப்பினர் / மற்ற அன்பியம்" }
-  ]
-};
-
-// Default generic fallback option for Parishes / Anbiyams
-export const defaultParishList: LocationOption[] = [
-  { value: "ST_PAULS_RATHINAPURI", labelEn: "St. Paul's Church, Rathinapuri", labelTa: "புனித பவுல் ஆலயம், ரத்தினபுரி" },
-  { value: "ST_MICHAELS_CATHEDRAL", labelEn: "St. Michael's Cathedral, Coimbatore", labelTa: "புனித மிக்கேல் பேராலயம், கோவை" },
-  { value: "HOLY_TRINITY_RAMANATHAPURAM", labelEn: "Holy Trinity Church, Ramanathapuram", labelTa: "மூவொரு இறைவன் ஆலயம், இராமநாதபுரம்" },
-  { value: "ST_FRANCIS_GANAPATHY", labelEn: "St. Francis of Assisi Church, Ganapathy", labelTa: "புனித பிரான்சிஸ் அசிசியார் ஆலயம், கணபதி" },
-  { value: "INFANT_JESUS_KOVAI_PUDUR", labelEn: "Infant Jesus Shrine, Kovaipudur", labelTa: "குழந்தை இயேசு திருத்தலம், கோவைப்புதூர்" },
-  { value: "LOURDU_MATHA_PODANUR", labelEn: "Our Lady of Lourdes Church, Podanur", labelTa: "லூர்து மாதா ஆலயம், போத்தனூர்" },
-  { value: "OTHER_PARISH", labelEn: "Other Catholic Parish / Church", labelTa: "பிற கத்தோலிக்க பங்கு / ஆலயம்" }
-];
-
-export const defaultAnbiyamList: LocationOption[] = [
-  { value: "ST_PAUL", labelEn: "St. Paul Anbiyam", labelTa: "புனித பவுல் அன்பியம்" },
-  { value: "ST_ANTONY", labelEn: "St. Antony Anbiyam", labelTa: "புனித அந்தோனியார் அன்பியம்" },
-  { value: "ST_JOSEPH", labelEn: "St. Joseph Anbiyam", labelTa: "புனித சூசையப்பர் அன்பியம்" },
-  { value: "MOTHER_TERESA", labelEn: "Mother Teresa Anbiyam", labelTa: "புனித அன்னை தெரசா அன்பியம்" },
-  { value: "VELANKANNI_MATHA", labelEn: "Our Lady of Velankanni Anbiyam", labelTa: "வேளாங்கண்ணி மாதா அன்பியம்" },
-  { value: "LOURDU_MATHA", labelEn: "Our Lady of Lourdes Anbiyam", labelTa: "லூர்து மாதா அன்பியம்" },
-  { value: "INFANT_JESUS", labelEn: "Infant Jesus Anbiyam", labelTa: "குழந்தை இயேசு அன்பியம்" },
-  { value: "GENERAL_PARISHIONER", labelEn: "General Parishioner / Other Anbiyam", labelTa: "பொது பங்கு உறுப்பினர் / மற்ற அன்பியம்" },
-  { value: "NOT_APPLICABLE", labelEn: "Not Applicable / Outside Parish", labelTa: "பொருந்தாது / பங்கிற்கு வெளியே" }
-];
-
 // Age Groups
 export const ageGroupOptions: LocationOption[] = [
   { value: "below_12", labelEn: "Below 12", labelTa: "12 வயதுக்கு கீழ்" },
@@ -264,43 +177,4 @@ export const prayerCategories: LocationOption[] = [
   { value: "thanksgiving", labelEn: "Thanksgiving", labelTa: "நன்றி செலுத்துதல்" },
   { value: "souls_departed", labelEn: "Souls of the Departed", labelTa: "மரித்த ஆன்மாக்களின் இளைப்பாறுதல்" },
   { value: "other", labelEn: "Other", labelTa: "பிற தேவைகள்" }
-];
-
-// Preferred Prayer Languages
-export const prayerLanguages: LocationOption[] = [
-  { value: "English", labelEn: "English", labelTa: "English (ஆங்கிலம்)" },
-  { value: "Tamil", labelEn: "தமிழ் (Tamil)", labelTa: "தமிழ் (Tamil)" },
-  { value: "Both", labelEn: "Both (English & Tamil)", labelTa: "இரண்டும் (ஆங்கிலம் & தமிழ்)" }
-];
-
-// Urgency Options
-export const urgencyOptions: LocationOption[] = [
-  { value: "general", labelEn: "General Prayer", labelTa: "பொதுவான ஜெபம்" },
-  { value: "this_week", labelEn: "This Week", labelTa: "இந்த வாரம்" },
-  { value: "urgent", labelEn: "Urgent Prayer", labelTa: "அவசர ஜெபம்" }
-];
-
-// Privacy Options
-export const privacyOptions = [
-  {
-    value: "private",
-    labelEn: "Keep Private",
-    sublabelEn: "Visible only to authorized church prayer-team members & parish priests (Recommended)",
-    labelTa: "தனிப்பட்ட முறையில் வைக்கவும்",
-    sublabelTa: "அங்கீகரிக்கப்பட்ட பங்கு ஜெபக்குழு உறுப்பினர்கள் மற்றும் பங்கு தந்தைக்கு மட்டுமே தெரியும்"
-  },
-  {
-    value: "anonymous_group",
-    labelEn: "Share Anonymously with Parish Prayer Group",
-    sublabelEn: "Your name will be hidden, and intention will be prayed for in parish prayer meetings",
-    labelTa: "பெயரின்றி பங்கு ஜெபக்குழுவுடன் பகிரவும்",
-    sublabelTa: "உங்கள் பெயர் மறைக்கப்பட்டு, பங்கு ஜெப கூட்டங்களில் வேண்டுதல் வைக்கப்படும்"
-  },
-  {
-    value: "public_wall",
-    labelEn: "Share on Parish Prayer Wall",
-    sublabelEn: "Optional intention for the wider parish community to remember in prayer",
-    labelTa: "பங்கு ஜெப சுவரில் பகிரவும் (பொதுவானது)",
-    sublabelTa: "அனைத்து இறைமக்களும் ஜெபிக்க பொதுவான வேண்டுதலாக வைக்கப்படும்"
-  }
 ];

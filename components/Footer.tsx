@@ -27,7 +27,7 @@ export default function Footer() {
             <Link href="/prayer-request">Prayer Request</Link>
             <Link href="/events">Events</Link>
             <Link href="/gallery">Gallery</Link>
-            <Link href="/videos">Videos</Link>
+            <Link href="/anbiyam">Anbiyam</Link>
             <Link href="/ministries">Ministries</Link>
             <Link href="/contact">Contact</Link>
           </div>

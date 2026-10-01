@@ -15,10 +15,10 @@ import {
   Calendar,
   PhoneCall,
   Lock,
-  EyeOff,
-  Globe2,
-  Info,
-  AlertCircle
+  AlertCircle,
+  Mail,
+  User,
+  Phone
 } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import {
@@ -26,20 +26,13 @@ import {
   statesByCountry,
   districtsByState,
   citiesByDistrict,
-  parishesByCity,
-  anbiyamsByParish,
-  defaultParishList,
-  defaultAnbiyamList,
   ageGroupOptions,
   genderOptions,
   prayerCategories,
-  prayerLanguages,
-  urgencyOptions,
-  privacyOptions,
   LocationOption
 } from "@/lib/data/prayer-request-data";
 
-interface FormDataState {
+interface PrayerRequestFormData {
   fullName: string;
   ageGroup: string;
   gender: string;
@@ -47,18 +40,14 @@ interface FormDataState {
   state: string;
   district: string;
   city: string;
-  parish: string;
-  anbiyam: string;
-  category: string;
-  title: string;
+  prayerCategory: string;
+  prayerRequestTitle: string;
   prayerRequest: string;
-  preferredLanguage: string;
-  urgency: string;
-  privacyOption: string;
-  consentAgreed: boolean;
+  email: string;
+  phone: string;
 }
 
-const initialFormState: FormDataState = {
+const initialFormState: PrayerRequestFormData = {
   fullName: "",
   ageGroup: "31_50",
   gender: "prefer_not_to_say",
@@ -66,25 +55,20 @@ const initialFormState: FormDataState = {
   state: "TN",
   district: "CBE",
   city: "RATHINAPURI",
-  parish: "ST_PAULS_RATHINAPURI",
-  anbiyam: "ST_PAUL",
-  category: "family",
-  title: "",
+  prayerCategory: "family",
+  prayerRequestTitle: "",
   prayerRequest: "",
-  preferredLanguage: "English",
-  urgency: "general",
-  privacyOption: "private",
-  consentAgreed: false
+  email: "",
+  phone: ""
 };
 
 export default function PrayerRequestClient() {
   const [lang, setLang] = useState<"en" | "ta">("en");
-  const [formData, setFormData] = useState<FormDataState>(initialFormState);
+  const [formData, setFormData] = useState<PrayerRequestFormData>(initialFormState);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [demoNotice, setDemoNotice] = useState<boolean>(false);
 
   const isTamil = lang === "ta";
 
@@ -112,22 +96,6 @@ export default function PrayerRequestClient() {
     ];
   }, [formData.district]);
 
-  // Dependent dropdown calculation: Parishes
-  const availableParishes = useMemo<LocationOption[]>(() => {
-    if (formData.city && parishesByCity[formData.city]) {
-      return parishesByCity[formData.city];
-    }
-    return defaultParishList;
-  }, [formData.city]);
-
-  // Dependent dropdown calculation: Anbiyams
-  const availableAnbiyams = useMemo<LocationOption[]>(() => {
-    if (formData.parish && anbiyamsByParish[formData.parish]) {
-      return anbiyamsByParish[formData.parish];
-    }
-    return defaultAnbiyamList;
-  }, [formData.parish]);
-
   // Handle Country change
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const val = e.target.value;
@@ -143,9 +111,7 @@ export default function PrayerRequestClient() {
       country: val,
       state: firstState,
       district: firstDistrict,
-      city: firstCity,
-      parish: defaultParishList[0].value,
-      anbiyam: defaultAnbiyamList[0].value
+      city: firstCity
     }));
   };
 
@@ -181,26 +147,9 @@ export default function PrayerRequestClient() {
   // Handle City change
   const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const val = e.target.value;
-    const parishes = parishesByCity[val] || defaultParishList;
-    const firstParish = parishes[0]?.value || "OTHER_PARISH";
-
     setFormData((prev) => ({
       ...prev,
-      city: val,
-      parish: firstParish
-    }));
-  };
-
-  // Handle Parish change
-  const handleParishChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const val = e.target.value;
-    const anbiyams = anbiyamsByParish[val] || defaultAnbiyamList;
-    const firstAnbiyam = anbiyams[0]?.value || "GENERAL_PARISHIONER";
-
-    setFormData((prev) => ({
-      ...prev,
-      parish: val,
-      anbiyam: firstAnbiyam
+      city: val
     }));
   };
 
@@ -208,13 +157,8 @@ export default function PrayerRequestClient() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type } = e.target;
-    if (type === "checkbox") {
-      const { checked } = e.target as HTMLInputElement;
-      setFormData((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     // Clear error for field
     if (errors[name]) {
@@ -223,6 +167,9 @@ export default function PrayerRequestClient() {
         delete next[name];
         return next;
       });
+    }
+    if (submitError) {
+      setSubmitError(null);
     }
   };
 
@@ -254,8 +201,8 @@ export default function PrayerRequestClient() {
         : "District is required.";
     }
 
-    if (!formData.category) {
-      newErrors.category = isTamil
+    if (!formData.prayerCategory) {
+      newErrors.prayerCategory = isTamil
         ? "ஜெபப் பிரிவைத் தேர்ந்தெடுக்கவும்"
         : "Prayer Category is required.";
     }
@@ -264,16 +211,15 @@ export default function PrayerRequestClient() {
       newErrors.prayerRequest = isTamil
         ? "தயவுசெய்து உங்கள் ஜெப வேண்டுகோளை எழுதவும்"
         : "Prayer Request message is required.";
-    } else if (formData.prayerRequest.trim().length < 10) {
-      newErrors.prayerRequest = isTamil
-        ? "ஜெப வேண்டுகோள் குறைந்தது 10 எழுத்துகள் இருக்க வேண்டும்"
-        : "Please write a brief description of your intention (min. 10 characters).";
     }
 
-    if (!formData.consentAgreed) {
-      newErrors.consentAgreed = isTamil
-        ? "தொடர ஒப்புதல் பெட்டியைத் தேர்ந்தெடுக்கவும்"
-        : "You must agree to the privacy consent to submit.";
+    if (formData.email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email.trim())) {
+        newErrors.email = isTamil
+          ? "சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்"
+          : "Please enter a valid email address.";
+      }
     }
 
     setErrors(newErrors);
@@ -286,7 +232,6 @@ export default function PrayerRequestClient() {
     setSubmitError(null);
 
     if (!validate()) {
-      // Scroll to first error
       const firstErrorKey = Object.keys(errors)[0];
       const el = document.querySelector(`[name="${firstErrorKey}"]`);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -295,63 +240,50 @@ export default function PrayerRequestClient() {
 
     setIsSubmitting(true);
 
-    const endpoint = process.env.NEXT_PUBLIC_PRAYER_FORM_ENDPOINT;
-
-    // Payload
-    const payload = {
-      timestamp: new Date().toISOString(),
-      submittedAtFormatted: new Date().toLocaleString("en-IN", {
-        timeZone: "Asia/Kolkata",
-        dateStyle: "full",
-        timeStyle: "medium"
-      }),
-      fullName: formData.fullName.trim(),
-      ageGroup: formData.ageGroup,
-      gender: formData.gender,
-      country: formData.country,
-      state: formData.state,
-      district: formData.district,
-      city: formData.city,
-      parish: formData.parish,
-      anbiyam: formData.anbiyam,
-      category: formData.category,
-      title: formData.title.trim() || "Untitled Prayer Request",
-      prayerRequest: formData.prayerRequest.trim(),
-      preferredLanguage: formData.preferredLanguage,
-      urgency: formData.urgency,
-      privacyOption: formData.privacyOption,
-      consentAgreed: formData.consentAgreed ? "Yes" : "No"
-    };
-
     try {
-      if (endpoint && endpoint.trim().length > 0 && !endpoint.includes("YOUR_SCRIPT_ID")) {
-        // Real submission to Google Apps Script endpoint
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload),
-          mode: "no-cors" // Google Apps Script Web App redirects
-        });
+      const res = await fetch("/api/prayer-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName.trim(),
+          ageGroup: formData.ageGroup,
+          gender: formData.gender,
+          country: formData.country,
+          state: formData.state,
+          district: formData.district,
+          city: formData.city,
+          prayerCategory: formData.prayerCategory,
+          prayerRequestTitle: formData.prayerRequestTitle.trim(),
+          prayerRequest: formData.prayerRequest.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim()
+        })
+      });
 
-        // Due to no-cors mode, successful fetch does not return opaque status error
-        setIsSuccess(true);
-        setFormData(initialFormState);
-      } else {
-        // Demo / Fallback Mode (Endpoint not yet populated in .env.local)
-        // Simulate network latency
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        setDemoNotice(true);
-        setIsSuccess(true);
-        setFormData(initialFormState);
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.success) {
+        throw new Error(
+          data.error ||
+            (isTamil
+              ? "மன்னிக்கவும், உங்கள் ஜெப வேண்டுகோளை சமர்ப்பிக்க முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்."
+              : "Unable to submit your prayer request right now. Please try again.")
+        );
       }
-    } catch (err: unknown) {
-      const errorMsg = err instanceof Error ? err.message : "Submission failed";
+
+      // Only show success page when submission was successfully processed
+      setIsSuccess(true);
+      setFormData(initialFormState);
+      setErrors({});
+    } catch (err: any) {
+      // Keep user's entered data on error
       setSubmitError(
-        isTamil
-          ? "மன்னிக்கவும், உங்கள் வேண்டுகோளை சமர்ப்பிப்பதில் சிக்கல் ஏற்பட்டது. தயவுசெய்து சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்."
-          : `Failed to submit prayer request: ${errorMsg}. Please try again shortly.`
+        err.message ||
+          (isTamil
+            ? "மன்னிக்கவும், உங்கள் ஜெப வேண்டுகோளை சமர்ப்பிக்க முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்."
+            : "Unable to submit your prayer request right now. Please try again.")
       );
     } finally {
       setIsSubmitting(false);
@@ -360,7 +292,7 @@ export default function PrayerRequestClient() {
 
   const handleResetSuccess = () => {
     setIsSuccess(false);
-    setDemoNotice(false);
+    setSubmitError(null);
     setFormData(initialFormState);
     setErrors({});
   };
@@ -376,7 +308,7 @@ export default function PrayerRequestClient() {
         ]}
       />
 
-      {/* 2. Hero Section */}
+      {/* 2. Hero Section / Page Header */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#10233f] via-[#122e2b] to-[#0f4c3a] text-white py-16 md:py-24 shadow-inner">
         {/* Subtle Decorative Background Pattern & Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(177,138,61,0.18),transparent_60%)]" />
@@ -443,70 +375,32 @@ export default function PrayerRequestClient() {
         </div>
       </section>
 
-      {/* 3. Introduction Section & 3 Info Cards */}
-      <section className="py-12 md:py-16 bg-[#fbf8f1] border-b border-[#e7dec8]">
-        <div className="container-site max-w-5xl">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-[#e7dec8] shadow-sm mb-12 text-center">
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              {isTamil
-                ? "ஜெபம் என்பது நமது நம்பிக்கைகள், கவலைகள், நன்றிகள் மற்றும் தேவைகளை இறைவனின் கரங்களில் ஒப்படைக்கும் வழியாகும். கீழே உங்கள் ஜெப வேண்டுகோளைப் பதிவு செய்யுங்கள். எங்கள் அங்கீகரிக்கப்பட்ட பங்கு ஜெபக்குழு அதற்காக ஜெபிக்கும்."
-                : "Prayer is a way of placing our hopes, worries, gratitude, and needs in God’s hands. Submit your prayer intention below, and our authorized parish prayer team will remember it in prayer."}
-            </p>
-          </div>
-
-          {/* 3 Value Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-[#0f4c3a]/10 text-[#0f4c3a] flex items-center justify-center mb-4 group-hover:bg-[#0f4c3a] group-hover:text-white transition-colors">
-                <HeartHandshake className="w-6 h-6" />
-              </div>
-              <h2 className="text-lg font-bold text-[#10233f] mb-2">
-                {isTamil ? "1. உங்கள் வேண்டுதலை சமர்ப்பியுங்கள்" : "1. Submit Your Intention"}
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {isTamil
-                  ? "குடும்பம், உடல் நலம், தொழில் அல்லது ஆன்மீக தேவைகளை நம்பிக்கையுடன் தெரிவியுங்கள்."
-                  : "Share personal intentions for health, family, employment, guidance, or thanksgiving."}
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-[#b18a3d]/10 text-[#b18a3d] flex items-center justify-center mb-4 group-hover:bg-[#b18a3d] group-hover:text-white transition-colors">
-                <Church className="w-6 h-6" />
-              </div>
-              <h2 className="text-lg font-bold text-[#10233f] mb-2">
-                {isTamil ? "2. நாங்கள் உங்களுடன் ஜெபிக்கிறோம்" : "2. We Pray With You"}
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {isTamil
-                  ? "எங்கள் பங்கு ஜெபக்குழு மற்றும் அருட்தந்தையர்கள் திருப்பலியிலும் ஜெபத்திலும் நினைவுகூருவார்கள்."
-                  : "Parish priests and prayer team members offer prayers during Holy Mass and adoration."}
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-[#10233f]/10 text-[#10233f] flex items-center justify-center mb-4 group-hover:bg-[#10233f] group-hover:text-white transition-colors">
-                <Sparkles className="w-6 h-6" />
-              </div>
-              <h2 className="text-lg font-bold text-[#10233f] mb-2">
-                {isTamil ? "3. நம்பிக்கையும் விசுவாசமும்" : "3. Hope and Faith"}
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {isTamil
-                  ? "இறைவனின் அளவற்ற கருணையிலும் ஆசீர்வாதத்திலும் விசுவாசம்கொண்டு அமைதி பெறுங்கள்."
-                  : "Place your trust in God's boundless grace, divine mercy, and unfailing love."}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Main Prayer Request Form Area */}
-      <section className="py-12 md:py-20">
+      {/* 3. Main Prayer Request Form Section */}
+      <section className="py-12 md:py-16">
         <div className="container-site max-w-4xl">
+          {/* Important Notice: Prayer Intentions Information Card */}
+          <div className="mb-8 rounded-3xl bg-gradient-to-br from-[#fdfaf3] to-[#f7eed8] border border-[#d8bb73]/40 p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#b18a3d]/15 border border-[#b18a3d]/30 text-[#8f6e27] flex items-center justify-center shrink-0 shadow-xs">
+                <Church className="w-7 h-7 text-[#b18a3d]" />
+              </div>
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#b18a3d]">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>{isTamil ? "பங்கு ஜெப அறிவிப்பு" : "Parish Prayer Notice"}</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-extrabold text-[#10233f]">
+                  {isTamil ? "ஜெப நோக்கங்கள்" : "Prayer Intentions"}
+                </h2>
+                <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed">
+                  {isTamil
+                    ? "உங்கள் ஜெப தேவைகள் எங்களது வெள்ளி மற்றும் சனிக்கிழமை திருப்பலிகள் மற்றும் நற்கருணை ஆராதனையின் போது நினைவுகூரப்படும்."
+                    : "Prayer intentions will be remembered during our Friday and Saturday Masses and Adoration."}
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* SUCCESS STATE */}
           {isSuccess ? (
             <div className="bg-white rounded-3xl border border-[#b18a3d]/30 shadow-xl p-8 sm:p-12 text-center animate-in fade-in zoom-in-95 duration-300">
@@ -522,10 +416,10 @@ export default function PrayerRequestClient() {
                 {isTamil ? "ஜெப வேண்டுகோள் பெறப்பட்டது" : "Prayer Request Received"}
               </h2>
 
-              <p className="text-base sm:text-lg text-[#0f4c3a] font-semibold mb-6 max-w-xl mx-auto">
+              <p className="text-base sm:text-lg text-[#0f4c3a] font-semibold mb-6 max-w-xl mx-auto leading-relaxed">
                 {isTamil
-                  ? "“உங்கள் ஜெப வேண்டுகோள் பெறப்பட்டது. இறைவன் உங்களை ஆசீர்வதித்து வலிமைப்படுத்துவாராக.”"
-                  : "“Your prayer request has been received. May God bless you and strengthen you.”"}
+                  ? "“உங்கள் ஜெப தேவையை எங்களுடன் பகிர்ந்தமைக்கு நன்றி. எங்களது வெள்ளி மற்றும் சனிக்கிழமை திருப்பலிகள் மற்றும் நற்கருணை ஆராதனையின் போது உங்கள் ஜெப நோக்கம் நினைவுகூரப்படும்.”"
+                  : "“Thank you for sharing your prayer intention with us. Your prayer intention will be remembered in our Friday and Saturday Masses and Adoration.”"}
               </p>
 
               <div className="bg-[#fbf8f1] rounded-2xl p-6 border border-[#e7dec8] max-w-xl mx-auto mb-8 text-left text-sm text-slate-600 space-y-2">
@@ -538,21 +432,6 @@ export default function PrayerRequestClient() {
                   </p>
                 </div>
               </div>
-
-              {demoNotice && (
-                <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-800 text-left">
-                  <div className="flex items-center gap-2 font-bold mb-1">
-                    <Info className="w-4 h-4" />
-                    <span>Demo Mode Note (Setup Instructions Available)</span>
-                  </div>
-                  <p>
-                    The endpoint variable <code>NEXT_PUBLIC_PRAYER_FORM_ENDPOINT</code> is currently
-                    in demo/development mode. The frontend validated and structured the payload
-                    successfully. Once you deploy the Google Apps Script Web App, set the URL in{" "}
-                    <code>.env.local</code>.
-                  </p>
-                </div>
-              )}
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
@@ -594,7 +473,7 @@ export default function PrayerRequestClient() {
                   </div>
                   <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fbf8f1] border border-[#e7dec8] text-xs font-semibold text-[#0f4c3a]">
                     <Lock className="w-3.5 h-3.5" />
-                    <span>{isTamil ? "ரகசியமானது & பாதுகாப்பானது" : "Confidential & Secure"}</span>
+                    <span>{isTamil ? "ரகசியமானது & பாதுகாப்பானது" : "Confidential & Pastoral Care"}</span>
                   </div>
                 </div>
               </div>
@@ -626,9 +505,10 @@ export default function PrayerRequestClient() {
                   <div className="md:col-span-1">
                     <label
                       htmlFor="fullName"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5"
                     >
-                      {isTamil ? "முழுப் பெயர் *" : "Full Name *"}
+                      <User className="w-3.5 h-3.5 text-[#b18a3d]" />
+                      <span>{isTamil ? "முழுப் பெயர் *" : "Full Name *"}</span>
                     </label>
                     <input
                       id="fullName"
@@ -697,11 +577,72 @@ export default function PrayerRequestClient() {
                 </div>
               </div>
 
-              {/* SECTION B: Location Information (Dependent Dropdowns) */}
+              {/* SECTION B: Contact Information */}
               <div className="space-y-6">
                 <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
                   <div className="w-7 h-7 rounded-lg bg-[#b18a3d]/10 text-[#b18a3d] font-bold text-xs flex items-center justify-center">
                     B
+                  </div>
+                  <h3 className="text-lg font-bold text-[#10233f]">
+                    {isTamil ? "தொடர்பு விவரங்கள்" : "Contact Information"}
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Email */}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-[#b18a3d]" />
+                      <span>{isTamil ? "மின்னஞ்சல் (விருப்பத்தேர்வு)" : "Email (Optional)"}</span>
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder={isTamil ? "எ.கா: you@example.com" : "e.g., you@example.com"}
+                      className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:ring-2 ${
+                        errors.email
+                          ? "border-red-500 focus:ring-red-300 bg-red-50/30"
+                          : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                      }`}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-xs text-red-600 font-medium">{errors.email}</p>
+                    )}
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-[#b18a3d]" />
+                      <span>{isTamil ? "தொலைபேசி எண் (விருப்பத்தேர்வு)" : "Phone (Optional)"}</span>
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder={isTamil ? "எ.கா: +91 98765 43210" : "e.g., +91 98765 43210"}
+                      className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION C: Location Information */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
+                  <div className="w-7 h-7 rounded-lg bg-[#10233f]/10 text-[#10233f] font-bold text-xs flex items-center justify-center">
+                    C
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-[#10233f]">
@@ -709,14 +650,14 @@ export default function PrayerRequestClient() {
                     </h3>
                     <p className="text-xs text-slate-500">
                       {isTamil
-                        ? "நாடு → மாநிலம் → மாவட்டம் → நகரம் → பங்கு → அன்பியம் (தொடர்புடைய தேர்வுகள்)"
-                        : "Country → State → District → City → Parish → Anbiyam Community"}
+                        ? "நாடு → மாநிலம் → மாவட்டம் → நகரம் (தொடர்புடைய தேர்வுகள்)"
+                        : "Country → State → District → City"}
                     </p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                  {/* 4. Country */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {/* Country */}
                   <div>
                     <label
                       htmlFor="country"
@@ -746,7 +687,7 @@ export default function PrayerRequestClient() {
                     )}
                   </div>
 
-                  {/* 5. State / Province */}
+                  {/* State / Province */}
                   <div>
                     <label
                       htmlFor="state"
@@ -776,7 +717,7 @@ export default function PrayerRequestClient() {
                     )}
                   </div>
 
-                  {/* 6. District */}
+                  {/* District */}
                   <div>
                     <label
                       htmlFor="district"
@@ -806,7 +747,7 @@ export default function PrayerRequestClient() {
                     )}
                   </div>
 
-                  {/* 7. City / Town */}
+                  {/* City / Town */}
                   <div>
                     <label
                       htmlFor="city"
@@ -828,82 +769,36 @@ export default function PrayerRequestClient() {
                       ))}
                     </select>
                   </div>
-
-                  {/* 8. Parish / Church */}
-                  <div>
-                    <label
-                      htmlFor="parish"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
-                    >
-                      {isTamil ? "பங்கு / ஆலயம்" : "Parish / Church"}
-                    </label>
-                    <select
-                      id="parish"
-                      name="parish"
-                      value={formData.parish}
-                      onChange={handleParishChange}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
-                    >
-                      {availableParishes.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {isTamil ? opt.labelTa : opt.labelEn}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* 9. Anbiyam Community */}
-                  <div>
-                    <label
-                      htmlFor="anbiyam"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
-                    >
-                      {isTamil ? "அன்பியம் (Anbiyam)" : "Anbiyam Community"}
-                    </label>
-                    <select
-                      id="anbiyam"
-                      name="anbiyam"
-                      value={formData.anbiyam}
-                      onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
-                    >
-                      {availableAnbiyams.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {isTamil ? opt.labelTa : opt.labelEn}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
                 </div>
               </div>
 
-              {/* SECTION C: Prayer Information */}
+              {/* SECTION D: Prayer Information */}
               <div className="space-y-6">
                 <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-[#10233f]/10 text-[#10233f] font-bold text-xs flex items-center justify-center">
-                    C
+                  <div className="w-7 h-7 rounded-lg bg-[#0f4c3a]/10 text-[#0f4c3a] font-bold text-xs flex items-center justify-center">
+                    D
                   </div>
                   <h3 className="text-lg font-bold text-[#10233f]">
                     {isTamil ? "ஜெபத் தேவையின் விவரங்கள்" : "Prayer Information"}
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                  {/* 10. Category */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {/* Category */}
                   <div>
                     <label
-                      htmlFor="category"
+                      htmlFor="prayerCategory"
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
                     >
                       {isTamil ? "ஜெபப் பிரிவு *" : "Prayer Category *"}
                     </label>
                     <select
-                      id="category"
-                      name="category"
-                      value={formData.category}
+                      id="prayerCategory"
+                      name="prayerCategory"
+                      value={formData.prayerCategory}
                       onChange={handleChange}
                       className={`w-full rounded-xl border bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:ring-2 ${
-                        errors.category
+                        errors.prayerCategory
                           ? "border-red-500 focus:ring-red-300"
                           : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
                       }`}
@@ -914,82 +809,36 @@ export default function PrayerRequestClient() {
                         </option>
                       ))}
                     </select>
-                    {errors.category && (
-                      <p className="mt-1 text-xs text-red-600 font-medium">{errors.category}</p>
+                    {errors.prayerCategory && (
+                      <p className="mt-1 text-xs text-red-600 font-medium">{errors.prayerCategory}</p>
                     )}
                   </div>
 
-                  {/* 13. Preferred Prayer Language */}
+                  {/* Title */}
                   <div>
                     <label
-                      htmlFor="preferredLanguage"
+                      htmlFor="prayerRequestTitle"
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
                     >
-                      {isTamil ? "விரும்பும் ஜெப மொழி" : "Preferred Prayer Language"}
+                      {isTamil
+                        ? "ஜெபத் தலைப்பு (விருப்பத்தேர்வு)"
+                        : "Prayer Request Title (Optional)"}
                     </label>
-                    <select
-                      id="preferredLanguage"
-                      name="preferredLanguage"
-                      value={formData.preferredLanguage}
+                    <input
+                      id="prayerRequestTitle"
+                      name="prayerRequestTitle"
+                      type="text"
+                      value={formData.prayerRequestTitle}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
-                    >
-                      {prayerLanguages.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.labelEn}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* 14. Urgency */}
-                  <div>
-                    <label
-                      htmlFor="urgency"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
-                    >
-                      {isTamil ? "முன்னுரிமை / அவசரம்" : "Urgency"}
-                    </label>
-                    <select
-                      id="urgency"
-                      name="urgency"
-                      value={formData.urgency}
-                      onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
-                    >
-                      {urgencyOptions.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {isTamil ? opt.labelTa : opt.labelEn}
-                        </option>
-                      ))}
-                    </select>
+                      placeholder={
+                        isTamil ? "எ.கா: குடும்ப அமைதிக்காக ஜெபம்" : "e.g., Prayer for my family"
+                      }
+                      className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
+                    />
                   </div>
                 </div>
 
-                {/* 11. Title */}
-                <div>
-                  <label
-                    htmlFor="title"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
-                  >
-                    {isTamil
-                      ? "ஜெபத் தலைப்பு (விருப்பத்தேர்வு)"
-                      : "Prayer Request Title (Optional)"}
-                  </label>
-                  <input
-                    id="title"
-                    name="title"
-                    type="text"
-                    value={formData.title}
-                    onChange={handleChange}
-                    placeholder={
-                      isTamil ? "எ.கா: குடும்ப அமைதிக்காக ஜெபம்" : "e.g., Prayer for my family"
-                    }
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
-                  />
-                </div>
-
-                {/* 12. Prayer Request Message (Large Textarea) */}
+                {/* Prayer Request Message (Large Textarea) */}
                 <div>
                   <label
                     htmlFor="prayerRequest"
@@ -1023,96 +872,6 @@ export default function PrayerRequestClient() {
                 </div>
               </div>
 
-              {/* 5. PRIVACY & CONSENT SECTION */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-[#fbf8f1] border border-[#e7dec8] space-y-6">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <ShieldCheck className="w-5 h-5 text-[#0f4c3a]" />
-                    <h3 className="text-base font-bold text-[#10233f]">
-                      {isTamil ? "தனியுரிமை விருப்பங்கள்" : "Privacy & Visibility Options"}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-slate-500">
-                    {isTamil
-                      ? "இயல்புநிலையாக, உங்கள் வேண்டுகோள் பங்கு ஜெபக்குழு மற்றும் அருட்தந்தையருக்கு மட்டுமே தெரியும்."
-                      : "By default, your intention is kept strictly private with our authorized church prayer team."}
-                  </p>
-                </div>
-
-                {/* Radio Options for Privacy */}
-                <div className="space-y-3">
-                  {privacyOptions.map((opt) => (
-                    <label
-                      key={opt.value}
-                      className={`flex items-start gap-3 p-3.5 rounded-xl border transition cursor-pointer ${
-                        formData.privacyOption === opt.value
-                          ? "bg-white border-[#0f4c3a] shadow-xs"
-                          : "bg-white/70 border-slate-200 hover:bg-white"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="privacyOption"
-                        value={opt.value}
-                        checked={formData.privacyOption === opt.value}
-                        onChange={handleChange}
-                        className="mt-1 h-4 w-4 text-[#0f4c3a] focus:ring-[#0f4c3a]"
-                      />
-                      <div className="text-sm">
-                        <div className="font-bold text-[#10233f]">
-                          {isTamil ? opt.labelTa : opt.labelEn}
-                        </div>
-                        <div className="text-xs text-slate-500 mt-0.5">
-                          {isTamil ? opt.sublabelTa : opt.sublabelEn}
-                        </div>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-
-                {/* Required Consent Checkbox */}
-                <div className="pt-3 border-t border-[#e7dec8]">
-                  <label className="flex items-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      name="consentAgreed"
-                      checked={formData.consentAgreed}
-                      onChange={handleChange}
-                      className="mt-1 h-4 w-4 rounded border-slate-300 text-[#0f4c3a] focus:ring-[#0f4c3a]"
-                    />
-                    <div className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                      {isTamil ? (
-                        <span>
-                          “இந்த ஜெப வேண்டுகோளை நான் விருப்பத்துடன் சமர்ப்பிக்கிறேன். இது பங்கு
-                          ஜெபக்குழுவின் அங்கீகரிக்கப்பட்ட உறுப்பினர்களால் பார்க்கப்படலாம் என்பதை
-                          புரிந்துகொள்கிறேன்.” *
-                        </span>
-                      ) : (
-                        <span>
-                          “I voluntarily submit this prayer request and understand that it may be
-                          viewed by authorized members of the parish prayer team.” *
-                        </span>
-                      )}
-                    </div>
-                  </label>
-                  {errors.consentAgreed && (
-                    <p className="mt-1.5 text-xs text-red-600 font-medium pl-7">
-                      {errors.consentAgreed}
-                    </p>
-                  )}
-                </div>
-
-                {/* Sensitive info notice */}
-                <div className="flex items-center gap-2 text-xs text-slate-500 bg-white/80 p-3 rounded-lg border border-slate-200">
-                  <Info className="w-4 h-4 text-[#b18a3d] shrink-0" />
-                  <span>
-                    {isTamil
-                      ? "குறிப்பு: மிகவும் ரகசியமான அல்லது உணர்வுப்பூர்வமான தனிப்பட்ட தகவல்களை உள்ளிடுவதைத் தவிர்க்கவும்."
-                      : "Please note: Please avoid entering highly sensitive personal financial or confidential information."}
-                  </span>
-                </div>
-              </div>
-
               {/* Submit Button */}
               <div className="pt-2">
                 <button
@@ -1123,12 +882,20 @@ export default function PrayerRequestClient() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>{isTamil ? "சமர்ப்பிக்கப்படுகிறது..." : "Submitting Prayer Request..."}</span>
+                      <span>
+                        {isTamil
+                          ? "ஜெப வேண்டுகோள் அனுப்பப்படுகிறது..."
+                          : "Submitting Prayer Request..."}
+                      </span>
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      <span>{isTamil ? "ஜெப வேண்டுகோளை சமர்ப்பிக்கவும்" : "Submit Prayer Request"}</span>
+                      <span>
+                        {isTamil
+                          ? "ஜெப வேண்டுகோளை சமர்ப்பிக்கவும்"
+                          : "Submit Prayer Request"}
+                      </span>
                     </>
                   )}
                 </button>
@@ -1138,7 +905,68 @@ export default function PrayerRequestClient() {
         </div>
       </section>
 
-      {/* 9. Additional Support Section */}
+      {/* 4. "Prayer for You" & Spiritual Reflection Section */}
+      <section className="py-12 md:py-16 bg-[#fbf8f1] border-t border-[#e7dec8]">
+        <div className="container-site max-w-5xl">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-[#e7dec8] shadow-sm mb-12 text-center">
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              {isTamil
+                ? "ஜெபம் என்பது நமது நம்பிக்கைகள், கவலைகள், நன்றிகள் மற்றும் தேவைகளை இறைவனின் கரங்களில் ஒப்படைக்கும் வழியாகும். கீழே உங்கள் ஜெப வேண்டுகோளைப் பதிவு செய்யுங்கள். எங்கள் அங்கீகரிக்கப்பட்ட பங்கு ஜெபக்குழு அதற்காக ஜெபிக்கும்."
+                : "Prayer is a way of placing our hopes, worries, gratitude, and needs in God’s hands. Submit your prayer intention above, and our authorized parish prayer team will remember it in prayer."}
+            </p>
+          </div>
+
+          {/* 3 Value Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
+              <div className="w-12 h-12 rounded-xl bg-[#0f4c3a]/10 text-[#0f4c3a] flex items-center justify-center mb-4 group-hover:bg-[#0f4c3a] group-hover:text-white transition-colors">
+                <HeartHandshake className="w-6 h-6" />
+              </div>
+              <h2 className="text-lg font-bold text-[#10233f] mb-2">
+                {isTamil ? "1. உங்கள் வேண்டுதலை சமர்ப்பியுங்கள்" : "1. Submit Your Intention"}
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {isTamil
+                  ? "குடும்பம், உடல் நலம், தொழில் அல்லது ஆன்மீக தேவைகளை நம்பிக்கையுடன் தெரிவியுங்கள்."
+                  : "Share personal intentions for health, family, employment, guidance, or thanksgiving."}
+              </p>
+            </div>
+
+            {/* Card 2 - Prayer for You */}
+            <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
+              <div className="w-12 h-12 rounded-xl bg-[#b18a3d]/10 text-[#b18a3d] flex items-center justify-center mb-4 group-hover:bg-[#b18a3d] group-hover:text-white transition-colors">
+                <Church className="w-6 h-6" />
+              </div>
+              <h2 className="text-lg font-bold text-[#10233f] mb-2">
+                {isTamil ? "2. உங்களுக்கான ஜெபம்" : "2. Prayer for You"}
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {isTamil
+                  ? "எங்கள் பங்கு ஜெபக்குழு மற்றும் அருட்தந்தையர்கள் திருப்பலியிலும் ஜெபத்திலும் நினைவுகூருவார்கள்."
+                  : "Parish priests and prayer team members offer prayers during Holy Mass and adoration."}
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
+              <div className="w-12 h-12 rounded-xl bg-[#10233f]/10 text-[#10233f] flex items-center justify-center mb-4 group-hover:bg-[#10233f] group-hover:text-white transition-colors">
+                <Sparkles className="w-6 h-6" />
+              </div>
+              <h2 className="text-lg font-bold text-[#10233f] mb-2">
+                {isTamil ? "3. நம்பிக்கையும் விசுவாசமும்" : "3. Hope and Faith"}
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {isTamil
+                  ? "இறைவனின் அளவற்ற கருணையிலும் ஆசீர்வாதத்திலும் விசுவாசம்கொண்டு அமைதி பெறுங்கள்."
+                  : "Place your trust in God's boundless grace, divine mercy, and unfailing love."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Additional Support Section */}
       <section className="py-14 md:py-20 bg-gradient-to-r from-[#10233f] to-[#163761] text-white">
         <div className="container-site max-w-4xl text-center">
           <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#d8bb73] mx-auto flex items-center justify-center mb-5 backdrop-blur-sm border border-white/10">

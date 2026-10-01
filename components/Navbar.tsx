@@ -17,7 +17,7 @@ const mainLinks = [
   { label: "Ministries", href: "/ministries" },
   { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Videos", href: "/videos" },
+  { label: "Anbiyam", href: "/anbiyam" },
   { label: "Prayer", href: "/prayer" },
   { label: "Prayer Request", href: "/prayer-request", tamilLabel: "ஜெப வேண்டுகோள்" },
   { label: "Contact", href: "/contact" }
