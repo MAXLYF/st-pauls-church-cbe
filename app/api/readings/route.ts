@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import readings2026Raw from "@/data/readings-2026.json";
 
 export interface ReadingItem {
   slug: string;
@@ -19,6 +20,8 @@ export interface DualReadingsData {
   enError?: string | null;
   taError?: string | null;
 }
+
+const readings2026: Record<string, { date: string; en: ReadingItem | null; ta: ReadingItem | null }> = readings2026Raw as any;
 
 // In-memory cache for temporary date caching
 const cache = new Map<string, { data: DualReadingsData; timestamp: number }>();
@@ -197,6 +200,7 @@ async function fetchEnglishReading(enSlug: string, year: number): Promise<Readin
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
       Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
     },
+    signal: AbortSignal.timeout(4000),
     next: { revalidate: 3600 }
   });
 
@@ -278,6 +282,7 @@ async function fetchTamilReading(taSlug: string, year: number): Promise<ReadingI
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
       Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
     },
+    signal: AbortSignal.timeout(4000),
     next: { revalidate: 3600 }
   });
 
@@ -345,7 +350,24 @@ export async function GET(request: NextRequest) {
     const taSlug = `tr-${dd}${mm}${yy}`;
     const dateKey = `${year}-${mm}-${dd}`;
 
-    // Check temporary in-memory cache
+    // 1. Check verified Catholic Gallery dataset first (instant 1ms response, 100% uptime, immune to Vercel/Cloudflare IP blocks)
+    if (readings2026[dateKey]) {
+      const entry = readings2026[dateKey];
+      if (entry && (entry.en || entry.ta)) {
+        return NextResponse.json({
+          success: true,
+          date: dateKey,
+          en: entry.en,
+          ta: entry.ta,
+          enError: null,
+          taError: null,
+          // Backward compatibility top-level fields
+          ...(entry.en || {})
+        });
+      }
+    }
+
+    // 2. Check temporary in-memory cache
     const cached = cache.get(dateKey);
     const now = Date.now();
     if (cached && now - cached.timestamp < CACHE_TTL_MS) {
@@ -357,7 +379,7 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Fetch both English and Tamil readings in parallel
+    // 3. Fallback: Fetch both English and Tamil readings in parallel from Catholic Gallery
     const [enResult, taResult] = await Promise.allSettled([
       fetchEnglishReading(enSlug, year),
       fetchTamilReading(taSlug, year)
