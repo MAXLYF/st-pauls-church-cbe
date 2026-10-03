@@ -200,7 +200,7 @@ export default function ParishVocationCard({ person }: ParishVocationCardProps) 
               </p>
             ) : (
               <p className="text-sm md:text-base leading-relaxed text-slate-600 italic">
-                Dedicated to holy pastoral ministry, spiritual mission, and faithful service to the Church and God&apos;s people.
+                Dedicated to holy priestly ministry, spiritual mission, and faithful service to the Church and God&apos;s people.
               </p>
             )}
           </div>

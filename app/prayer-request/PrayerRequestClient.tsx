@@ -473,7 +473,7 @@ export default function PrayerRequestClient() {
                   </div>
                   <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fbf8f1] border border-[#e7dec8] text-xs font-semibold text-[#80142b]">
                     <Lock className="w-3.5 h-3.5" />
-                    <span>{isTamil ? "ரகசியமானது & பாதுகாப்பானது" : "Confidential & Pastoral Care"}</span>
+                    <span>{isTamil ? "ரகசியமானது & பாதுகாப்பானது" : "Confidential & Priestly Care"}</span>
                   </div>
                 </div>
               </div>

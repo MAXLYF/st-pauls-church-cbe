@@ -56,7 +56,7 @@ export default async function SonDetailPage({ params }: SonDetailPageProps) {
                 Vocation Profile
               </p>
               <p className="mt-2 text-slate-600">
-                Detailed profile, ordination milestone, and pastoral assignments will be published here once provided by the parish office.
+                Detailed profile, ordination milestone, and priestly assignments will be published here once provided by the parish office.
               </p>
             </div>
           </div>

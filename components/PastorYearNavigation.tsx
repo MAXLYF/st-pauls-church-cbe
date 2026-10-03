@@ -16,7 +16,7 @@ export default function PastorYearNavigation({
 }: PastorYearNavigationProps) {
   return (
     <nav
-      aria-label="Pastors timeline navigation by year"
+      aria-label="Priests timeline navigation by year"
       className="my-8 flex flex-wrap items-center justify-center gap-2 px-2"
     >
       <div className="flex flex-wrap items-center justify-center gap-1.5 rounded-full bg-[#f2eee5]/80 p-1.5 backdrop-blur-sm border border-[#c59b27]/30 shadow-inner">

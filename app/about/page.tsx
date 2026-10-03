@@ -83,7 +83,7 @@ const timelineMilestones = [
     year: "Community Growth & Nursery School",
     title: "Fr. D. Arokiaswamy ('Fr. Mani')",
     description:
-      "Beloved by all parishioners, Fr. Mani fostered deep unity and communion across families. Heeding the community's yearning for education, he initiated an English Medium Nursery School right within the temporary shed, continuing his pastoral residence in the rented house."
+      "Beloved by all parishioners, Fr. Mani fostered deep unity and communion across families. Heeding the community's yearning for education, he initiated an English Medium Nursery School right within the temporary shed, continuing his residence as parish priest in the rented house."
   },
   {
     year: "1992 – 1996",
@@ -205,7 +205,7 @@ export default function AboutPage() {
               >
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-[#80142b]">Historical Timeline</div>
-                  <div className="text-sm font-bold text-[#1f040b] group-hover:text-[#80142b]">Our Pastors Through the Years</div>
+                  <div className="text-sm font-bold text-[#1f040b] group-hover:text-[#80142b]">Our Priests Through the Years</div>
                 </div>
                 <ArrowRight className="h-4 w-4 text-[#80142b] group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -305,9 +305,9 @@ export default function AboutPage() {
       <section className="bg-white section-pad border-t border-[#e8dfcb]">
         <div className="container-site">
           <SectionTitle
-            eyebrow="PASTORAL CARE"
+            eyebrow="PARISH CLERGY"
             title="Parish Leadership &amp; Clergy"
-            description="Our resident priests ministering to the spiritual and pastoral needs of the faithful."
+            description="Our resident priests ministering to the spiritual and sacramental needs of the faithful."
           />
           <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto mt-12">
             <div className="rounded-3xl bg-[#faf7f2] p-7 text-center shadow-md border border-[#e7dec8] transition hover:-translate-y-1 hover:shadow-xl">
@@ -325,7 +325,7 @@ export default function AboutPage() {
                 St. Paul&apos;s Church, Rathinapuri
               </p>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                Guiding the spiritual life, Holy Masses, pastoral counseling, and administration of the parish flock.
+                Guiding the spiritual life, Holy Masses, spiritual counseling, and administration of the parish community.
               </p>
             </div>
 
@@ -351,7 +351,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Explore Historical Pastors & Sons of Parish CTA */}
+      {/* Explore Historical Priests & Sons of Parish CTA */}
       <section className="section-pad bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] text-white">
         <div className="container-site">
           <div className="mx-auto max-w-3xl text-center">
@@ -359,7 +359,7 @@ export default function AboutPage() {
               PARISH HERITAGE
             </div>
             <h2 className="mt-4 text-3xl font-extrabold md:text-4xl text-white">
-              Discover Our Pastoral Heritage &amp; Vocations
+              Discover Our Priests &amp; Vocations
             </h2>
             <p className="mt-4 text-slate-300 leading-relaxed text-sm md:text-base">
               Learn about the devoted priests who guided our parish through the decades, and the young men from Rathinapuri who answered God&apos;s call to the priesthood.
@@ -378,7 +378,7 @@ export default function AboutPage() {
                 <ArrowRight className="h-5 w-5 text-[#f5d77f] group-hover:translate-x-1 transition-transform" />
               </div>
               <h3 className="mt-5 text-xl font-bold text-white group-hover:text-[#f5d77f] transition-colors">
-                Our Pastors Through the Years
+                Our Priests Through the Years
               </h3>
               <p className="mt-2 text-sm text-slate-300 leading-relaxed">
                 Explore the chronological history, biographies, and tenures of every parish priest who served St. Paul&apos;s from 1983 to the present.

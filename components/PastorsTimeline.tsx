@@ -30,10 +30,10 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-bold tracking-[.25em] text-[#80142b] uppercase">
-            OUR PASTORS THROUGH THE YEARS
+            OUR PRIESTS THROUGH THE YEARS
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#1f040b] md:text-4xl">
-            Shepherds of Our Faith
+            Priests of Our Faith
           </h2>
           <div className="gold-line" />
           <p className="mt-4 text-base md:text-lg font-medium text-[#80142b] italic">

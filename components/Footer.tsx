@@ -20,7 +20,7 @@ export default function Footer() {
           <h3 className="mb-4 font-bold text-[#f1cf7a] tracking-wide">Quick Links</h3>
           <div className="grid grid-cols-2 gap-3 text-sm text-slate-300">
             <Link href="/about" className="hover:text-[#f1cf7a] transition-colors">About Parish</Link>
-            <Link href="/about/pastors" className="hover:text-[#f1cf7a] transition-colors">Our Pastors</Link>
+            <Link href="/about/pastors" className="hover:text-[#f1cf7a] transition-colors">Our Priests</Link>
             <Link href="/about/sons-of-parish" className="hover:text-[#f1cf7a] transition-colors">Sons of Parish</Link>
             <Link href="/#mass-timings" className="hover:text-[#f1cf7a] transition-colors">Mass Timings</Link>
             <Link href="/prayer" className="hover:text-[#f1cf7a] transition-colors">Prayer Resources</Link>

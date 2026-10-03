@@ -19,9 +19,9 @@ export const parishVocations: ParishVocation[] = [
     photo: "/images/fathers/johnpaul-vincent.jpg",
     photoUrl: "/images/fathers/johnpaul-vincent.jpg",
     about:
-      "Faithfully serving God and the Church with dedication to pastoral ministry, celebration of the Holy Sacraments, and spiritual guidance of the parish community.",
+      "Faithfully serving God and the Church with dedication to priestly ministry, celebration of the Holy Sacraments, and spiritual guidance of the parish community.",
     description:
-      "Faithfully serving God and the Church with dedication to pastoral ministry, celebration of the Holy Sacraments, and spiritual guidance of the parish community.",
+      "Faithfully serving God and the Church with dedication to priestly ministry, celebration of the Holy Sacraments, and spiritual guidance of the parish community.",
     order: 1,
     published: true
   },
@@ -39,9 +39,9 @@ export const parishVocations: ParishVocation[] = [
     photo: "/images/fathers/joseph-dhanaraj.jpg",
     photoUrl: "/images/fathers/joseph-dhanaraj.jpg",
     about:
-      "Dedicated to preaching the Gospel, pastoral care, and fostering spiritual growth and youth faith formation among the faithful.",
+      "Dedicated to preaching the Gospel, priestly care, and fostering spiritual growth and youth faith formation among the faithful.",
     description:
-      "Dedicated to preaching the Gospel, pastoral care, and fostering spiritual growth and youth faith formation among the faithful.",
+      "Dedicated to preaching the Gospel, priestly care, and fostering spiritual growth and youth faith formation among the faithful.",
     order: 2,
     published: true
   },

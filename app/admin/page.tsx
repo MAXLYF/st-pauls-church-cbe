@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const items = [
   ["Mass Timings", "/mass-timings"],
-  ["Our Pastors", "/about/pastors"],
+  ["Our Priests", "/about/pastors"],
   ["Sons of the Parish", "/about/sons-of-parish"],
   ["Prayer Resources", "/prayer"],
   ["Events", "/events"],
@@ -23,7 +23,7 @@ export default function Admin() {
           <h1 className="mt-2 text-4xl font-bold">Parish Content Dashboard</h1>
           <p className="mt-3 max-w-2xl text-slate-300">
             Starter dashboard UI. Firebase Authentication, Storage, and Firestore CRUD
-            (including Pastors, Sons of the Parish &amp; Prayer Resources) should be connected before production use.
+            (including Priests, Sons of the Parish &amp; Prayer Resources) should be connected before production use.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function Admin() {
               <div className="text-xs font-bold tracking-[.18em] text-[#80142b]">MANAGE</div>
               <h2 className="mt-2 font-bold text-[#1f040b]">{name}</h2>
               <p className="mt-2 text-sm text-slate-500">
-                {name === "Our Pastors"
+                {name === "Our Priests"
                   ? "Manage parish priests, years of service, photos & order →"
                   : name === "Sons of the Parish"
                   ? "Manage vocations, ordination years & ministries →"

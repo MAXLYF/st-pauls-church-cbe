@@ -32,6 +32,8 @@ export type Pastor = {
   published?: boolean;
 };
 
+export type Priest = Pastor;
+
 export type SonOfParish = {
   id: string;
   name: string;

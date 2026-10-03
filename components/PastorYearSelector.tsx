@@ -37,7 +37,7 @@ export default function PastorYearSelector({
 
   return (
     <nav
-      aria-label="Pastoral timeline by year"
+      aria-label="Priests timeline by year"
       className="w-full relative my-6 md:my-8"
     >
       {/* Scrollable Container (horizontally constrained to avoid page overflow) */}
@@ -58,7 +58,7 @@ export default function PastorYearSelector({
                     ref={isActive ? activeButtonRef : null}
                     type="button"
                     onClick={() => onSelectPastor(pastor.id)}
-                    aria-label={`View pastor history for ${pastor.startYear}`}
+                    aria-label={`View priest history for ${pastor.startYear}`}
                     aria-pressed={isActive}
                     className={`group relative flex items-center justify-center rounded-full px-4 py-2 text-xs md:text-sm font-bold tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#c59b27] focus:ring-offset-2 ${
                       isActive

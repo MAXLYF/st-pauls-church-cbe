@@ -7,7 +7,7 @@ import { useState, useRef, useEffect } from "react";
 
 const aboutSubmenu = [
   { label: "About the Parish", href: "/about", description: "Our heritage, mission & leadership" },
-  { label: "Our Pastors Through the Years", href: "/about/pastors", description: "Historical timeline of parish priests" },
+  { label: "Our Priests Through the Years", href: "/about/pastors", description: "Historical timeline of parish priests" },
   { label: "Sons of the Parish", href: "/about/sons-of-parish", description: "Vocations & priests from our community" }
 ];
 

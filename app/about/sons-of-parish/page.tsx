@@ -120,7 +120,7 @@ export default function SonsOfParishPage() {
                 href="/about/pastors"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#80142b] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#f5d77f] transition hover:bg-[#9e1c36]"
               >
-                Our Pastors Through the Years →
+                Our Priests Through the Years →
               </Link>
             </div>
           </div>

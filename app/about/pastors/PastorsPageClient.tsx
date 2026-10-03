@@ -38,7 +38,7 @@ export default function PastorsPageClient() {
       <Breadcrumbs
         items={[
           { label: "About", href: "/about" },
-          { label: "Our Pastors Through the Years" }
+          { label: "Our Priests Through the Years" }
         ]}
       />
 
@@ -53,7 +53,7 @@ export default function PastorsPageClient() {
           <div className="mx-auto max-w-3xl">
             {/* Eyebrow / Label */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-sm backdrop-blur">
-              OUR PASTORS THROUGH THE YEARS
+              OUR PRIESTS THROUGH THE YEARS
             </div>
 
             {/* Main Heading */}
@@ -84,7 +84,7 @@ export default function PastorsPageClient() {
         <div className="container-site max-w-5xl">
           {/* Horizontal Year Navigation Timeline */}
           <div className="mb-10 text-center">
-            <h2 className="sr-only">Select Pastor by Year</h2>
+            <h2 className="sr-only">Select Priest by Year</h2>
             <PastorYearSelector
               pastors={pastors}
               activeId={activeId}
@@ -115,11 +115,11 @@ export default function PastorsPageClient() {
               CHRONOLOGICAL LINEAGE
             </div>
             <h2 className="mt-2 text-2xl md:text-3xl font-bold text-[#1f040b]">
-              Pastoral Lineage Archive (1983 &ndash; Present)
+              Parish Priests Archive (1983 &ndash; Present)
             </h2>
             <div className="mx-auto mt-3 h-0.5 w-16 bg-[#c59b27] rounded-full" />
             <p className="mt-3 text-sm text-slate-600">
-              Click on any parish priest below to focus and explore their pastoral years.
+              Click on any parish priest below to focus and explore their years of ministry.
             </p>
           </div>
 

@@ -36,7 +36,7 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
       <Breadcrumbs
         items={[
           { label: "About", href: "/about" },
-          { label: "Our Pastors", href: "/about/pastors" },
+          { label: "Our Priests", href: "/about/pastors" },
           { label: pastor.name }
         ]}
       />
@@ -47,7 +47,7 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
           className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#80142b] hover:text-[#c59b27] transition"
         >
           <ArrowLeft className="h-4 w-4" />
-          <span>Back to Pastors Timeline</span>
+          <span>Back to Priests Timeline</span>
         </Link>
 
         <div className="mt-6 overflow-hidden rounded-3xl border border-[#e7dec8] bg-white p-8 md:p-12 shadow-md">
@@ -82,10 +82,10 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
 
             <div className="mt-8 rounded-2xl bg-[#fbf8f1] p-6 text-slate-700 leading-relaxed text-sm border border-[#e7dec8] w-full text-left">
               <p className="font-semibold text-[#80142b]">
-                Parish Ministry &amp; Pastoral Legacy
+                Parish Ministry &amp; Priestly Legacy
               </p>
               <p className="mt-2 text-slate-600">
-                {pastor.description || pastor.biography || "Dedicated shepherd of St. Paul's Church Rathinapuri parish community, faithfully guiding the congregation in prayer, fellowship, and sacred liturgies."}
+                {pastor.description || pastor.biography || "Dedicated priest of St. Paul's Church Rathinapuri parish community, faithfully guiding the congregation in prayer, fellowship, and sacred liturgies."}
               </p>
             </div>
           </div>

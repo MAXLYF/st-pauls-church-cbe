@@ -85,7 +85,7 @@ export default function PastorProfile({
         <div className="md:col-span-7 flex flex-col justify-center text-center md:text-left">
           {/* Small Label */}
           <div className="text-xs font-bold tracking-[.25em] text-[#80142b] uppercase">
-            PASTORAL MINISTRY
+            PRIESTLY MINISTRY
           </div>
 
           {/* Pastor Name */}
@@ -127,7 +127,7 @@ export default function PastorProfile({
             </p>
           ) : (
             <p className="text-sm md:text-base leading-relaxed text-slate-600 italic">
-              Faithfully guided the parishioners of St. Paul&apos;s Church Rathinapuri with pastoral leadership, celebration of the Holy Sacraments, and spiritual care.
+              Faithfully guided the parishioners of St. Paul&apos;s Church Rathinapuri with priestly leadership, celebration of the Holy Sacraments, and spiritual care.
             </p>
           )}
 
@@ -137,7 +137,7 @@ export default function PastorProfile({
               type="button"
               onClick={onPrevious}
               disabled={currentIndex === 0}
-              aria-label="Previous Pastor"
+              aria-label="Previous Priest"
               className={`inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition ${
                 currentIndex === 0
                   ? "opacity-40 cursor-not-allowed bg-slate-100 text-slate-400"
@@ -156,7 +156,7 @@ export default function PastorProfile({
               type="button"
               onClick={onNext}
               disabled={currentIndex === totalPastors - 1}
-              aria-label="Next Pastor"
+              aria-label="Next Priest"
               className={`inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition ${
                 currentIndex === totalPastors - 1
                   ? "opacity-40 cursor-not-allowed bg-slate-100 text-slate-400"
