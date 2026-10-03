@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -43,7 +43,7 @@ export default function MinistriesList({ initialMinistries }: { initialMinistrie
               placeholder="Search ministries..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-full border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm focus:border-[#b18a3d] focus:outline-none focus:ring-1 focus:ring-[#b18a3d]"
+              className="w-full rounded-full border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm focus:border-[#c59b27] focus:outline-none focus:ring-1 focus:ring-[#c59b27]"
             />
           </div>
           
@@ -55,8 +55,8 @@ export default function MinistriesList({ initialMinistries }: { initialMinistrie
                   onClick={() => setActiveCategory(cat)}
                   className={`shrink-0 rounded-full px-5 py-2 text-sm font-semibold transition-all ${
                     activeCategory === cat
-                      ? "bg-[#10233f] text-white"
-                      : "bg-white text-slate-600 border border-slate-200 hover:border-[#b18a3d] hover:text-[#b18a3d]"
+                      ? "bg-[#80142b] text-white shadow-xs"
+                      : "bg-white text-slate-600 border border-slate-200 hover:border-[#c59b27] hover:text-[#80142b]"
                   }`}
                 >
                   {cat}
@@ -94,19 +94,19 @@ export default function MinistriesList({ initialMinistries }: { initialMinistrie
                 </div>
                 
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-bold text-[#10233f]">{ministry.name}</h3>
+                  <h3 className="text-xl font-bold text-[#1f040b]">{ministry.name}</h3>
                   <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600 flex-1">
                     {ministry.shortDescription}
                   </p>
                   
                   {ministry.motto && (
-                    <p className="mt-4 text-xs italic text-[#b18a3d]">"{ministry.motto}"</p>
+                    <p className="mt-4 text-xs italic text-[#80142b]">"{ministry.motto}"</p>
                   )}
                   {ministry.establishedYear && (
                     <p className="mt-1 text-xs text-slate-400">Est. {ministry.establishedYear}</p>
                   )}
                   
-                  <div className="mt-6 flex items-center font-semibold text-[#b18a3d]">
+                  <div className="mt-6 flex items-center font-semibold text-[#80142b]">
                     View Ministry <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>

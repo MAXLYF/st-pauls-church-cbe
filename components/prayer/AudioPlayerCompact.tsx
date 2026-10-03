@@ -63,7 +63,7 @@ export default function AudioPlayerCompact({ src, title }: AudioPlayerCompactPro
   };
 
   return (
-    <div className="flex flex-col gap-2 rounded-2xl bg-[#10233f] p-3.5 text-white shadow-inner">
+    <div className="flex flex-col gap-2 rounded-2xl bg-[#1b0308] p-3.5 text-white shadow-inner border border-[#c59b27]/20">
       {src && (
         <audio
           ref={audioRef}
@@ -80,7 +80,7 @@ export default function AudioPlayerCompact({ src, title }: AudioPlayerCompactPro
           type="button"
           onClick={togglePlay}
           aria-label={isPlaying ? "Pause audio" : "Play audio"}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#b18a3d] text-[#10233f] transition hover:bg-[#d8bb73] focus:outline-none focus:ring-2 focus:ring-[#d8bb73]"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#c59b27] to-[#d4af37] text-[#1b0308] transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#c59b27]"
         >
           {isPlaying ? (
             <Pause className="h-4 w-4 fill-current" />
@@ -103,7 +103,7 @@ export default function AudioPlayerCompact({ src, title }: AudioPlayerCompactPro
             value={currentTime}
             onChange={handleSeek}
             aria-label="Audio progress slider"
-            className="h-1.5 w-full cursor-pointer accent-[#d8bb73] rounded-lg bg-slate-700"
+            className="h-1.5 w-full cursor-pointer accent-[#c59b27] rounded-lg bg-white/20"
           />
         </div>
 

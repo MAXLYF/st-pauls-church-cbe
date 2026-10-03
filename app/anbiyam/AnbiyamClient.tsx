@@ -74,21 +74,21 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
 
       {/* Hero Section */}
       <section
-        className="relative overflow-hidden bg-gradient-to-br from-[#10233f] via-[#18365f] to-[#0d1e36] py-16 text-center text-white md:py-20"
+        className="relative overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] py-16 text-center text-white md:py-20"
         aria-label="Anbiyam hero banner"
       >
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(ellipse at 50% 0%, rgba(177,138,61,0.22) 0%, transparent 70%)"
+              "radial-gradient(ellipse at 50% 0%, rgba(197,155,39,0.22) 0%, transparent 70%)"
           }}
         />
 
         <div className="container-site relative">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#b18a3d]/40 bg-[#b18a3d]/10 px-4 py-1.5 backdrop-blur-xs">
-            <Church className="h-3.5 w-3.5 text-[#d8bb73]" aria-hidden="true" />
-            <span className="text-xs font-bold uppercase tracking-[.25em] text-[#d8bb73]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#781226]/40 px-4 py-1.5 backdrop-blur-xs">
+            <Church className="h-3.5 w-3.5 text-[#f5d77f]" aria-hidden="true" />
+            <span className="text-xs font-bold uppercase tracking-[.25em] text-[#f5d77f]">
               OUR PARISH COMMUNITIES
             </span>
           </div>
@@ -97,7 +97,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
             Anbiyam
           </h1>
 
-          <p className="mt-2 text-sm font-semibold tracking-wider text-[#d8bb73] uppercase md:text-base">
+          <p className="mt-2 text-sm font-semibold tracking-wider text-[#f5d77f] uppercase md:text-base">
             Our Parish Anbiyams • பங்கு அன்பியங்கள்
           </p>
 
@@ -105,7 +105,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
             &ldquo;Growing together in faith, prayer, fellowship and service.&rdquo;
           </p>
 
-          <div className="mx-auto mt-6 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-[#b18a3d] to-transparent" />
+          <div className="mx-auto mt-6 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-[#c59b27] to-transparent" />
         </div>
       </section>
 
@@ -123,7 +123,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search Anbiyam..."
                 aria-label="Search Anbiyam by Tamil name or number"
-                className="w-full rounded-2xl border border-slate-300 bg-white py-2.5 pl-10 pr-10 text-sm text-slate-800 placeholder-slate-400 shadow-2xs transition focus:border-[#b18a3d] focus:outline-none focus:ring-2 focus:ring-[#b18a3d]/20"
+                className="w-full rounded-2xl border border-slate-300 bg-white py-2.5 pl-10 pr-10 text-sm text-slate-800 placeholder-slate-400 shadow-2xs transition focus:border-[#c59b27] focus:outline-none focus:ring-2 focus:ring-[#c59b27]/20"
               />
               {searchQuery && (
                 <button
@@ -140,9 +140,9 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
             {/* Counter Badge */}
             <div className="flex items-center gap-2 self-start sm:self-center">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-600 shadow-2xs">
-                <Users className="h-3.5 w-3.5 text-[#b18a3d]" />
+                <Users className="h-3.5 w-3.5 text-[#80142b]" />
                 <span>
-                  Showing <strong className="text-[#10233f]">{filteredAnbiyams.length}</strong> of{" "}
+                  Showing <strong className="text-[#80142b]">{filteredAnbiyams.length}</strong> of{" "}
                   <strong>{anbiyams.length}</strong> Anbiyams
                 </span>
               </span>
@@ -152,8 +152,8 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
           {/* If No Results */}
           {filteredAnbiyams.length === 0 && (
             <div className="my-12 rounded-3xl border border-slate-200 bg-white p-12 text-center shadow-xs">
-              <Church className="mx-auto h-12 w-12 text-[#b18a3d]/60" />
-              <h3 className="mt-4 text-lg font-bold text-[#10233f]">
+              <Church className="mx-auto h-12 w-12 text-[#80142b]/60" />
+              <h3 className="mt-4 text-lg font-bold text-[#1f040b]">
                 No Anbiyams Found
               </h3>
               <p className="mt-2 text-sm text-slate-500">
@@ -162,7 +162,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#10233f] px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-[#18365f]"
+                className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#80142b] px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-[#9e1c36]"
               >
                 Clear Search
               </button>
@@ -177,10 +177,10 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
               return (
                 <article
                   key={anbiyam.id}
-                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#b18a3d]/50 hover:shadow-md"
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#c59b27]/50 hover:shadow-md"
                 >
                   {/* Photo Area */}
-                  <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-[#10233f] via-[#162f52] to-[#1e3e6b]">
+                  <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#25050c]">
                     {!hasImgError ? (
                       <img
                         src={anbiyam.photo}
@@ -193,7 +193,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                       /* Elegant Branded Placeholder */
                       <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center text-white">
                         <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/10 shadow-inner backdrop-blur-xs transition-transform duration-300 group-hover:scale-110">
-                          <Church className="h-7 w-7 text-[#d8bb73]" />
+                          <Church className="h-7 w-7 text-[#f5d77f]" />
                         </div>
                         <span className="mt-3 text-xs font-semibold tracking-wider text-slate-300">
                           St. Paul&apos;s Church
@@ -206,7 +206,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
 
                     {/* Top Anbiyam Number Badge */}
                     <div className="absolute left-3.5 top-3.5">
-                      <span className="inline-flex items-center gap-1 rounded-full border border-white/30 bg-[#10233f]/80 px-2.5 py-1 text-[11px] font-bold tracking-wider text-[#d8bb73] backdrop-blur-sm shadow-xs">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/30 bg-[#781226]/90 px-2.5 py-1 text-[11px] font-bold tracking-wider text-[#f5d77f] backdrop-blur-sm shadow-xs">
                         <Cross className="h-2.5 w-2.5" />
                         #{String(anbiyam.id).padStart(2, "0")}
                       </span>
@@ -217,19 +217,19 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                   <div className="flex flex-1 flex-col p-5">
                     {/* Anbiyam Badge */}
                     <div className="mb-1.5 flex items-center justify-between">
-                      <span className="text-[11px] font-bold tracking-widest text-[#b18a3d] uppercase">
+                      <span className="text-[11px] font-bold tracking-widest text-[#80142b] uppercase">
                         ANBIYAM {anbiyam.id}
                       </span>
                     </div>
 
                     {/* Anbiyam Name (Tamil) */}
-                    <h2 className="text-lg font-bold leading-snug text-[#10233f] transition-colors group-hover:text-[#b18a3d] font-sans">
+                    <h2 className="text-lg font-bold leading-snug text-[#1f040b] transition-colors group-hover:text-[#80142b] font-sans">
                       {anbiyam.name}
                     </h2>
 
                     {/* Location / Address Line */}
                     <div className="mt-3 flex items-center gap-1.5 text-xs text-slate-500">
-                      <MapPin className="h-3.5 w-3.5 shrink-0 text-[#b18a3d]" aria-hidden="true" />
+                      <MapPin className="h-3.5 w-3.5 shrink-0 text-[#80142b]" aria-hidden="true" />
                       {anbiyam.address ? (
                         <span className="font-medium text-slate-700 truncate">{anbiyam.address}</span>
                       ) : (
@@ -243,7 +243,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                       <button
                         type="button"
                         onClick={() => setSelectedAnbiyam(anbiyam)}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#b18a3d] transition-colors hover:text-[#10233f] focus:outline-none"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#80142b] transition-colors hover:text-[#c59b27] focus:outline-none"
                         aria-label={`View details for ${anbiyam.name}`}
                       >
                         <span>View Details</span>
@@ -276,7 +276,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
           {/* Modal Content Box */}
           <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-3xl border border-[#e7dec8] bg-white shadow-2xl animate-in zoom-in-95 duration-200">
             {/* Modal Header Banner */}
-            <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-[#10233f] via-[#18365f] to-[#0d1e36]">
+            <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206]">
               {!imageErrors[selectedAnbiyam.id] ? (
                 <img
                   src={selectedAnbiyam.photo}
@@ -287,7 +287,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
               ) : (
                 <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center text-white">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 shadow-inner backdrop-blur-xs">
-                    <Church className="h-6 w-6 text-[#d8bb73]" />
+                    <Church className="h-6 w-6 text-[#f5d77f]" />
                   </div>
                   <span className="mt-2 text-xs font-semibold tracking-wider text-slate-300">
                     St. Paul&apos;s Church Rathinapuri
@@ -309,7 +309,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
 
               {/* Badge on Banner */}
               <div className="absolute bottom-3 left-4">
-                <span className="inline-flex items-center gap-1 rounded-full border border-[#d8bb73]/40 bg-[#10233f]/90 px-3 py-1 text-xs font-bold text-[#d8bb73] backdrop-blur-sm">
+                <span className="inline-flex items-center gap-1 rounded-full border border-[#d4af37]/40 bg-[#781226]/90 px-3 py-1 text-xs font-bold text-[#f5d77f] backdrop-blur-sm">
                   <Cross className="h-3 w-3" />
                   ANBIYAM #{selectedAnbiyam.id}
                 </span>
@@ -320,12 +320,12 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
             <div className="p-6">
               <h2
                 id="modal-anbiyam-title"
-                className="text-2xl font-bold text-[#10233f] font-sans"
+                className="text-2xl font-bold text-[#1f040b] font-sans"
               >
                 {selectedAnbiyam.name}
               </h2>
 
-              <p className="mt-1 text-xs font-semibold text-[#b18a3d] uppercase tracking-wider">
+              <p className="mt-1 text-xs font-semibold text-[#80142b] uppercase tracking-wider">
                 Basic Ecclesial Community (Anbiyam {selectedAnbiyam.id})
               </p>
 
@@ -334,10 +334,10 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                 {/* Location */}
                 <div className="flex items-start gap-3">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white shadow-2xs">
-                    <MapPin className="h-3.5 w-3.5 text-[#b18a3d]" />
+                    <MapPin className="h-3.5 w-3.5 text-[#80142b]" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#10233f] block">Location / Address</span>
+                    <span className="font-bold text-[#1f040b] block">Location / Address</span>
                     <span className="text-slate-600">
                       {selectedAnbiyam.address || "Address to be added"}
                     </span>
@@ -347,10 +347,10 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                 {/* Coordinator */}
                 <div className="flex items-start gap-3">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white shadow-2xs">
-                    <UserCheck className="h-3.5 w-3.5 text-[#b18a3d]" />
+                    <UserCheck className="h-3.5 w-3.5 text-[#80142b]" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#10233f] block">Anbiyam Coordinator</span>
+                    <span className="font-bold text-[#1f040b] block">Anbiyam Coordinator</span>
                     <span className="text-slate-500 italic">
                       {selectedAnbiyam.coordinator || "Details coming soon"}
                     </span>
@@ -360,10 +360,10 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                 {/* Meeting Schedule */}
                 <div className="flex items-start gap-3">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white shadow-2xs">
-                    <Calendar className="h-3.5 w-3.5 text-[#b18a3d]" />
+                    <Calendar className="h-3.5 w-3.5 text-[#80142b]" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#10233f] block">Meeting Schedule</span>
+                    <span className="font-bold text-[#1f040b] block">Meeting Schedule</span>
                     <span className="text-slate-500 italic">
                       {selectedAnbiyam.meetingDay || selectedAnbiyam.meetingTime
                         ? `${selectedAnbiyam.meetingDay || ""} ${selectedAnbiyam.meetingTime || ""}`.trim()
@@ -375,10 +375,10 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                 {/* Contact */}
                 <div className="flex items-start gap-3">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white shadow-2xs">
-                    <Phone className="h-3.5 w-3.5 text-[#b18a3d]" />
+                    <Phone className="h-3.5 w-3.5 text-[#80142b]" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#10233f] block">Contact</span>
+                    <span className="font-bold text-[#1f040b] block">Contact</span>
                     <span className="text-slate-500 italic">
                       {selectedAnbiyam.contact || "Details coming soon"}
                     </span>
@@ -396,7 +396,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                 <button
                   type="button"
                   onClick={() => setSelectedAnbiyam(null)}
-                  className="w-full rounded-xl bg-[#10233f] py-2.5 text-xs font-semibold text-white transition hover:bg-[#18365f]"
+                  className="w-full rounded-xl bg-[#80142b] py-2.5 text-xs font-semibold text-white transition hover:bg-[#9e1c36]"
                 >
                   Close Details
                 </button>

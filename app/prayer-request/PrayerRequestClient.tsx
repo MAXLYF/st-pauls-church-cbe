@@ -309,11 +309,11 @@ export default function PrayerRequestClient() {
       />
 
       {/* 2. Hero Section / Page Header */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#10233f] via-[#122e2b] to-[#0f4c3a] text-white py-16 md:py-24 shadow-inner">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] text-white py-16 md:py-24 shadow-inner">
         {/* Subtle Decorative Background Pattern & Glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(177,138,61,0.18),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(16,35,63,0.4),transparent_70%)]" />
-        <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-[#b18a3d]/10 blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,155,39,0.18),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(31,4,11,0.4),transparent_70%)]" />
+        <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-[#c59b27]/10 blur-3xl pointer-events-none" />
 
         <div className="container-site relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -325,7 +325,7 @@ export default function PrayerRequestClient() {
                   onClick={() => setLang("en")}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                     !isTamil
-                      ? "bg-[#b18a3d] text-white shadow-sm"
+                      ? "bg-[#80142b] text-white shadow-sm"
                       : "text-slate-200 hover:text-white"
                   }`}
                 >
@@ -337,7 +337,7 @@ export default function PrayerRequestClient() {
                   onClick={() => setLang("ta")}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                     isTamil
-                      ? "bg-[#b18a3d] text-white shadow-sm"
+                      ? "bg-[#80142b] text-white shadow-sm"
                       : "text-slate-200 hover:text-white"
                   }`}
                 >
@@ -348,8 +348,8 @@ export default function PrayerRequestClient() {
             </div>
 
             {/* Peaceful Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-[#b18a3d]/40 text-[#fbf8f1] text-xs md:text-sm font-medium tracking-wide mb-6 backdrop-blur-sm shadow-xs">
-              <Sparkles className="w-4 h-4 text-[#d8bb73] shrink-0" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#781226]/40 border border-[#d4af37]/40 text-[#f5d77f] text-xs md:text-sm font-medium tracking-wide mb-6 backdrop-blur-sm shadow-xs">
+              <Sparkles className="w-4 h-4 text-[#f5d77f] shrink-0" />
               <span>
                 {isTamil
                   ? "நீங்கள் ஜெபத்தில் நினைவுகூரப்படுகிறீர்கள்"
@@ -363,7 +363,7 @@ export default function PrayerRequestClient() {
             </h1>
 
             {/* Gold Divider */}
-            <div className="w-20 h-1 bg-gradient-to-r from-[#b18a3d] via-[#d8bb73] to-[#b18a3d] rounded-full mx-auto mb-6" />
+            <div className="w-20 h-1 bg-gradient-to-r from-[#c59b27] via-[#f5d77f] to-[#c59b27] rounded-full mx-auto mb-6" />
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl mx-auto font-light">
@@ -379,17 +379,17 @@ export default function PrayerRequestClient() {
       <section className="py-12 md:py-16">
         <div className="container-site max-w-4xl">
           {/* Important Notice: Prayer Intentions Information Card */}
-          <div className="mb-8 rounded-3xl bg-gradient-to-br from-[#fdfaf3] to-[#f7eed8] border border-[#d8bb73]/40 p-6 sm:p-8 shadow-xs">
+          <div className="mb-8 rounded-3xl bg-gradient-to-br from-[#fdfaf3] to-[#f7eed8] border border-[#d4af37]/40 p-6 sm:p-8 shadow-xs">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#b18a3d]/15 border border-[#b18a3d]/30 text-[#8f6e27] flex items-center justify-center shrink-0 shadow-xs">
-                <Church className="w-7 h-7 text-[#b18a3d]" />
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#781226]/10 border border-[#d4af37]/30 text-[#80142b] flex items-center justify-center shrink-0 shadow-xs">
+                <Church className="w-7 h-7 text-[#80142b]" />
               </div>
               <div className="space-y-1">
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#b18a3d]">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#80142b]">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{isTamil ? "பங்கு ஜெப அறிவிப்பு" : "Parish Prayer Notice"}</span>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#10233f]">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-[#1f040b]">
                   {isTamil ? "ஜெப நோக்கங்கள்" : "Prayer Intentions"}
                 </h2>
                 <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed">
@@ -403,20 +403,20 @@ export default function PrayerRequestClient() {
 
           {/* SUCCESS STATE */}
           {isSuccess ? (
-            <div className="bg-white rounded-3xl border border-[#b18a3d]/30 shadow-xl p-8 sm:p-12 text-center animate-in fade-in zoom-in-95 duration-300">
-              <div className="w-20 h-20 mx-auto rounded-full bg-[#0f4c3a]/10 text-[#0f4c3a] flex items-center justify-center mb-6">
+            <div className="bg-white rounded-3xl border border-[#c59b27]/30 shadow-xl p-8 sm:p-12 text-center animate-in fade-in zoom-in-95 duration-300">
+              <div className="w-20 h-20 mx-auto rounded-full bg-[#80142b]/10 text-[#80142b] flex items-center justify-center mb-6">
                 <CheckCircle2 className="w-12 h-12" />
               </div>
 
-              <span className="inline-block px-4 py-1 rounded-full bg-[#0f4c3a]/10 text-[#0f4c3a] text-xs font-bold uppercase tracking-wider mb-3">
+              <span className="inline-block px-4 py-1 rounded-full bg-[#80142b]/10 text-[#80142b] text-xs font-bold uppercase tracking-wider mb-3">
                 {isTamil ? "வெற்றி" : "Submission Received"}
               </span>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#10233f] mb-3">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1f040b] mb-3">
                 {isTamil ? "ஜெப வேண்டுகோள் பெறப்பட்டது" : "Prayer Request Received"}
               </h2>
 
-              <p className="text-base sm:text-lg text-[#0f4c3a] font-semibold mb-6 max-w-xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg text-[#80142b] font-semibold mb-6 max-w-xl mx-auto leading-relaxed">
                 {isTamil
                   ? "“உங்கள் ஜெப தேவையை எங்களுடன் பகிர்ந்தமைக்கு நன்றி. எங்களது வெள்ளி மற்றும் சனிக்கிழமை திருப்பலிகள் மற்றும் நற்கருணை ஆராதனையின் போது உங்கள் ஜெப நோக்கம் நினைவுகூரப்படும்.”"
                   : "“Thank you for sharing your prayer intention with us. Your prayer intention will be remembered in our Friday and Saturday Masses and Adoration.”"}
@@ -424,7 +424,7 @@ export default function PrayerRequestClient() {
 
               <div className="bg-[#fbf8f1] rounded-2xl p-6 border border-[#e7dec8] max-w-xl mx-auto mb-8 text-left text-sm text-slate-600 space-y-2">
                 <div className="flex items-start gap-2.5">
-                  <ShieldCheck className="w-5 h-5 text-[#b18a3d] shrink-0 mt-0.5" />
+                  <ShieldCheck className="w-5 h-5 text-[#80142b] shrink-0 mt-0.5" />
                   <p>
                     {isTamil
                       ? "உங்கள் ஜெப வேண்டுகோள் பங்கு ஜெபக்குழுவிடம் பாதுகாப்பாக சமர்ப்பிக்கப்பட்டுள்ளது. அருட்தந்தையர்களும் ஜெபக்குழுவினரும் உங்கள் தேவைகளுக்காக இறைவனிடம் பரிந்துரைப்பார்கள்."
@@ -437,14 +437,14 @@ export default function PrayerRequestClient() {
                 <button
                   type="button"
                   onClick={handleResetSuccess}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#0f4c3a] text-white font-bold hover:bg-[#15674f] transition shadow-sm flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#80142b] text-white font-bold hover:bg-[#9e1c36] transition shadow-sm flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isTamil ? "மற்றொரு வேண்டுகோளை சமர்ப்பிக்க" : "Submit Another Request"}</span>
                 </button>
                 <Link
                   href="/"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#10233f] text-white font-bold hover:bg-[#18365f] transition shadow-sm flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl border-2 border-[#80142b] bg-white text-[#80142b] font-bold hover:bg-[#80142b] hover:text-white transition shadow-sm flex items-center justify-center gap-2"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>{isTamil ? "முகப்பிற்குச் செல்ல" : "Return to Home"}</span>
@@ -462,7 +462,7 @@ export default function PrayerRequestClient() {
               <div className="border-b border-[#e7dec8] pb-6">
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-[#10233f]">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-[#1f040b]">
                       {isTamil ? "ஜெபப் படிவம்" : "Prayer Intention Form"}
                     </h2>
                     <p className="text-sm text-slate-500 mt-1">
@@ -471,7 +471,7 @@ export default function PrayerRequestClient() {
                         : "Fields marked with * are required."}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fbf8f1] border border-[#e7dec8] text-xs font-semibold text-[#0f4c3a]">
+                  <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fbf8f1] border border-[#e7dec8] text-xs font-semibold text-[#80142b]">
                     <Lock className="w-3.5 h-3.5" />
                     <span>{isTamil ? "ரகசியமானது & பாதுகாப்பானது" : "Confidential & Pastoral Care"}</span>
                   </div>
@@ -492,10 +492,10 @@ export default function PrayerRequestClient() {
               {/* SECTION A: Personal Information */}
               <div className="space-y-6">
                 <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-[#0f4c3a]/10 text-[#0f4c3a] font-bold text-xs flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-lg bg-[#781226]/10 text-[#80142b] font-bold text-xs flex items-center justify-center">
                     A
                   </div>
-                  <h3 className="text-lg font-bold text-[#10233f]">
+                  <h3 className="text-lg font-bold text-[#1f040b]">
                     {isTamil ? "தனிநபர் விவரங்கள்" : "Personal Information"}
                   </h3>
                 </div>
@@ -507,7 +507,7 @@ export default function PrayerRequestClient() {
                       htmlFor="fullName"
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5"
                     >
-                      <User className="w-3.5 h-3.5 text-[#b18a3d]" />
+                      <User className="w-3.5 h-3.5 text-[#80142b]" />
                       <span>{isTamil ? "முழுப் பெயர் *" : "Full Name *"}</span>
                     </label>
                     <input
@@ -521,7 +521,7 @@ export default function PrayerRequestClient() {
                       className={`w-full rounded-xl border px-4 py-3 text-sm transition focus:outline-none focus:ring-2 ${
                         errors.fullName
                           ? "border-red-500 focus:ring-red-300 bg-red-50/30"
-                          : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                          : "border-slate-300 focus:border-[#80142b] focus:ring-[#80142b]/20"
                       }`}
                     />
                     {errors.fullName && (
@@ -542,7 +542,7 @@ export default function PrayerRequestClient() {
                       name="ageGroup"
                       value={formData.ageGroup}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#80142b] focus:ring-2 focus:ring-[#80142b]/20"
                     >
                       {ageGroupOptions.map((opt) => (
                         <option key={opt.value} value={opt.value}>
@@ -565,7 +565,7 @@ export default function PrayerRequestClient() {
                       name="gender"
                       value={formData.gender}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#80142b] focus:ring-2 focus:ring-[#80142b]/20"
                     >
                       {genderOptions.map((opt) => (
                         <option key={opt.value} value={opt.value}>
@@ -580,10 +580,10 @@ export default function PrayerRequestClient() {
               {/* SECTION B: Contact Information */}
               <div className="space-y-6">
                 <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-[#b18a3d]/10 text-[#b18a3d] font-bold text-xs flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-lg bg-[#781226]/10 text-[#80142b] font-bold text-xs flex items-center justify-center">
                     B
                   </div>
-                  <h3 className="text-lg font-bold text-[#10233f]">
+                  <h3 className="text-lg font-bold text-[#1f040b]">
                     {isTamil ? "தொடர்பு விவரங்கள்" : "Contact Information"}
                   </h3>
                 </div>
@@ -595,7 +595,7 @@ export default function PrayerRequestClient() {
                       htmlFor="email"
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5"
                     >
-                      <Mail className="w-3.5 h-3.5 text-[#b18a3d]" />
+                      <Mail className="w-3.5 h-3.5 text-[#80142b]" />
                       <span>{isTamil ? "மின்னஞ்சல் (விருப்பத்தேர்வு)" : "Email (Optional)"}</span>
                     </label>
                     <input
@@ -608,7 +608,7 @@ export default function PrayerRequestClient() {
                       className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:ring-2 ${
                         errors.email
                           ? "border-red-500 focus:ring-red-300 bg-red-50/30"
-                          : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                          : "border-slate-300 focus:border-[#80142b] focus:ring-[#80142b]/20"
                       }`}
                     />
                     {errors.email && (
@@ -622,7 +622,7 @@ export default function PrayerRequestClient() {
                       htmlFor="phone"
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5"
                     >
-                      <Phone className="w-3.5 h-3.5 text-[#b18a3d]" />
+                      <Phone className="w-3.5 h-3.5 text-[#80142b]" />
                       <span>{isTamil ? "தொலைபேசி எண் (விருப்பத்தேர்வு)" : "Phone (Optional)"}</span>
                     </label>
                     <input
@@ -632,7 +632,7 @@ export default function PrayerRequestClient() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder={isTamil ? "எ.கா: +91 98765 43210" : "e.g., +91 98765 43210"}
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
+                      className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#80142b] focus:ring-2 focus:ring-[#80142b]/20"
                     />
                   </div>
                 </div>
@@ -641,11 +641,11 @@ export default function PrayerRequestClient() {
               {/* SECTION C: Location Information */}
               <div className="space-y-6">
                 <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-[#10233f]/10 text-[#10233f] font-bold text-xs flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-lg bg-[#781226]/10 text-[#80142b] font-bold text-xs flex items-center justify-center">
                     C
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-[#10233f]">
+                    <h3 className="text-lg font-bold text-[#1f040b]">
                       {isTamil ? "இருப்பிட விவரங்கள்" : "Location Information"}
                     </h3>
                     <p className="text-xs text-slate-500">
@@ -673,7 +673,7 @@ export default function PrayerRequestClient() {
                       className={`w-full rounded-xl border bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:ring-2 ${
                         errors.country
                           ? "border-red-500 focus:ring-red-300"
-                          : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                          : "border-slate-300 focus:border-[#80142b] focus:ring-[#80142b]/20"
                       }`}
                     >
                       {countriesList.map((opt) => (
@@ -703,7 +703,7 @@ export default function PrayerRequestClient() {
                       className={`w-full rounded-xl border bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:ring-2 ${
                         errors.state
                           ? "border-red-500 focus:ring-red-300"
-                          : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                          : "border-slate-300 focus:border-[#80142b] focus:ring-[#80142b]/20"
                       }`}
                     >
                       {availableStates.map((opt) => (
@@ -733,7 +733,7 @@ export default function PrayerRequestClient() {
                       className={`w-full rounded-xl border bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:ring-2 ${
                         errors.district
                           ? "border-red-500 focus:ring-red-300"
-                          : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                          : "border-slate-300 focus:border-[#80142b] focus:ring-[#80142b]/20"
                       }`}
                     >
                       {availableDistricts.map((opt) => (
@@ -747,7 +747,7 @@ export default function PrayerRequestClient() {
                     )}
                   </div>
 
-                  {/* City / Town */}
+                   {/* City / Town */}
                   <div>
                     <label
                       htmlFor="city"
@@ -760,7 +760,7 @@ export default function PrayerRequestClient() {
                       name="city"
                       value={formData.city}
                       onChange={handleCityChange}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#80142b] focus:ring-2 focus:ring-[#80142b]/20"
                     >
                       {availableCities.map((opt) => (
                         <option key={opt.value} value={opt.value}>
@@ -775,10 +775,10 @@ export default function PrayerRequestClient() {
               {/* SECTION D: Prayer Information */}
               <div className="space-y-6">
                 <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-[#0f4c3a]/10 text-[#0f4c3a] font-bold text-xs flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-lg bg-[#80142b]/10 text-[#80142b] font-bold text-xs flex items-center justify-center">
                     D
                   </div>
-                  <h3 className="text-lg font-bold text-[#10233f]">
+                  <h3 className="text-lg font-bold text-[#1f040b]">
                     {isTamil ? "ஜெபத் தேவையின் விவரங்கள்" : "Prayer Information"}
                   </h3>
                 </div>
@@ -800,7 +800,7 @@ export default function PrayerRequestClient() {
                       className={`w-full rounded-xl border bg-white px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:ring-2 ${
                         errors.prayerCategory
                           ? "border-red-500 focus:ring-red-300"
-                          : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                          : "border-slate-300 focus:border-[#80142b] focus:ring-[#80142b]/20"
                       }`}
                     >
                       {prayerCategories.map((opt) => (
@@ -833,7 +833,7 @@ export default function PrayerRequestClient() {
                       placeholder={
                         isTamil ? "எ.கா: குடும்ப அமைதிக்காக ஜெபம்" : "e.g., Prayer for my family"
                       }
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#0f4c3a] focus:ring-2 focus:ring-[#0f4c3a]/20"
+                      className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 transition focus:outline-none focus:border-[#80142b] focus:ring-2 focus:ring-[#80142b]/20"
                     />
                   </div>
                 </div>
@@ -861,7 +861,7 @@ export default function PrayerRequestClient() {
                     className={`w-full rounded-2xl border p-4 text-sm text-slate-800 transition focus:outline-none focus:ring-2 leading-relaxed ${
                       errors.prayerRequest
                         ? "border-red-500 focus:ring-red-300 bg-red-50/30"
-                        : "border-slate-300 focus:border-[#0f4c3a] focus:ring-[#0f4c3a]/20"
+                        : "border-slate-300 focus:border-[#80142b] focus:ring-[#80142b]/20"
                     }`}
                   />
                   {errors.prayerRequest && (
@@ -877,7 +877,7 @@ export default function PrayerRequestClient() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-6 rounded-2xl bg-[#0f4c3a] hover:bg-[#15674f] active:scale-[0.99] text-white font-bold text-base shadow-md transition-all flex items-center justify-center gap-2.5 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full py-4 px-6 rounded-2xl bg-[#80142b] hover:bg-[#9e1c36] active:scale-[0.99] text-white font-bold text-base shadow-md transition-all flex items-center justify-center gap-2.5 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -920,10 +920,10 @@ export default function PrayerRequestClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
             <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-[#0f4c3a]/10 text-[#0f4c3a] flex items-center justify-center mb-4 group-hover:bg-[#0f4c3a] group-hover:text-white transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-[#80142b]/10 text-[#80142b] flex items-center justify-center mb-4 group-hover:bg-[#80142b] group-hover:text-white transition-colors">
                 <HeartHandshake className="w-6 h-6" />
               </div>
-              <h2 className="text-lg font-bold text-[#10233f] mb-2">
+              <h2 className="text-lg font-bold text-[#1f040b] mb-2">
                 {isTamil ? "1. உங்கள் வேண்டுதலை சமர்ப்பியுங்கள்" : "1. Submit Your Intention"}
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -935,10 +935,10 @@ export default function PrayerRequestClient() {
 
             {/* Card 2 - Prayer for You */}
             <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-[#b18a3d]/10 text-[#b18a3d] flex items-center justify-center mb-4 group-hover:bg-[#b18a3d] group-hover:text-white transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-[#c59b27]/10 text-[#c59b27] flex items-center justify-center mb-4 group-hover:bg-[#c59b27] group-hover:text-[#1b0308] transition-colors">
                 <Church className="w-6 h-6" />
               </div>
-              <h2 className="text-lg font-bold text-[#10233f] mb-2">
+              <h2 className="text-lg font-bold text-[#1f040b] mb-2">
                 {isTamil ? "2. உங்களுக்கான ஜெபம்" : "2. Prayer for You"}
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -950,10 +950,10 @@ export default function PrayerRequestClient() {
 
             {/* Card 3 */}
             <div className="bg-white rounded-2xl p-6 border border-[#e7dec8] shadow-xs hover:shadow-md transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-[#10233f]/10 text-[#10233f] flex items-center justify-center mb-4 group-hover:bg-[#10233f] group-hover:text-white transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-[#80142b]/10 text-[#80142b] flex items-center justify-center mb-4 group-hover:bg-[#80142b] group-hover:text-white transition-colors">
                 <Sparkles className="w-6 h-6" />
               </div>
-              <h2 className="text-lg font-bold text-[#10233f] mb-2">
+              <h2 className="text-lg font-bold text-[#1f040b] mb-2">
                 {isTamil ? "3. நம்பிக்கையும் விசுவாசமும்" : "3. Hope and Faith"}
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -967,9 +967,9 @@ export default function PrayerRequestClient() {
       </section>
 
       {/* 5. Additional Support Section */}
-      <section className="py-14 md:py-20 bg-gradient-to-r from-[#10233f] to-[#163761] text-white">
+      <section className="py-14 md:py-20 bg-gradient-to-r from-[#1b0308] via-[#3d0813] to-[#140206] text-white">
         <div className="container-site max-w-4xl text-center">
-          <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#d8bb73] mx-auto flex items-center justify-center mb-5 backdrop-blur-sm border border-white/10">
+          <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#f5d77f] mx-auto flex items-center justify-center mb-5 backdrop-blur-sm border border-[#c59b27]/30">
             <HeartHandshake className="w-7 h-7" />
           </div>
 
@@ -986,7 +986,7 @@ export default function PrayerRequestClient() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#b18a3d] text-white font-bold hover:bg-[#c29b4b] transition shadow-md flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#c59b27] to-[#d4af37] text-[#1b0308] font-bold hover:brightness-110 transition shadow-md flex items-center justify-center gap-2"
             >
               <PhoneCall className="w-4 h-4" />
               <span>{isTamil ? "பங்கு அலுவலக தொடர்பு" : "Contact Parish"}</span>

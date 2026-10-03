@@ -22,10 +22,10 @@ export default function HymnsSection({
     <section id="hymns-section" className="py-12 md:py-16 bg-[#fbf8f1] border-t border-[#e7dec8]/60">
       <div className="container-site">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <div className="text-xs font-bold tracking-[.25em] text-[#b18a3d] uppercase">
+          <div className="text-xs font-bold tracking-[.25em] text-[#80142b] uppercase">
             HYMNS &amp; SONGS
           </div>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#10233f] md:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#1f040b] md:text-4xl">
             Liturgical Music &amp; Devotional Chants
           </h2>
           <div className="gold-line" />
@@ -39,11 +39,11 @@ export default function HymnsSection({
             {hymns.map((song) => (
               <div
                 key={song.id}
-                className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#e7dec8] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#b18a3d] hover:shadow-lg"
+                className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#e7dec8] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#c59b27] hover:shadow-lg"
               >
                 <div>
                   {/* Media Header */}
-                  <div className="relative h-44 w-full overflow-hidden bg-[#10233f]">
+                  <div className="relative h-44 w-full overflow-hidden bg-[#1b0308]">
                     {song.coverImage ? (
                       <Image
                         src={song.coverImage}
@@ -53,8 +53,8 @@ export default function HymnsSection({
                       />
                     ) : (
                       <div className="flex h-full w-full flex-col items-center justify-center p-4 text-white text-center">
-                        <Disc className="h-10 w-10 text-[#d8bb73] animate-spin-slow mb-2 opacity-80" />
-                        <span className="font-serif text-base font-bold text-[#d8bb73]">
+                        <Disc className="h-10 w-10 text-[#f5d77f] animate-spin-slow mb-2 opacity-80" />
+                        <span className="font-serif text-base font-bold text-[#f5d77f]">
                           {song.title}
                         </span>
                         <span className="text-xs text-slate-300">
@@ -62,7 +62,7 @@ export default function HymnsSection({
                         </span>
                       </div>
                     )}
-                    <div className="absolute top-3 right-3 rounded-full bg-[#10233f]/85 px-3 py-1 text-[11px] font-bold text-[#d8bb73] border border-[#d8bb73]/30">
+                    <div className="absolute top-3 right-3 rounded-full bg-[#1b0308]/85 px-3 py-1 text-[11px] font-bold text-[#f5d77f] border border-[#c59b27]/30">
                       {song.language}
                     </div>
                   </div>
@@ -70,13 +70,13 @@ export default function HymnsSection({
                   {/* Song Details */}
                   <div className="p-6">
                     <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
-                      <span className="text-[#b18a3d] uppercase tracking-wider">
+                      <span className="text-[#80142b] uppercase tracking-wider">
                         {song.category || "Parish Choir"}
                       </span>
                       {song.duration && <span>{song.duration}</span>}
                     </div>
 
-                    <h3 className="mt-2 text-xl font-bold text-[#10233f]">
+                    <h3 className="mt-2 text-xl font-bold text-[#1f040b]">
                       {song.title}
                     </h3>
                     <p className="mt-1 text-xs text-slate-600 line-clamp-2">
@@ -99,9 +99,9 @@ export default function HymnsSection({
                         setActiveLyrics(song);
                         if (onOpenLyrics) onOpenLyrics(song);
                       }}
-                      className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold text-[#10233f] hover:bg-[#f2eee5] transition"
+                      className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold text-[#80142b] hover:bg-[#f2eee5] transition"
                     >
-                      <FileText className="h-3.5 w-3.5 text-[#b18a3d]" />
+                      <FileText className="h-3.5 w-3.5 text-[#80142b]" />
                       <span>Lyrics</span>
                     </button>
                   )}
@@ -123,17 +123,17 @@ export default function HymnsSection({
           </div>
         ) : (
           /* Empty State */
-          <div className="mx-auto max-w-lg rounded-3xl border border-dashed border-[#d8bb73] bg-white p-8 text-center shadow-xs">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#f2eee5] text-[#b18a3d] border border-[#d8bb73]/30">
+          <div className="mx-auto max-w-lg rounded-3xl border border-dashed border-[#c59b27] bg-white p-8 text-center shadow-xs">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#f2eee5] text-[#80142b] border border-[#c59b27]/30">
               <Music className="h-6 w-6" />
             </div>
-            <h3 className="text-base font-bold text-[#10233f]">
+            <h3 className="text-base font-bold text-[#1f040b]">
               No Hymn resources have been added yet.
             </h3>
             <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">
               Parish choir recordings, sacred Tamil devotional songs, and liturgical audio tracks will be published here with lyrics.
             </p>
-            <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#b18a3d]">
+            <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#80142b]">
               <Sparkles className="h-3.5 w-3.5" />
               Parish choir releases will appear here
             </div>
@@ -154,10 +154,10 @@ export default function HymnsSection({
             >
               <div className="flex items-center justify-between border-b pb-4">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-[#b18a3d]">
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#80142b]">
                     Hymn Lyrics • {activeLyrics.language}
                   </div>
-                  <h3 className="text-xl font-bold text-[#10233f]">
+                  <h3 className="text-xl font-bold text-[#1f040b]">
                     {activeLyrics.title}
                   </h3>
                 </div>

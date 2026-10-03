@@ -75,7 +75,7 @@ export default function ResourceDetailModal({
       >
         {/* Header Media */}
         {resource.coverImage ? (
-          <div className="relative h-60 w-full bg-[#10233f]">
+          <div className="relative h-60 w-full bg-[#1b0308]">
             <Image
               src={resource.coverImage}
               alt={resource.title}
@@ -92,7 +92,7 @@ export default function ResourceDetailModal({
               <X className="h-5 w-5" />
             </button>
             <div className="absolute bottom-4 left-6 right-6 text-white">
-              <span className="rounded-full bg-[#10233f]/90 px-3 py-0.5 text-xs font-bold text-[#d8bb73] border border-[#d8bb73]/30 uppercase tracking-wider">
+              <span className="rounded-full bg-[#1b0308]/90 px-3 py-0.5 text-xs font-bold text-[#f5d77f] border border-[#c59b27]/30 uppercase tracking-wider">
                 {resource.type}
               </span>
               <h2 className="mt-2 text-2xl font-bold">{resource.title}</h2>
@@ -101,10 +101,10 @@ export default function ResourceDetailModal({
         ) : (
           <div className="flex items-center justify-between border-b border-slate-100 p-6 pb-4">
             <div>
-              <span className="rounded-full bg-[#f2eee5] px-3 py-0.5 text-xs font-bold text-[#10233f] uppercase tracking-wider">
+              <span className="rounded-full bg-[#f2eee5] px-3 py-0.5 text-xs font-bold text-[#80142b] uppercase tracking-wider">
                 {resource.type}
               </span>
-              <h2 className="mt-2 text-2xl font-bold text-[#10233f]">
+              <h2 className="mt-2 text-2xl font-bold text-[#1f040b]">
                 {resource.title}
               </h2>
             </div>
@@ -124,15 +124,15 @@ export default function ResourceDetailModal({
           {/* Metadata badges */}
           <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 font-semibold border-b border-slate-100 pb-4">
             <span className="flex items-center gap-1">
-              <Languages className="h-3.5 w-3.5 text-[#b18a3d]" /> {resource.language}
+              <Languages className="h-3.5 w-3.5 text-[#80142b]" /> {resource.language}
             </span>
             {resource.feastDay && (
               <span className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5 text-[#b18a3d]" /> {resource.feastDay}
+                <Calendar className="h-3.5 w-3.5 text-[#80142b]" /> {resource.feastDay}
               </span>
             )}
             {resource.reference && (
-              <span className="text-[#b18a3d]">• {resource.reference}</span>
+              <span className="text-[#80142b]">• {resource.reference}</span>
             )}
           </div>
 
@@ -144,8 +144,8 @@ export default function ResourceDetailModal({
           {/* Audio Player if available */}
           {resource.audioUrl && (
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#10233f]">
-                <Volume2 className="h-4 w-4 text-[#b18a3d]" /> Audio Recording
+              <div className="flex items-center gap-2 text-xs font-bold text-[#1f040b]">
+                <Volume2 className="h-4 w-4 text-[#80142b]" /> Audio Recording
               </div>
               <AudioPlayerCompact src={resource.audioUrl} title={resource.title} />
             </div>
@@ -165,9 +165,9 @@ export default function ResourceDetailModal({
                 href={resource.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl bg-[#10233f] px-4 py-2.5 text-xs font-bold uppercase text-white hover:bg-[#18365f]"
+                className="flex items-center gap-2 rounded-xl bg-[#80142b] px-4 py-2.5 text-xs font-bold uppercase text-white hover:bg-[#9e1c36]"
               >
-                <FileText className="h-4 w-4 text-[#d8bb73]" /> Download PDF
+                <FileText className="h-4 w-4 text-[#f5d77f]" /> Download PDF
               </a>
             )}
             {resource.youtubeUrl && (

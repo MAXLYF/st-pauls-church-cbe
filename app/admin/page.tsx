@@ -18,8 +18,8 @@ export default function Admin() {
   return (
     <section className="section-pad">
       <div className="container-site">
-        <div className="rounded-3xl bg-[#10233f] p-8 text-white md:p-10">
-          <div className="text-xs font-bold tracking-[.25em] text-[#d8bb73]">ADMIN</div>
+        <div className="rounded-3xl bg-gradient-to-r from-[#1b0308] via-[#3d0813] to-[#140206] p-8 text-white md:p-10">
+          <div className="text-xs font-bold tracking-[.25em] text-[#f5d77f]">ADMIN</div>
           <h1 className="mt-2 text-4xl font-bold">Parish Content Dashboard</h1>
           <p className="mt-3 max-w-2xl text-slate-300">
             Starter dashboard UI. Firebase Authentication, Storage, and Firestore CRUD
@@ -32,10 +32,10 @@ export default function Admin() {
             <Link
               href={href}
               key={name}
-              className="rounded-2xl border border-[#e7dec8] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#b18a3d] hover:shadow-md"
+              className="rounded-2xl border border-[#e7dec8] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#c59b27] hover:shadow-md"
             >
-              <div className="text-xs font-bold tracking-[.18em] text-[#b18a3d]">MANAGE</div>
-              <h2 className="mt-2 font-bold text-[#10233f]">{name}</h2>
+              <div className="text-xs font-bold tracking-[.18em] text-[#80142b]">MANAGE</div>
+              <h2 className="mt-2 font-bold text-[#1f040b]">{name}</h2>
               <p className="mt-2 text-sm text-slate-500">
                 {name === "Our Pastors"
                   ? "Manage parish priests, years of service, photos & order →"
@@ -54,7 +54,7 @@ export default function Admin() {
             <strong>Production note:</strong> Protect <code>/admin</code> with Firebase Authentication and
             enforce Firestore / Storage security rules.
           </div>
-          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6 text-xs leading-5 text-blue-950 font-mono">
+          <div className="rounded-2xl border border-[#80142b]/20 bg-[#80142b]/5 p-6 text-xs leading-5 text-[#1f040b] font-mono">
             <div><strong>Firestore Collections:</strong></div>
             <div className="mt-1">• <code>pastors</code>: id, name, photoUrl, startYear, endYear, description, order, published, createdAt, updatedAt</div>
             <div className="mt-1">• <code>sonsOfParish</code>: id, name, title, photoUrl, vocation, ordinationYear, professionYear, congregation, diocese, ministry, currentService, description, order, published, createdAt, updatedAt</div>

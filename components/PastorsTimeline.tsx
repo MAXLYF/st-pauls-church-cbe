@@ -29,14 +29,14 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
       <div className="container-site">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="text-xs font-bold tracking-[.25em] text-[#b18a3d] uppercase">
+          <div className="text-xs font-bold tracking-[.25em] text-[#80142b] uppercase">
             OUR PASTORS THROUGH THE YEARS
           </div>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#10233f] md:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#1f040b] md:text-4xl">
             Shepherds of Our Faith
           </h2>
           <div className="gold-line" />
-          <p className="mt-4 text-base md:text-lg font-medium text-[#10233f]/90 italic">
+          <p className="mt-4 text-base md:text-lg font-medium text-[#80142b] italic">
             &ldquo;Honouring the priests who have faithfully served our parish community.&rdquo;
           </p>
           <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-600 max-w-2xl mx-auto">
@@ -61,7 +61,7 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
           {/* Central Vertical Gold Line */}
           <div
             aria-hidden="true"
-            className="absolute left-1/2 top-4 bottom-8 w-1 -translate-x-1/2 bg-gradient-to-b from-[#d8bb73] via-[#b18a3d] to-[#d8bb73] rounded-full shadow-sm"
+            className="absolute left-1/2 top-4 bottom-8 w-1 -translate-x-1/2 bg-gradient-to-b from-[#f5d77f] via-[#c59b27] to-[#f5d77f] rounded-full shadow-sm"
           />
 
           <div className="space-y-12">
@@ -95,10 +95,10 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
                       type="button"
                       onClick={() => handleSelectPastor(pastor.id)}
                       aria-label={`Select ${pastor.name} (${pastor.displayPeriod})`}
-                      className={`group relative flex h-12 w-12 items-center justify-center rounded-full border-4 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#b18a3d]/40 ${
+                      className={`group relative flex h-12 w-12 items-center justify-center rounded-full border-4 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#c59b27]/40 ${
                         isActive
-                          ? "scale-125 border-[#b18a3d] bg-[#10233f] text-[#d8bb73] shadow-lg ring-4 ring-[#b18a3d]/20"
-                          : "border-[#d8bb73] bg-white text-[#10233f] hover:scale-110 hover:border-[#b18a3d] hover:bg-[#f2eee5] shadow-md"
+                          ? "scale-125 border-[#c59b27] bg-[#80142b] text-[#f5d77f] shadow-lg ring-4 ring-[#c59b27]/20"
+                          : "border-[#c59b27]/60 bg-white text-[#1f040b] hover:scale-110 hover:border-[#c59b27] hover:bg-[#80142b]/5 shadow-md"
                       }`}
                     >
                       {/* Catholic Cross Icon / Center Point */}
@@ -111,7 +111,7 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
                     <div
                       className={`mt-1.5 rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wider transition-colors ${
                         isActive
-                          ? "bg-[#10233f] text-[#d8bb73]"
+                          ? "bg-[#80142b] text-[#f5d77f]"
                           : "bg-white text-slate-600 border border-[#e7dec8]"
                       }`}
                     >
@@ -145,7 +145,7 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
           {/* Vertical Gold Line positioned on left */}
           <div
             aria-hidden="true"
-            className="absolute left-6 top-3 bottom-6 w-1 bg-gradient-to-b from-[#d8bb73] via-[#b18a3d] to-[#d8bb73] rounded-full"
+            className="absolute left-6 top-3 bottom-6 w-1 bg-gradient-to-b from-[#f5d77f] via-[#c59b27] to-[#f5d77f] rounded-full"
           />
 
           <div className="space-y-8 pl-14 pr-2">
@@ -161,8 +161,8 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
                     aria-label={`Select ${pastor.name}`}
                     className={`absolute -left-14 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border-2 transition-all duration-300 focus:outline-none ${
                       isActive
-                        ? "scale-110 border-[#b18a3d] bg-[#10233f] text-[#d8bb73] shadow-md ring-2 ring-[#b18a3d]/30"
-                        : "border-[#d8bb73] bg-white text-[#10233f] shadow"
+                        ? "scale-110 border-[#c59b27] bg-[#80142b] text-[#f5d77f] shadow-md ring-2 ring-[#c59b27]/30"
+                        : "border-[#c59b27]/60 bg-white text-[#1f040b] shadow"
                     }`}
                   >
                     <span className="text-[10px] font-bold font-mono">
@@ -171,7 +171,7 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
                   </button>
 
                   {/* Year Tag */}
-                  <div className="mb-2 inline-block rounded-md bg-[#10233f] px-2.5 py-0.5 text-[11px] font-bold text-[#d8bb73]">
+                  <div className="mb-2 inline-block rounded-md bg-[#80142b] px-2.5 py-0.5 text-[11px] font-bold text-[#f5d77f]">
                     {pastor.startYear}
                   </div>
 

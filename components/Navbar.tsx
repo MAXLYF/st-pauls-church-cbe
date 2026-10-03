@@ -13,7 +13,7 @@ const aboutSubmenu = [
 
 const mainLinks = [
   { label: "Home", href: "/" },
-  { label: "Mass", href: "/mass-timings" },
+  { label: "Mass", href: "/#mass-timings" },
   { label: "Ministries", href: "/ministries" },
   { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
@@ -52,13 +52,13 @@ export default function Navbar() {
           <img
             src="/images/logo.jpg"
             alt="St. Paul's Church logo"
-            className="h-12 w-12 rounded-full object-cover shadow-xs"
+            className="h-12 w-12 rounded-full object-cover border-2 border-[#d4af37]/50 shadow-xs"
           />
           <div>
-            <div className="text-sm font-semibold tracking-[.18em] text-[#b18a3d]">
+            <div className="text-sm font-bold tracking-[.18em] text-[#80142b]">
               ST. PAUL&apos;S CHURCH
             </div>
-            <div className="text-xs tracking-[.35em] text-slate-500">
+            <div className="text-xs font-semibold tracking-[.32em] text-[#c59b27]">
               RATHINAPURI
             </div>
           </div>
@@ -68,8 +68,8 @@ export default function Navbar() {
         <nav className="hidden items-center gap-4 xl:gap-5 lg:flex">
           <Link
             href="/"
-            className={`text-sm font-medium transition hover:text-[#b18a3d] ${
-              pathname === "/" ? "text-[#b18a3d] font-bold" : "text-slate-700"
+            className={`text-sm font-medium transition hover:text-[#80142b] ${
+              pathname === "/" ? "text-[#80142b] font-bold" : "text-slate-700"
             }`}
           >
             Home
@@ -91,14 +91,14 @@ export default function Navbar() {
               aria-expanded={aboutDropdownOpen}
               aria-haspopup="true"
               aria-label="About menu"
-              className={`flex items-center gap-1 text-sm font-medium transition hover:text-[#b18a3d] focus:outline-none ${
-                isAboutActive ? "text-[#b18a3d] font-bold" : "text-slate-700"
+              className={`flex items-center gap-1 text-sm font-medium transition hover:text-[#80142b] focus:outline-none ${
+                isAboutActive ? "text-[#80142b] font-bold" : "text-slate-700"
               }`}
             >
               <span>About</span>
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-200 ${
-                  aboutDropdownOpen ? "rotate-180 text-[#b18a3d]" : "text-slate-400"
+                  aboutDropdownOpen ? "rotate-180 text-[#80142b]" : "text-slate-400"
                 }`}
               />
             </button>
@@ -115,12 +115,12 @@ export default function Navbar() {
                         href={item.href}
                         onClick={() => setAboutDropdownOpen(false)}
                         className={`group flex flex-col rounded-xl px-3.5 py-2.5 transition hover:bg-[#fbf8f1] ${
-                          isSubActive ? "bg-[#fbf8f1] text-[#b18a3d]" : ""
+                          isSubActive ? "bg-[#fbf8f1] text-[#80142b]" : ""
                         }`}
                       >
                         <span
                           className={`text-sm font-bold ${
-                            isSubActive ? "text-[#b18a3d]" : "text-[#10233f] group-hover:text-[#b18a3d]"
+                            isSubActive ? "text-[#80142b]" : "text-[#1f040b] group-hover:text-[#80142b]"
                           }`}
                         >
                           {item.label}
@@ -145,12 +145,19 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => {
+                  if (link.label === "Mass" && pathname === "/") {
+                    e.preventDefault();
+                    document.getElementById("mass-timings")?.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", "/#mass-timings");
+                  }
+                }}
                 title={link.tamilLabel ? `${link.label} (${link.tamilLabel})` : link.label}
-                className={`text-sm font-medium transition hover:text-[#b18a3d] whitespace-nowrap ${
+                className={`text-sm font-medium transition hover:text-[#80142b] whitespace-nowrap ${
                   isActive
-                    ? "text-[#b18a3d] font-bold"
+                    ? "text-[#80142b] font-bold"
                     : isPrayerReq
-                    ? "text-[#0f4c3a] font-semibold hover:text-[#b18a3d]"
+                    ? "text-[#80142b] font-semibold hover:text-[#9e1c36]"
                     : "text-slate-700"
                 }`}
               >
@@ -161,7 +168,7 @@ export default function Navbar() {
 
           <Link
             href="/live"
-            className="rounded-full bg-[#10233f] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#18365f] transition shadow-xs whitespace-nowrap ml-1"
+            className="rounded-full bg-gradient-to-r from-[#781226] via-[#8c1830] to-[#6a0f21] border border-[#d4af37]/35 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-[#8d1630] hover:to-[#a11b37] whitespace-nowrap ml-1"
           >
             Live Mass
           </Link>
@@ -185,7 +192,7 @@ export default function Navbar() {
               href="/"
               onClick={() => setOpen(false)}
               className={`py-2 text-sm font-medium ${
-                pathname === "/" ? "text-[#b18a3d] font-bold" : "text-slate-800"
+                pathname === "/" ? "text-[#80142b] font-bold" : "text-slate-800"
               }`}
             >
               Home
@@ -197,19 +204,19 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                 className={`flex w-full items-center justify-between py-2 text-sm font-medium ${
-                  isAboutActive ? "text-[#b18a3d] font-bold" : "text-slate-800"
+                  isAboutActive ? "text-[#80142b] font-bold" : "text-slate-800"
                 }`}
               >
                 <span>About</span>
                 <ChevronDown
                   className={`h-4 w-4 text-slate-500 transition-transform ${
-                    mobileAboutOpen ? "rotate-180 text-[#b18a3d]" : ""
+                    mobileAboutOpen ? "rotate-180 text-[#80142b]" : ""
                   }`}
                 />
               </button>
 
               {mobileAboutOpen && (
-                <div className="mb-2 space-y-1 pl-3 border-l-2 border-[#b18a3d]/40">
+                <div className="mb-2 space-y-1 pl-3 border-l-2 border-[#80142b]/40">
                   {aboutSubmenu.map((subItem) => {
                     const isSubActive = pathname === subItem.href;
                     return (
@@ -219,8 +226,8 @@ export default function Navbar() {
                         onClick={() => setOpen(false)}
                         className={`block py-1.5 text-xs font-semibold ${
                           isSubActive
-                            ? "text-[#b18a3d] font-bold"
-                            : "text-[#10233f] hover:text-[#b18a3d]"
+                            ? "text-[#80142b] font-bold"
+                            : "text-[#1f040b] hover:text-[#80142b]"
                         }`}
                       >
                         {subItem.label}
@@ -237,14 +244,21 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    setOpen(false);
+                    if (link.label === "Mass" && pathname === "/") {
+                      e.preventDefault();
+                      document.getElementById("mass-timings")?.scrollIntoView({ behavior: "smooth" });
+                      window.history.pushState(null, "", "/#mass-timings");
+                    }
+                  }}
                   className={`flex items-center justify-between py-2 text-sm font-medium ${
-                    isActive ? "text-[#b18a3d] font-bold" : "text-slate-800"
+                    isActive ? "text-[#80142b] font-bold" : "text-slate-800"
                   }`}
                 >
                   <span>{link.label}</span>
                   {link.tamilLabel && (
-                    <span className="text-xs text-[#b18a3d] font-normal">{link.tamilLabel}</span>
+                    <span className="text-xs text-[#80142b] font-medium">{link.tamilLabel}</span>
                   )}
                 </Link>
               );
@@ -253,7 +267,7 @@ export default function Navbar() {
             <Link
               href="/live"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-xl bg-[#10233f] px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-2 rounded-xl bg-gradient-to-r from-[#781226] via-[#8c1830] to-[#6a0f21] border border-[#d4af37]/35 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm"
             >
               Live Mass
             </Link>

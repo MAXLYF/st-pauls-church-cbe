@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
@@ -42,8 +42,8 @@ function MinistryCard({ ministry }: { ministry: Ministry }) {
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-[#10233f]/10">
-            <span className="text-3xl text-[#b18a3d]/40">✝</span>
+          <div className="flex h-full w-full items-center justify-center bg-[#781226]/10">
+            <span className="text-3xl text-[#80142b]/40">✝</span>
           </div>
         )}
         {/* Category badge over image */}
@@ -56,13 +56,13 @@ function MinistryCard({ ministry }: { ministry: Ministry }) {
 
       {/* Card body */}
       <div className="flex flex-1 flex-col p-6">
-        <h2 className="text-xl font-bold text-[#10233f]">{ministry.name}</h2>
+        <h2 className="text-xl font-bold text-[#1f040b]">{ministry.name}</h2>
         <p className="mt-2 flex-1 text-sm leading-7 text-slate-600">
           {ministry.shortDescription}
         </p>
 
         {ministry.motto && (
-          <blockquote className="mt-4 border-l-2 border-[#b18a3d] pl-3 text-xs italic leading-5 text-slate-500">
+          <blockquote className="mt-4 border-l-2 border-[#c59b27] pl-3 text-xs italic leading-5 text-slate-500">
             &ldquo;{ministry.motto}&rdquo;
           </blockquote>
         )}
@@ -75,8 +75,8 @@ function MinistryCard({ ministry }: { ministry: Ministry }) {
 
         <Link
           href={`/ministries/${ministry.id}`}
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#b18a3d]
-                     transition-colors hover:text-[#9a762f]"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#80142b]
+                     transition-colors hover:text-[#9e1c36]"
           aria-label={`View ${ministry.name} ministry details`}
         >
           View Ministry <ArrowRight className="h-4 w-4" />
@@ -130,7 +130,7 @@ export default function MinistriesGrid({ ministries, categories }: Props) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-5
-                         text-sm shadow-sm outline-none transition focus:border-[#b18a3d] focus:ring-2 focus:ring-[#b18a3d]/20"
+                         text-sm shadow-sm outline-none transition focus:border-[#c59b27] focus:ring-2 focus:ring-[#c59b27]/20"
               aria-label="Search ministries"
             />
           </div>
@@ -148,8 +148,8 @@ export default function MinistriesGrid({ ministries, categories }: Props) {
                 className={`shrink-0 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[.12em] transition-all
                   ${
                     activeCategory === cat
-                      ? "border-[#10233f] bg-[#10233f] text-white shadow"
-                      : "border-slate-200 bg-white text-slate-600 hover:border-[#b18a3d] hover:text-[#b18a3d]"
+                      ? "border-[#80142b] bg-[#80142b] text-white shadow"
+                      : "border-slate-200 bg-white text-slate-600 hover:border-[#c59b27] hover:text-[#80142b]"
                   }`}
                 aria-pressed={activeCategory === cat}
               >
@@ -176,7 +176,7 @@ export default function MinistriesGrid({ ministries, categories }: Props) {
             </p>
             <button
               onClick={() => { setQuery(""); setActiveCategory("All"); }}
-              className="mt-5 rounded-full border border-[#b18a3d] px-5 py-2 text-sm font-semibold text-[#b18a3d] hover:bg-[#b18a3d] hover:text-white"
+              className="mt-5 rounded-full border border-[#80142b] px-5 py-2 text-sm font-semibold text-[#80142b] hover:bg-[#80142b] hover:text-white"
             >
               Clear filters
             </button>
@@ -184,8 +184,8 @@ export default function MinistriesGrid({ ministries, categories }: Props) {
         )}
 
         {/* ── CTA ── */}
-        <div className="mt-16 rounded-3xl bg-[#10233f] px-8 py-10 text-center text-white">
-          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#d8bb73]">
+        <div className="mt-16 rounded-3xl bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] px-8 py-10 text-center text-white">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#f5d77f]">
             Get Involved
           </p>
           <h2 className="mt-3 text-2xl font-bold md:text-3xl">

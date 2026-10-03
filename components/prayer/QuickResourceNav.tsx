@@ -21,19 +21,19 @@ export default function QuickResourceNav({ onCategorySelect }: QuickResourceNavP
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Calendar":
-        return <Calendar className="h-6 w-6 text-[#b18a3d] transition-transform duration-300 group-hover:scale-110" />;
+        return <Calendar className="h-6 w-6 text-[#80142b] transition-transform duration-300 group-hover:scale-110" />;
       case "BookOpen":
-        return <BookOpen className="h-6 w-6 text-[#b18a3d] transition-transform duration-300 group-hover:scale-110" />;
+        return <BookOpen className="h-6 w-6 text-[#80142b] transition-transform duration-300 group-hover:scale-110" />;
       case "Heart":
-        return <Heart className="h-6 w-6 text-[#b18a3d] transition-transform duration-300 group-hover:scale-110" />;
+        return <Heart className="h-6 w-6 text-[#80142b] transition-transform duration-300 group-hover:scale-110" />;
       case "Music":
-        return <Music className="h-6 w-6 text-[#b18a3d] transition-transform duration-300 group-hover:scale-110" />;
+        return <Music className="h-6 w-6 text-[#80142b] transition-transform duration-300 group-hover:scale-110" />;
       case "CircleDot":
-        return <CircleDot className="h-6 w-6 text-[#b18a3d] transition-transform duration-300 group-hover:scale-110" />;
+        return <CircleDot className="h-6 w-6 text-[#80142b] transition-transform duration-300 group-hover:scale-110" />;
       case "Sparkles":
-        return <Sparkles className="h-6 w-6 text-[#b18a3d] transition-transform duration-300 group-hover:scale-110" />;
+        return <Sparkles className="h-6 w-6 text-[#80142b] transition-transform duration-300 group-hover:scale-110" />;
       default:
-        return <Sparkles className="h-6 w-6 text-[#b18a3d]" />;
+        return <Sparkles className="h-6 w-6 text-[#80142b]" />;
     }
   };
 
@@ -64,27 +64,27 @@ export default function QuickResourceNav({ onCategorySelect }: QuickResourceNavP
                 }
               }}
               aria-label={`Explore ${cat.name}: ${cat.description}`}
-              className="group relative flex flex-col justify-between rounded-3xl border border-[#e7dec8] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#b18a3d] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#b18a3d] focus:ring-offset-2 cursor-pointer"
+              className="group relative flex flex-col justify-between rounded-3xl border border-[#e7dec8] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#c59b27] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#c59b27] focus:ring-offset-2 cursor-pointer"
             >
               {/* Card Header & Icon */}
               <div>
                 <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fbf8f1] border border-[#d8bb73]/30 transition-colors duration-300 group-hover:bg-[#10233f] group-hover:border-[#10233f]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fbf8f1] border border-[#c59b27]/30 transition-colors duration-300 group-hover:bg-[#80142b] group-hover:border-[#80142b]">
                     {React.cloneElement(getIcon(cat.iconName), {
                       className:
-                        "h-6 w-6 text-[#b18a3d] group-hover:text-[#d8bb73] transition-colors duration-300 group-hover:scale-110"
+                        "h-6 w-6 text-[#80142b] group-hover:text-[#f5d77f] transition-colors duration-300 group-hover:scale-110"
                     })}
                   </div>
-                  <span className="rounded-full bg-[#f2eee5] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#10233f]">
+                  <span className="rounded-full bg-[#f2eee5] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#1f040b]">
                     {cat.badgeText}
                   </span>
                 </div>
 
                 {/* Category Title */}
-                <h3 className="mt-5 text-xl font-bold tracking-tight text-[#10233f] group-hover:text-[#18365f] transition-colors">
+                <h3 className="mt-5 text-xl font-bold tracking-tight text-[#1f040b] group-hover:text-[#80142b] transition-colors">
                   {cat.name}
                 </h3>
-                <div className="mt-0.5 text-xs font-semibold text-[#b18a3d]">
+                <div className="mt-0.5 text-xs font-semibold text-[#80142b]">
                   {cat.subtitle}
                 </div>
 
@@ -95,7 +95,7 @@ export default function QuickResourceNav({ onCategorySelect }: QuickResourceNavP
               </div>
 
               {/* Action Link Button */}
-              <div className="mt-6 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#10233f] group-hover:text-[#b18a3d] transition-colors">
+              <div className="mt-6 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1f040b] group-hover:text-[#80142b] transition-colors">
                 <span>Explore {cat.name}</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </div>
