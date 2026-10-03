@@ -1,11 +1,29 @@
+export type ParishEventCategory =
+  | "ALL"
+  | "HOLY MASS"
+  | "FEAST"
+  | "NOVENA"
+  | "CATECHISM"
+  | "YOUTH"
+  | "MINISTRIES"
+  | "COMMUNITY";
+
 export type ParishEvent = {
   id: string;
   title: string;
-  date: string;
+  category?: ParishEventCategory | string;
+  date: string; // ISO date string e.g. "2026-10-11"
   time?: string;
+  location?: string;
   description?: string;
+  longDescription?: string;
+  image?: string;
   imageUrl?: string;
-  published: boolean;
+  featured?: boolean;
+  registrationUrl?: string;
+  contactPerson?: string;
+  contactPhone?: string;
+  published?: boolean;
 };
 
 export type MassTiming = {
