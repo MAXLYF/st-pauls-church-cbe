@@ -58,7 +58,7 @@ export default function PastorsPageClient() {
 
             {/* Main Heading */}
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-              Shepherds of Our Faith
+              Priests of Our Faith
             </h1>
 
             {/* Gold Divider */}
