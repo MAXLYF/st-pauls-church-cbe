@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#140207] text-white border-t-2 border-[#d4af37]/30">
+    <footer className="bg-[#140207] text-white border-t-2 border-[#d4af37]/30 print:hidden">
       <div className="container-site grid gap-10 py-14 md:grid-cols-3">
         <div>
           <div className="mb-4 flex items-center gap-3">
@@ -19,6 +19,7 @@ export default function Footer() {
         <div>
           <h3 className="mb-4 font-bold text-[#f1cf7a] tracking-wide">Quick Links</h3>
           <div className="grid grid-cols-2 gap-3 text-sm text-slate-300">
+            <Link href="/daily-mass-readings" className="hover:text-[#f1cf7a] transition-colors font-medium text-[#f1cf7a]/90">Daily Mass Readings</Link>
             <Link href="/about" className="hover:text-[#f1cf7a] transition-colors">About Parish</Link>
             <Link href="/about/pastors" className="hover:text-[#f1cf7a] transition-colors">Our Priests</Link>
             <Link href="/about/sons-of-parish" className="hover:text-[#f1cf7a] transition-colors">Sons of Parish</Link>

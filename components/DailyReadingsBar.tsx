@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
-import { ExternalLink, RefreshCw, AlertCircle, BookOpen, Languages } from "lucide-react";
+import Link from "next/link";
+import { RefreshCw, AlertCircle, BookOpen, Languages, ChevronRight } from "lucide-react";
 
 export interface ReadingItem {
   slug: string;
@@ -243,7 +244,7 @@ export default function DailyReadingsBar() {
   return (
     <aside
       aria-label="Daily Mass Readings"
-      className="relative z-40 w-full border-b border-[#c59b27]/30 bg-gradient-to-r from-[#3b0812] via-[#630f20] to-[#3b0812] text-white shadow-xs transition-colors duration-200"
+      className="relative z-40 w-full border-b border-[#c59b27]/30 bg-gradient-to-r from-[#3b0812] via-[#630f20] to-[#3b0812] text-white shadow-xs transition-colors duration-200 print:hidden"
     >
       <div className="relative flex h-10 w-full items-center overflow-hidden px-2.5 sm:px-4">
         {/* Left pinned compact badge for brand identity */}
@@ -254,15 +255,13 @@ export default function DailyReadingsBar() {
           </span>
         </div>
 
-        {/* Center scrolling ticker / state display - Clickable to open full readings */}
-        <a
-          href={targetUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Center scrolling ticker / state display - Clickable to open full readings internally */}
+        <Link
+          href={`/daily-mass-readings?lang=${language}&date=${currentDateStr || getLocalDateString()}`}
           title={
             language === "ta"
-              ? "இன்றைய முழு திருப்பலி வாசகங்களைக் காண கிளிக் செய்யவும்"
-              : "Click to view today's complete Daily Mass Readings"
+              ? "முழு திருப்பலி வாசகங்களையும் வாசிக்க கிளிக் செய்யவும்"
+              : "Click to read today's complete Daily Mass Readings"
           }
           className="group relative flex-1 overflow-hidden h-full flex items-center cursor-pointer px-2 sm:px-3 focus:outline-hidden focus:ring-1 focus:ring-[#f5d77f]/60"
         >
@@ -272,7 +271,7 @@ export default function DailyReadingsBar() {
               <span>
                 {language === "ta"
                   ? "இன்றைய திருப்பலி வாசகங்கள் பெறப்படுகின்றன..."
-                  : "Determining today's Mass readings from Catholic Gallery..."}
+                  : "Loading today's Mass readings..."}
               </span>
             </div>
           )}
@@ -304,9 +303,9 @@ export default function DailyReadingsBar() {
               </div>
             </div>
           )}
-        </a>
+        </Link>
 
-        {/* Right side controls: Elegant Tamil/English Language Selector + Full readings external link */}
+        {/* Right side controls: Language Selector + Internal Full readings button */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0 pl-2 sm:pl-3 border-l border-[#c59b27]/30 bg-gradient-to-l from-[#3b0812] to-transparent z-10">
           {/* Small, elegant Language Selector Button */}
           <button
@@ -320,21 +319,19 @@ export default function DailyReadingsBar() {
             <span>{language === "en" ? "தமிழ்" : "English"}</span>
           </button>
 
-          {/* Full Readings Link icon */}
-          <a
-            href={targetUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Full Readings Internal Link */}
+          <Link
+            href={`/daily-mass-readings?lang=${language}&date=${currentDateStr || getLocalDateString()}`}
             title={
               language === "ta"
-                ? "இன்றைய முழு திருப்பலி வாசகங்கள் (Catholic Gallery)"
-                : "Full Readings on Catholic Gallery"
+                ? "முழு திருப்பலி வாசகங்களை வாசிக்கவும்"
+                : "Read Complete Daily Mass Readings"
             }
-            className="hidden sm:inline-flex items-center gap-1 text-[11px] text-[#f5d77f] font-semibold hover:text-white transition-colors cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-1 rounded-md bg-white/10 hover:bg-white/20 border border-[#f5d77f]/40 px-2 py-0.5 text-[11px] text-[#f5d77f] font-semibold hover:text-white transition-all cursor-pointer"
           >
-            <span className="hidden md:inline">{language === "ta" ? "முழு வாசகங்கள்" : "Full"}</span>
-            <ExternalLink className="h-3.5 w-3.5 shrink-0 hover:translate-x-0.5 hover:-translate-y-0.5 transition-transform" />
-          </a>
+            <span>{language === "ta" ? "முழு வாசகங்கள்" : "Full Reading"}</span>
+            <ChevronRight className="h-3 w-3 shrink-0" />
+          </Link>
         </div>
       </div>
     </aside>
