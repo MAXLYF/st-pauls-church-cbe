@@ -31,16 +31,16 @@ export default function SonsOfParishPage() {
       />
 
       {/* Hero Header Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#10233f] via-[#142c4f] to-[#10233f] py-16 md:py-24 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] py-16 md:py-24 text-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-[#d8bb73]/10 blur-3xl"
+          className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-[#c59b27]/10 blur-3xl"
         />
 
         <div className="container-site relative z-10 text-center">
           <div className="mx-auto max-w-3xl">
             {/* Small Gold Uppercase Label */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#d8bb73]/30 bg-[#18365f]/90 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#d8bb73] uppercase shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-sm backdrop-blur">
               SONS OF THE PARISH
             </div>
 
@@ -50,7 +50,7 @@ export default function SonsOfParishPage() {
             </h1>
 
             {/* Gold Divider */}
-            <div className="mx-auto mt-3 h-1 w-20 bg-[#d8bb73] rounded-full" />
+            <div className="mx-auto mt-3 h-1 w-20 bg-[#c59b27] rounded-full" />
 
             {/* Subtitle */}
             <p className="mt-5 text-base md:text-lg font-medium text-slate-200 leading-relaxed italic">
@@ -64,13 +64,13 @@ export default function SonsOfParishPage() {
       <section className="py-10 md:py-14 border-b border-[#e7dec8]/80 bg-white">
         <div className="container-site max-w-3xl text-center">
           <div className="rounded-3xl bg-[#fbf8f1] p-6 sm:p-8 md:p-10 border border-[#e7dec8] shadow-xs">
-            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#f2eee5] text-[#b18a3d]">
+            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#781226]/10 text-[#80142b]">
               <HeartHandshake className="h-5 w-5" />
             </div>
             <p className="text-sm md:text-base leading-relaxed text-slate-700 font-medium">
               &ldquo;Our parish is grateful for the men and women who have heard God&apos;s call and dedicated their lives to the service of the Church.&rdquo;
             </p>
-            <div className="mt-4 text-xs font-bold uppercase tracking-wider text-[#b18a3d]">
+            <div className="mt-4 text-xs font-bold uppercase tracking-wider text-[#80142b]">
               Parish Vocations &amp; Consecrated Life
             </div>
           </div>
@@ -93,13 +93,13 @@ export default function SonsOfParishPage() {
 
           {/* Footer Vocation Prayer Message */}
           <div className="mt-16 text-center max-w-2xl mx-auto rounded-3xl bg-white border border-[#e7dec8] p-8 md:p-10 shadow-sm">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#f2eee5] text-[#b18a3d] border border-[#d8bb73]/30">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#781226]/10 text-[#80142b] border border-[#c59b27]/30">
               <Sparkles className="h-6 w-6" />
             </div>
-            <p className="text-base md:text-lg font-serif italic text-[#10233f] leading-relaxed">
+            <p className="text-base md:text-lg font-serif italic text-[#1f040b] leading-relaxed">
               &ldquo;We continue to pray for more vocations from our parish. May God bless and strengthen them in their journey.&rdquo;
             </p>
-            <div className="mt-4 text-xs font-bold uppercase tracking-widest text-[#b18a3d]">
+            <div className="mt-4 text-xs font-bold uppercase tracking-widest text-[#80142b]">
               St. Paul&apos;s Church Vocation Prayer
             </div>
           </div>
@@ -112,13 +112,13 @@ export default function SonsOfParishPage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#10233f] bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#10233f] transition hover:bg-[#10233f] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#80142b] bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#80142b] transition hover:bg-[#80142b] hover:text-white"
               >
                 ← About the Parish
               </Link>
               <Link
                 href="/about/pastors"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#10233f] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#d8bb73] transition hover:bg-[#18365f]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#80142b] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#f5d77f] transition hover:bg-[#9e1c36]"
               >
                 Our Pastors Through the Years →
               </Link>

@@ -39,8 +39,8 @@ export default function PastorProfile({
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
         {/* LEFT COLUMN: Large Pastor Portrait */}
         <div className="md:col-span-5 flex flex-col items-center">
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-3xl p-1.5 bg-gradient-to-br from-[#d8bb73] via-[#b18a3d] to-[#10233f] shadow-md">
-            <div className="relative h-full w-full overflow-hidden rounded-[22px] bg-[#10233f] flex items-center justify-center">
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-3xl p-1.5 bg-gradient-to-br from-[#f5d77f] via-[#c59b27] to-[#1b0308] shadow-md">
+            <div className="relative h-full w-full overflow-hidden rounded-[22px] bg-[#1b0308] flex items-center justify-center">
               {!imgError && photoSrc ? (
                 <Image
                   src={photoSrc}
@@ -54,7 +54,7 @@ export default function PastorProfile({
               ) : (
                 /* Respectful clerical badge with Cross & Initials */
                 <div className="flex flex-col items-center justify-center p-6 text-center text-white select-none">
-                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-[#18365f] border border-[#d8bb73]/40 text-[#d8bb73]">
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-[#80142b]/30 border border-[#c59b27]/40 text-[#f5d77f]">
                     <svg
                       className="h-5 w-5"
                       fill="currentColor"
@@ -64,7 +64,7 @@ export default function PastorProfile({
                       <path d="M11 2v6H5v2h6v12h2V10h6V8h-6V2h-2z" />
                     </svg>
                   </div>
-                  <span className="font-serif text-3xl font-bold tracking-wider text-[#d8bb73]">
+                  <span className="font-serif text-3xl font-bold tracking-wider text-[#f5d77f]">
                     {initials}
                   </span>
                   <span className="mt-1 text-xs font-semibold uppercase tracking-widest text-slate-300">
@@ -76,7 +76,7 @@ export default function PastorProfile({
           </div>
 
           {/* Sequence Badge */}
-          <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#fbf8f1] px-3.5 py-1 text-xs font-semibold text-[#10233f] border border-[#e7dec8]">
+          <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#fbf8f1] px-3.5 py-1 text-xs font-semibold text-[#1f040b] border border-[#e7dec8]">
             <span>Priest {currentIndex + 1} of {totalPastors}</span>
           </div>
         </div>
@@ -84,20 +84,20 @@ export default function PastorProfile({
         {/* RIGHT COLUMN: Pastoral Ministry Details */}
         <div className="md:col-span-7 flex flex-col justify-center text-center md:text-left">
           {/* Small Label */}
-          <div className="text-xs font-bold tracking-[.25em] text-[#b18a3d] uppercase">
+          <div className="text-xs font-bold tracking-[.25em] text-[#80142b] uppercase">
             PASTORAL MINISTRY
           </div>
 
           {/* Pastor Name */}
-          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#10233f]">
+          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#1f040b]">
             {pastor.name}
           </h2>
 
           {/* Service Period */}
           <div className="mt-3 flex items-center justify-center md:justify-start gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#10233f] px-3.5 py-1 text-xs sm:text-sm font-bold text-[#d8bb73] border border-[#b18a3d]/30 shadow-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#1b0308] px-3.5 py-1 text-xs sm:text-sm font-bold text-[#f5d77f] border border-[#c59b27]/30 shadow-xs">
               <svg
-                className="h-3.5 w-3.5 text-[#d8bb73]"
+                className="h-3.5 w-3.5 text-[#f5d77f]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -118,7 +118,7 @@ export default function PastorProfile({
           </div>
 
           {/* Gold Divider */}
-          <div className="my-5 h-0.5 w-16 bg-[#d8bb73] rounded-full mx-auto md:mx-0" />
+          <div className="my-5 h-0.5 w-16 bg-[#c59b27] rounded-full mx-auto md:mx-0" />
 
           {/* Description */}
           {pastor.description ? (
@@ -141,7 +141,7 @@ export default function PastorProfile({
               className={`inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition ${
                 currentIndex === 0
                   ? "opacity-40 cursor-not-allowed bg-slate-100 text-slate-400"
-                  : "bg-[#f2eee5] text-[#10233f] hover:bg-[#10233f] hover:text-[#d8bb73]"
+                  : "bg-[#f2eee5] text-[#80142b] hover:bg-[#80142b] hover:text-[#f5d77f]"
               }`}
             >
               <ChevronLeft className="h-4 w-4" />
@@ -160,7 +160,7 @@ export default function PastorProfile({
               className={`inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider transition ${
                 currentIndex === totalPastors - 1
                   ? "opacity-40 cursor-not-allowed bg-slate-100 text-slate-400"
-                  : "bg-[#f2eee5] text-[#10233f] hover:bg-[#10233f] hover:text-[#d8bb73]"
+                  : "bg-[#f2eee5] text-[#80142b] hover:bg-[#80142b] hover:text-[#f5d77f]"
               }`}
             >
               <span>Next</span>

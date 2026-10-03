@@ -60,10 +60,10 @@ export default function PastorYearSelector({
                     onClick={() => onSelectPastor(pastor.id)}
                     aria-label={`View pastor history for ${pastor.startYear}`}
                     aria-pressed={isActive}
-                    className={`group relative flex items-center justify-center rounded-full px-4 py-2 text-xs md:text-sm font-bold tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#b18a3d] focus:ring-offset-2 ${
+                    className={`group relative flex items-center justify-center rounded-full px-4 py-2 text-xs md:text-sm font-bold tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#c59b27] focus:ring-offset-2 ${
                       isActive
-                        ? "bg-[#10233f] text-[#d8bb73] border-2 border-[#b18a3d] shadow-lg scale-105"
-                        : "bg-white text-slate-700 hover:text-[#10233f] hover:bg-[#f2eee5] border border-[#e7dec8] shadow-xs"
+                        ? "bg-[#80142b] text-[#f5d77f] border-2 border-[#c59b27] shadow-lg scale-105"
+                        : "bg-white text-slate-700 hover:text-[#80142b] hover:bg-[#f2eee5] border border-[#e7dec8] shadow-xs"
                     }`}
                   >
                     <span>{pastor.startYear}</span>
@@ -72,7 +72,7 @@ export default function PastorYearSelector({
                     {isActive && (
                       <span
                         aria-hidden="true"
-                        className="ml-1.5 h-1.5 w-1.5 rounded-full bg-[#d8bb73] animate-pulse"
+                        className="ml-1.5 h-1.5 w-1.5 rounded-full bg-[#f5d77f] animate-pulse"
                       />
                     )}
                   </button>
@@ -82,7 +82,7 @@ export default function PastorYearSelector({
                 {!isLast && (
                   <div
                     aria-hidden="true"
-                    className="flex-1 min-w-[28px] sm:min-w-[36px] md:min-w-[48px] h-[2px] bg-gradient-to-r from-[#d8bb73]/60 via-[#b18a3d]/80 to-[#d8bb73]/60 mx-1.5 md:mx-2 self-center rounded-full"
+                    className="flex-1 min-w-[28px] sm:min-w-[36px] md:min-w-[48px] h-[2px] bg-gradient-to-r from-[#f5d77f]/60 via-[#c59b27]/80 to-[#f5d77f]/60 mx-1.5 md:mx-2 self-center rounded-full"
                   />
                 )}
               </React.Fragment>

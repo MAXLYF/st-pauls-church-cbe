@@ -39,14 +39,14 @@ export default function PrayerSearchBar({
     <div className="rounded-3xl border border-[#e7dec8] bg-white p-5 shadow-sm md:p-6">
       {/* Search Input Bar */}
       <div className="relative flex items-center">
-        <Search className="pointer-events-none absolute left-4 h-5 w-5 text-[#b18a3d]" />
+        <Search className="pointer-events-none absolute left-4 h-5 w-5 text-[#80142b]" />
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search prayers, novenas, Bible resources, hymns..."
           aria-label="Search spiritual resources"
-          className="w-full rounded-2xl border border-slate-200 bg-[#fbf8f1]/60 py-3.5 pl-12 pr-10 text-sm text-[#10233f] placeholder-slate-400 outline-none transition-all focus:border-[#b18a3d] focus:bg-white focus:ring-2 focus:ring-[#b18a3d]/20"
+          className="w-full rounded-2xl border border-slate-200 bg-[#fbf8f1]/60 py-3.5 pl-12 pr-10 text-sm text-[#1f040b] placeholder-slate-400 outline-none transition-all focus:border-[#80142b] focus:bg-white focus:ring-2 focus:ring-[#80142b]/20"
         />
         {searchQuery && (
           <button
@@ -65,7 +65,7 @@ export default function PrayerSearchBar({
         {/* Category Pills (horizontally scrollable on mobile) */}
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none lg:pb-0">
           <span className="hidden items-center gap-1 text-xs font-bold text-slate-400 sm:flex">
-            <SlidersHorizontal className="h-3.5 w-3.5 text-[#b18a3d]" />
+            <SlidersHorizontal className="h-3.5 w-3.5 text-[#80142b]" />
             Type:
           </span>
           {categories.map((cat) => (
@@ -75,8 +75,8 @@ export default function PrayerSearchBar({
               onClick={() => onCategoryChange(cat.id)}
               className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
                 selectedCategory === cat.id
-                  ? "bg-[#10233f] text-[#d8bb73] shadow-sm scale-102"
-                  : "bg-[#f2eee5] text-slate-700 hover:bg-[#e7dec8] hover:text-[#10233f]"
+                  ? "bg-[#80142b] text-[#f5d77f] shadow-sm scale-102"
+                  : "bg-[#f2eee5] text-slate-700 hover:bg-[#e7dec8] hover:text-[#80142b]"
               }`}
             >
               {cat.label}
@@ -95,8 +95,8 @@ export default function PrayerSearchBar({
                 onClick={() => onLanguageChange(lang)}
                 className={`rounded-full px-3 py-1 text-xs font-semibold transition-all ${
                   selectedLanguage === lang
-                    ? "bg-white text-[#10233f] shadow-xs"
-                    : "text-slate-600 hover:text-[#10233f]"
+                    ? "bg-white text-[#80142b] shadow-xs"
+                    : "text-slate-600 hover:text-[#80142b]"
                 }`}
               >
                 {lang}
@@ -112,17 +112,17 @@ export default function PrayerSearchBar({
           <div>
             Showing filters:{" "}
             {selectedCategory !== "all" && (
-              <span className="font-semibold text-[#10233f] capitalize mr-2">
+              <span className="font-semibold text-[#1f040b] capitalize mr-2">
                 • {selectedCategory}
               </span>
             )}
             {selectedLanguage !== "All" && (
-              <span className="font-semibold text-[#10233f] mr-2">
+              <span className="font-semibold text-[#1f040b] mr-2">
                 • {selectedLanguage}
               </span>
             )}
             {searchQuery && (
-              <span className="font-semibold text-[#10233f]">
+              <span className="font-semibold text-[#1f040b]">
                 • &ldquo;{searchQuery}&rdquo;
               </span>
             )}
@@ -134,7 +134,7 @@ export default function PrayerSearchBar({
               onCategoryChange("all");
               onLanguageChange("All");
             }}
-            className="font-semibold text-[#b18a3d] hover:underline"
+            className="font-semibold text-[#80142b] hover:underline"
           >
             Reset Filters
           </button>

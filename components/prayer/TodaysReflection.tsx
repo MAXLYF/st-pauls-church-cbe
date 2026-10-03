@@ -19,29 +19,29 @@ export default function TodaysReflection({ reflection }: TodaysReflectionProps) 
         <div className="overflow-hidden rounded-3xl border border-[#e7dec8] bg-white shadow-md">
           <div className="grid gap-0 lg:grid-cols-12">
             {/* Left Column: Quotation Card / Verse Display */}
-            <div className="relative flex flex-col justify-between bg-gradient-to-br from-[#10233f] via-[#142c4f] to-[#18365f] p-8 text-white md:p-12 lg:col-span-5">
+            <div className="relative flex flex-col justify-between bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] p-8 text-white md:p-12 lg:col-span-5">
               {/* Background Cross Motif */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute bottom-4 right-4 opacity-10"
               >
-                <Quote className="h-32 w-32 text-[#d8bb73]" />
+                <Quote className="h-32 w-32 text-[#f5d77f]" />
               </div>
 
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#d8bb73]/30 bg-[#18365f]/80 px-3.5 py-1 text-xs font-bold tracking-[.2em] text-[#d8bb73]">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#c59b27]/30 bg-[#80142b]/60 px-3.5 py-1 text-xs font-bold tracking-[.2em] text-[#f5d77f]">
                   <Sparkles className="h-3.5 w-3.5" />
                   DAILY INSPIRATION
                 </div>
 
                 <div className="mt-8">
-                  <Quote className="h-8 w-8 text-[#d8bb73]/80" />
+                  <Quote className="h-8 w-8 text-[#f5d77f]/80" />
                   <blockquote className="mt-4 font-serif text-xl italic leading-relaxed text-slate-100 md:text-2xl">
                     {hasContent && reflection?.verse
                       ? `“${reflection.verse}”`
                       : "“Be still, and know that I am God.”"}
                   </blockquote>
-                  <cite className="mt-4 block text-xs font-bold uppercase tracking-widest text-[#d8bb73] not-italic">
+                  <cite className="mt-4 block text-xs font-bold uppercase tracking-widest text-[#f5d77f] not-italic">
                     {hasContent && reflection?.reference
                       ? reflection.reference
                       : "Psalm 46:10"}
@@ -50,7 +50,7 @@ export default function TodaysReflection({ reflection }: TodaysReflectionProps) 
               </div>
 
               <div className="mt-8 flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-slate-300">
-                <Clock className="h-4 w-4 text-[#d8bb73]" />
+                <Clock className="h-4 w-4 text-[#f5d77f]" />
                 <span>Updated daily for parish meditation</span>
               </div>
             </div>
@@ -58,24 +58,24 @@ export default function TodaysReflection({ reflection }: TodaysReflectionProps) 
             {/* Right Column: Reflection Information & Content */}
             <div className="flex flex-col justify-between p-8 md:p-12 lg:col-span-7">
               <div>
-                <div className="text-xs font-bold tracking-[.25em] text-[#b18a3d] uppercase">
+                <div className="text-xs font-bold tracking-[.25em] text-[#80142b] uppercase">
                   TODAY&apos;S REFLECTION
                 </div>
 
-                <h2 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-[#10233f]">
+                <h2 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-[#1f040b]">
                   {hasContent && reflection?.title
                     ? reflection.title
                     : "Spiritual Food for the Soul"}
                 </h2>
 
-                <div className="mt-3 h-0.5 w-12 bg-[#b18a3d]" />
+                <div className="mt-3 h-0.5 w-12 bg-[#c59b27]" />
 
                 <div className="mt-6 text-sm md:text-base leading-relaxed text-slate-600 space-y-4">
                   {hasContent && reflection?.content ? (
                     <p>{reflection.content}</p>
                   ) : (
                     <div className="rounded-2xl bg-[#fbf8f1] p-6 border border-[#e7dec8]/80 text-slate-600">
-                      <p className="font-medium text-[#10233f]">
+                      <p className="font-medium text-[#1f040b]">
                         Today&apos;s reflection will be updated soon.
                       </p>
                       <p className="mt-2 text-xs text-slate-500 leading-normal">
@@ -88,13 +88,13 @@ export default function TodaysReflection({ reflection }: TodaysReflectionProps) 
 
               <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-6">
                 <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-                  <BookOpen className="h-4 w-4 text-[#b18a3d]" />
+                  <BookOpen className="h-4 w-4 text-[#80142b]" />
                   <span>Roman Catholic Liturgical Calendar</span>
                 </div>
 
                 <a
                   href="#bible-section"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#10233f] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#18365f]"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#80142b] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#9e1c36]"
                 >
                   <span>Explore Scripture</span>
                   <ArrowRight className="h-3.5 w-3.5" />

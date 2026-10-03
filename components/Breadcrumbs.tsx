@@ -21,7 +21,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         <li className="flex items-center">
           <Link
             href="/"
-            className="flex items-center gap-1 text-slate-500 transition hover:text-[#b18a3d]"
+            className="flex items-center gap-1 text-slate-500 transition hover:text-[#80142b]"
           >
             <Home className="h-3.5 w-3.5" />
             <span>Home</span>
@@ -37,12 +37,12 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className="text-slate-500 transition hover:text-[#b18a3d]"
+                  className="text-slate-500 transition hover:text-[#80142b]"
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span className="font-semibold text-[#10233f]" aria-current="page">
+                <span className="font-semibold text-[#1f040b]" aria-current="page">
                   {item.label}
                 </span>
               )}

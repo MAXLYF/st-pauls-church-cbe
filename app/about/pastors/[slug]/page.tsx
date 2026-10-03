@@ -44,7 +44,7 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
       <div className="container-site max-w-3xl mt-6">
         <Link
           href="/about/pastors"
-          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#10233f] hover:text-[#b18a3d] transition"
+          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#80142b] hover:text-[#c59b27] transition"
         >
           <ArrowLeft className="h-4 w-4" />
           <span>Back to Pastors Timeline</span>
@@ -52,7 +52,7 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
 
         <div className="mt-6 overflow-hidden rounded-3xl border border-[#e7dec8] bg-white p-8 md:p-12 shadow-md">
           <div className="flex flex-col items-center text-center">
-            <div className="relative h-40 w-40 overflow-hidden rounded-3xl border-4 border-[#d8bb73] bg-[#10233f] shadow-lg">
+            <div className="relative h-40 w-40 overflow-hidden rounded-3xl border-4 border-[#d4af37] bg-[#781226] shadow-lg">
               {pastor.image ? (
                 <Image
                   src={pastor.image}
@@ -62,26 +62,26 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center text-white">
-                  <User className="h-16 w-16 text-[#d8bb73]" />
+                  <User className="h-16 w-16 text-[#f5d77f]" />
                 </div>
               )}
             </div>
 
-            <h1 className="mt-6 text-3xl font-bold text-[#10233f]">
+            <h1 className="mt-6 text-3xl font-bold text-[#1f040b]">
               {pastor.name}
             </h1>
 
-            <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-[#f2eee5] px-4 py-1 text-xs font-bold text-[#10233f]">
-              <Calendar className="h-3.5 w-3.5 text-[#b18a3d]" />
+            <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-[#781226]/10 px-4 py-1 text-xs font-bold text-[#1f040b]">
+              <Calendar className="h-3.5 w-3.5 text-[#80142b]" />
               <span>{pastor.displayPeriod}</span>
             </div>
 
-            <p className="mt-1 text-xs font-bold text-[#b18a3d] uppercase tracking-wider">
+            <p className="mt-1 text-xs font-bold text-[#80142b] uppercase tracking-wider">
               {pastor.role || "Parish Priest"}
             </p>
 
             <div className="mt-8 rounded-2xl bg-[#fbf8f1] p-6 text-slate-700 leading-relaxed text-sm border border-[#e7dec8] w-full text-left">
-              <p className="font-semibold text-[#10233f]">
+              <p className="font-semibold text-[#80142b]">
                 Parish Ministry &amp; Pastoral Legacy
               </p>
               <p className="mt-2 text-slate-600">

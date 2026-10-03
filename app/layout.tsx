@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import DailyReadingsBar from "@/components/DailyReadingsBar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <Navbar />
+        <DailyReadingsBar />
         <main>{children}</main>
         <Footer />
       </body>

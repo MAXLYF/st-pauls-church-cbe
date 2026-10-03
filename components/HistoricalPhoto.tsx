@@ -48,10 +48,10 @@ export default function HistoricalPhoto({
   return (
     <div className="mt-20 border-t border-[#e7dec8] pt-16">
       <div className="mx-auto max-w-3xl text-center">
-        <div className="text-xs font-bold tracking-[.25em] text-[#b18a3d] uppercase">
+        <div className="text-xs font-bold tracking-[.25em] text-[#80142b] uppercase">
           OUR JOURNEY
         </div>
-        <h3 className="mt-2 text-2xl md:text-3xl font-bold text-[#10233f]">
+        <h3 className="mt-2 text-2xl md:text-3xl font-bold text-[#1f040b]">
           Historical Parish Archive
         </h3>
         <div className="gold-line" />
@@ -72,16 +72,16 @@ export default function HistoricalPhoto({
             }
           }}
           aria-label={`View full historical image: ${caption}`}
-          className="group relative cursor-pointer overflow-hidden rounded-3xl border-4 border-[#e7dec8] bg-white p-2 shadow-lg transition-all duration-300 hover:border-[#b18a3d] hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#b18a3d]/30"
+          className="group relative cursor-pointer overflow-hidden rounded-3xl border-4 border-[#e7dec8] bg-white p-2 shadow-lg transition-all duration-300 hover:border-[#c59b27] hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#c59b27]/30"
         >
           {/* Decorative Corner Accents */}
-          <div className="pointer-events-none absolute top-3 left-3 z-10 h-6 w-6 border-t-2 border-l-2 border-[#d8bb73]" />
-          <div className="pointer-events-none absolute top-3 right-3 z-10 h-6 w-6 border-t-2 border-r-2 border-[#d8bb73]" />
-          <div className="pointer-events-none absolute bottom-3 left-3 z-10 h-6 w-6 border-b-2 border-l-2 border-[#d8bb73]" />
-          <div className="pointer-events-none absolute bottom-3 right-3 z-10 h-6 w-6 border-b-2 border-r-2 border-[#d8bb73]" />
+          <div className="pointer-events-none absolute top-3 left-3 z-10 h-6 w-6 border-t-2 border-l-2 border-[#c59b27]" />
+          <div className="pointer-events-none absolute top-3 right-3 z-10 h-6 w-6 border-t-2 border-r-2 border-[#c59b27]" />
+          <div className="pointer-events-none absolute bottom-3 left-3 z-10 h-6 w-6 border-b-2 border-l-2 border-[#c59b27]" />
+          <div className="pointer-events-none absolute bottom-3 right-3 z-10 h-6 w-6 border-b-2 border-r-2 border-[#c59b27]" />
 
           {/* Archival Image View */}
-          <div className="relative h-72 sm:h-96 md:h-[420px] w-full overflow-hidden rounded-2xl bg-[#10233f]">
+          <div className="relative h-72 sm:h-96 md:h-[420px] w-full overflow-hidden rounded-2xl bg-[#1b0308]">
             <Image
               src={imageSrc}
               alt={caption}
@@ -90,10 +90,10 @@ export default function HistoricalPhoto({
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Subtle Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#10233f]/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1b0308]/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
             {/* Click to Zoom Badge */}
-            <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-[#10233f]/90 px-4 py-2 text-xs font-semibold text-[#d8bb73] backdrop-blur-sm border border-[#d8bb73]/40 shadow-lg group-hover:bg-[#10233f] group-hover:scale-105 transition-all">
+            <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-[#1b0308]/90 px-4 py-2 text-xs font-semibold text-[#f5d77f] backdrop-blur-sm border border-[#c59b27]/40 shadow-lg group-hover:bg-[#1b0308] group-hover:scale-105 transition-all">
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -113,7 +113,7 @@ export default function HistoricalPhoto({
 
           {/* Caption */}
           <div className="py-4 text-center">
-            <p className="font-serif text-base md:text-lg font-semibold text-[#10233f] italic">
+            <p className="font-serif text-base md:text-lg font-semibold text-[#1f040b] italic">
               &ldquo;{caption}&rdquo;
             </p>
             <p className="mt-1 text-xs text-slate-500 uppercase tracking-widest">
@@ -142,7 +142,7 @@ export default function HistoricalPhoto({
               type="button"
               onClick={() => setIsZoomed(!isZoomed)}
               aria-label={isZoomed ? "Zoom out" : "Zoom in"}
-              className="flex items-center gap-1.5 rounded-full bg-[#10233f]/90 px-4 py-2 text-xs font-semibold text-[#d8bb73] border border-[#d8bb73]/40 shadow-lg hover:bg-[#18365f] transition"
+              className="flex items-center gap-1.5 rounded-full bg-[#1b0308]/90 px-4 py-2 text-xs font-semibold text-[#f5d77f] border border-[#c59b27]/40 shadow-lg hover:bg-[#80142b] transition"
             >
               <svg
                 className="h-4 w-4"
@@ -173,7 +173,7 @@ export default function HistoricalPhoto({
               type="button"
               onClick={handleClose}
               aria-label="Close lightbox"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur hover:bg-white/40 focus:outline-none focus:ring-2 focus:ring-[#d8bb73] transition"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur hover:bg-white/40 focus:outline-none focus:ring-2 focus:ring-[#c59b27] transition"
             >
               <svg
                 className="h-6 w-6"
@@ -189,7 +189,7 @@ export default function HistoricalPhoto({
 
           {/* Modal Content */}
           <div
-            className="relative max-h-[85vh] max-w-5xl overflow-auto rounded-2xl bg-[#10233f] p-3 text-center shadow-2xl border border-[#d8bb73]/30"
+            className="relative max-h-[85vh] max-w-5xl overflow-auto rounded-2xl bg-[#1b0308] p-3 text-center shadow-2xl border border-[#c59b27]/30"
             onClick={(e) => e.stopPropagation()}
           >
             <div
@@ -207,7 +207,7 @@ export default function HistoricalPhoto({
               />
             </div>
             <div className="mt-3 px-4 pb-2 text-center">
-              <p className="font-serif text-lg font-semibold text-[#d8bb73]">
+              <p className="font-serif text-lg font-semibold text-[#f5d77f]">
                 {caption}
               </p>
               <p className="mt-1 text-xs text-slate-300">

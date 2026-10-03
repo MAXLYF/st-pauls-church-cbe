@@ -50,12 +50,12 @@ export default function TodaySchedule({ scheduleMap }: Props) {
       <div className="container-site">
         <div className="mx-auto max-w-3xl">
           <div className="flex items-center gap-3 mb-5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#10233f]">
-              <CalendarDays className="h-5 w-5 text-[#d8bb73]" aria-hidden="true" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#80142b] shadow-xs">
+              <CalendarDays className="h-5 w-5 text-[#f5d77f]" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-[#b18a3d]">Today</p>
-              <h2 className="text-xl font-bold text-[#10233f]">{displayName}</h2>
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-[#80142b]">Today</p>
+              <h2 className="text-xl font-bold text-[#1f040b]">{displayName}</h2>
             </div>
           </div>
 
@@ -70,14 +70,14 @@ export default function TodaySchedule({ scheduleMap }: Props) {
                     key={service.id}
                     className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-[#fbf8f1] p-4 shadow-sm"
                   >
-                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${isMorning ? "bg-amber-100 text-[#b18a3d]" : "bg-slate-100 text-[#10233f]"}`}>
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${isMorning ? "bg-amber-100 text-[#80142b]" : "bg-[#781226]/10 text-[#80142b]"}`}>
                       <TodayIcon icon={service.icon} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="font-semibold text-[#10233f] truncate">{service.name}</p>
+                      <p className="font-semibold text-[#1f040b] truncate">{service.name}</p>
                       <p className="text-sm text-slate-500">{service.startTime} &ndash; {service.endTime}</p>
                     </div>
-                    <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold ${isMorning ? "bg-amber-100 text-[#b18a3d]" : "bg-slate-100 text-[#10233f]"}`}>
+                    <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold ${isMorning ? "bg-amber-100 text-[#80142b]" : "bg-[#781226]/10 text-[#80142b]"}`}>
                       {isMorning ? "AM" : "PM"}
                     </span>
                   </div>
