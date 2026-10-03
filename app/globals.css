@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --wine: #80142b;
+  --wine-dark: #1f040b;
+  --wine-deep: #140207;
+  --wine-light: #9e1c36;
+  --wine-soft: #fcf4f5;
+  --gold: #c59b27;
+  --gold-light: #eec867;
+  --gold-bright: #f5d77f;
+  --cream: #faf7f2;
+  --ink: #1f040b;
+  --muted: #6b5c5f;
+  /* Legacy alias support */
+  --navy: #80142b;
+  --navy-2: #1f040b;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Tamil", "Nirmala UI", Arial, sans-serif;
+}
+a { text-decoration: none; }
+
+.container-site {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.gold-line {
+  width: 76px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 14px auto 0;
+  border-radius: 9999px;
+}
+
+.section-pad { padding: 84px 0; }
+
+.glass {
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(212,175,55,.2);
+}
+
+.leaflet-container { height: 100%; width: 100%; z-index: 0; }
+
+/* Seamless Marquee for Daily Mass Readings */
+@keyframes readingsMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-readings-marquee {
+  display: flex;
+  width: max-content;
+  animation: readingsMarquee 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee-wrapper:hover .animate-readings-marquee,
+.animate-readings-marquee:hover {
+  animation-play-state: paused;
+}
+
