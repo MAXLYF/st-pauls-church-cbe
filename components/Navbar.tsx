@@ -82,26 +82,33 @@ export default function Navbar() {
             onMouseEnter={() => setAboutDropdownOpen(true)}
             onMouseLeave={() => setAboutDropdownOpen(false)}
           >
-            <button
-              type="button"
-              onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
-              onKeyDown={(e) => {
-                if (e.key === "Escape") setAboutDropdownOpen(false);
-              }}
-              aria-expanded={aboutDropdownOpen}
-              aria-haspopup="true"
-              aria-label="About menu"
-              className={`flex items-center gap-1 text-sm font-medium transition hover:text-[#80142b] focus:outline-none ${
-                isAboutActive ? "text-[#80142b] font-bold" : "text-slate-700"
-              }`}
-            >
-              <span>About</span>
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  aboutDropdownOpen ? "rotate-180 text-[#80142b]" : "text-slate-400"
+            <div className="flex items-center gap-1">
+              <Link
+                href="/about"
+                className={`text-sm font-medium transition hover:text-[#80142b] ${
+                  isAboutActive ? "text-[#80142b] font-bold" : "text-slate-700"
                 }`}
-              />
-            </button>
+              >
+                About
+              </Link>
+              <button
+                type="button"
+                onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") setAboutDropdownOpen(false);
+                }}
+                aria-expanded={aboutDropdownOpen}
+                aria-haspopup="true"
+                aria-label="About menu"
+                className="p-1 text-slate-400 hover:text-[#80142b] transition-colors focus:outline-hidden cursor-pointer"
+              >
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${
+                    aboutDropdownOpen ? "rotate-180 text-[#80142b]" : ""
+                  }`}
+                />
+              </button>
+            </div>
 
             {/* Dropdown Box */}
             {aboutDropdownOpen && (
@@ -200,20 +207,29 @@ export default function Navbar() {
 
             {/* Mobile About Accordion */}
             <div className="border-y border-slate-100 py-1">
-              <button
-                type="button"
-                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className={`flex w-full items-center justify-between py-2 text-sm font-medium ${
-                  isAboutActive ? "text-[#80142b] font-bold" : "text-slate-800"
-                }`}
-              >
-                <span>About</span>
-                <ChevronDown
-                  className={`h-4 w-4 text-slate-500 transition-transform ${
-                    mobileAboutOpen ? "rotate-180 text-[#80142b]" : ""
+              <div className="flex items-center justify-between py-2">
+                <Link
+                  href="/about"
+                  onClick={() => setOpen(false)}
+                  className={`text-sm font-medium ${
+                    pathname === "/about" ? "text-[#80142b] font-bold" : "text-slate-800"
                   }`}
-                />
-              </button>
+                >
+                  About
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                  aria-label="Toggle About submenu"
+                  className="p-1.5 text-slate-500 hover:text-[#80142b]"
+                >
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      mobileAboutOpen ? "rotate-180 text-[#80142b]" : ""
+                    }`}
+                  />
+                </button>
+              </div>
 
               {mobileAboutOpen && (
                 <div className="mb-2 space-y-1 pl-3 border-l-2 border-[#80142b]/40">
