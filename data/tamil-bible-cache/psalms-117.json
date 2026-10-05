@@ -1,0 +1,38 @@
+{
+  "bookSlug": "psalms",
+  "bookName": "திருப்பாடல்கள்",
+  "bookEnglishName": "Psalms",
+  "chapter": 117,
+  "testament": "OT",
+  "title": "திருப்பாடல்கள் — அதிகாரம் 117",
+  "items": [
+    {
+      "type": "subheading",
+      "text": "ஆண்டவர் போற்றி!"
+    },
+    {
+      "type": "verse",
+      "verse": "1",
+      "text": "பிற இனத்தாரே! நீங்கள் அனைவரும் ஆண்டவரைப் போற்றுங்கள்! மக்களினத்தாரே! நீங்கள் அனைவரும் அவரைப் புகழுங்கள்!"
+    },
+    {
+      "type": "verse",
+      "verse": "2",
+      "text": "ஏனெனில், ஆண்டவர் நமக்குக் காட்டும் மாறாத அன்பு மிகப்பெரியது; அவரது உண்மை என்றென்றும் நிலைத்துள்ளது. அல்லேலூயா!"
+    }
+  ],
+  "crossrefs": [
+    "117:1 உரோ 15:11."
+  ],
+  "footnotes": [],
+  "prevChapter": {
+    "bookSlug": "psalms",
+    "chapter": 116,
+    "bookName": "திருப்பாடல்கள்"
+  },
+  "nextChapter": {
+    "bookSlug": "psalms",
+    "chapter": 118,
+    "bookName": "திருப்பாடல்கள்"
+  }
+}
