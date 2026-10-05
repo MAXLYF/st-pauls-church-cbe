@@ -139,11 +139,12 @@ export default function DailyReadingsBar() {
       : dualData?.taError || "தமிழ் திருப்பலி வாசகங்கள் தற்போது கிடைக்கவில்லை. சிறிது நேரம் கழித்து முயற்சிக்கவும்.";
 
   // Target Catholic Gallery URL for the active language
+  const activeYear = currentDateStr ? parseInt(currentDateStr.split("-")[0], 10) : new Date().getFullYear();
   const targetUrl =
     currentReading?.sourceUrl ||
     (language === "ta"
-      ? "https://bible.catholicgallery.org/tamil-mass-reading/tr-2026/"
-      : "https://www.catholicgallery.org/mass-reading/daily-mass-readings-2026/");
+      ? `https://bible.catholicgallery.org/tamil-mass-reading/tr-${activeYear}/`
+      : `https://www.catholicgallery.org/mass-reading/daily-mass-readings-${activeYear}/`);
 
   // Toggle language between English and Tamil
   const handleToggleLanguage = (e: React.MouseEvent) => {

@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useTransition } from "react";
+import React, { useState, useEffect, useCallback, useTransition, useRef } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   Printer,
   Calendar,
+  CalendarDays,
   ChevronLeft,
   ChevronRight,
   BookOpen,
@@ -46,6 +47,8 @@ export interface DualReadingsApiResponse {
   date: string;
   fullEn?: FullReadingItem | null;
   fullTa?: FullReadingItem | null;
+  en?: any;
+  ta?: any;
   enError?: string | null;
   taError?: string | null;
 }
@@ -162,6 +165,7 @@ export default function DailyMassReadingsClient({
   const [isError, setIsError] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [fontSizeLevel, setFontSizeLevel] = useState<"sm" | "base" | "lg" | "xl">("base");
+  const dateInputRef = useRef<HTMLInputElement>(null);
 
   // Sync state with URL params if changed externally
   useEffect(() => {
@@ -199,7 +203,7 @@ export default function DailyMassReadingsClient({
       }
 
       const json: DualReadingsApiResponse = await res.json();
-      if (json.success && (json.fullEn || json.fullTa)) {
+      if (json.success && (json.fullEn || json.fullTa || json.en || json.ta)) {
         setReadingData(json);
         setIsError(false);
       } else {
@@ -447,18 +451,35 @@ export default function DailyMassReadingsClient({
               <label htmlFor="calendar-jump-input" className="sr-only">
                 {language === "ta" ? "தேதியைத் தேர்ந்தெடுக்கவும்" : "Select date"}
               </label>
+              <button
+                type="button"
+                onClick={() => {
+                  if (dateInputRef.current) {
+                    if ("showPicker" in HTMLInputElement.prototype) {
+                      dateInputRef.current.showPicker();
+                    } else {
+                      dateInputRef.current.focus();
+                    }
+                  }
+                }}
+                title={language === "ta" ? "தேதியைத் தேர்ந்தெடுக்கவும் (நாள் காட்டி)" : "Choose date from calendar"}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 hover:border-[#80142b] px-2.5 sm:px-3 py-1.5 text-xs sm:text-sm font-semibold text-slate-700 transition shadow-xs cursor-pointer active:scale-95"
+              >
+                <CalendarDays className="h-4 w-4 text-[#80142b]" />
+                <span className="hidden md:inline">{language === "ta" ? "தேதி" : "Date"}</span>
+              </button>
               <input
+                ref={dateInputRef}
                 id="calendar-jump-input"
                 type="date"
                 min="2026-01-01"
-                max="2026-12-31"
+                max="2027-12-31"
                 value={activeDate}
                 onChange={handleDateChange}
                 aria-label="Select Date"
-                title={language === "ta" ? "தேதியைத் தேர்ந்தெடுக்கவும்" : "Pick Date"}
-                className="w-9 h-9 p-0 rounded-lg border border-slate-300 bg-white hover:border-[#80142b] text-transparent cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#80142b] transition"
+                className="sr-only absolute pointer-events-none opacity-0 w-0 h-0"
+                tabIndex={-1}
               />
-              <Calendar className="pointer-events-none absolute left-2.5 h-4 w-4 text-[#80142b]" />
             </div>
           </div>
 

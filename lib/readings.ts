@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import readings2026Raw from "@/data/readings-2026.json";
+import readings2027Raw from "@/data/readings-2027.json";
 import fullReadingsCacheRaw from "@/data/full-readings-cache.json";
 
 export interface ReadingItem {
@@ -46,6 +47,7 @@ export interface DualReadingsData {
 }
 
 const readings2026: Record<string, { date: string; en: ReadingItem | null; ta: ReadingItem | null }> = readings2026Raw as any;
+const readings2027: Record<string, { date: string; en: ReadingItem | null; ta: ReadingItem | null }> = readings2027Raw as any;
 const fullReadingsCache: Record<string, { date: string; en: FullReadingItem | null; ta: FullReadingItem | null }> = fullReadingsCacheRaw as any;
 
 const memoryFullCache = new Map<string, { en: FullReadingItem | null; ta: FullReadingItem | null }>();
@@ -59,23 +61,49 @@ if (fullReadingsCache && typeof fullReadingsCache === "object") {
   }
 }
 
-export function cleanHtmlText(str: string | null | undefined): string {
+export function decodeEntities(str: string): string {
   if (!str) return "";
   return str
+    .replace(/&#(\d+);/g, (_, dec) => {
+      try {
+        return String.fromCharCode(Number(dec));
+      } catch {
+        return "";
+      }
+    })
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => {
+      try {
+        return String.fromCharCode(parseInt(hex, 16));
+      } catch {
+        return "";
+      }
+    })
+    .replace(/&nbsp;/g, " ")
+    .replace(/&ndash;/g, "–")
+    .replace(/&mdash;/g, "—")
+    .replace(/&lsquo;/g, "'")
+    .replace(/&rsquo;/g, "'")
+    .replace(/&#038;|&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&ldquo;/g, "“")
+    .replace(/&rdquo;/g, "”")
+    .replace(/&apos;|&#039;|&#39;/g, "'")
+    .replace(/&hellip;/g, "…")
+    .replace(/&bull;/g, "•")
+    .replace(/&laquo;/g, "«")
+    .replace(/&raquo;/g, "»")
+    .replace(/\ufffd/g, "");
+}
+
+export function cleanHtmlText(str: string | null | undefined): string {
+  if (!str) return "";
+  const cleaned = str
     .replace(/<br\s*[\/]?>/gi, "\n")
     .replace(/<[^>]+>/g, "")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&#8211;/g, "–")
-    .replace(/&ndash;/g, "–")
-    .replace(/&#8217;/g, "'")
-    .replace(/&#8216;/g, "'")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#8220;/g, "“")
-    .replace(/&#8221;/g, "”")
     .replace(/✠/g, "")
     .replace(/[ \t]+/g, " ")
     .trim();
+  return decodeEntities(cleaned);
 }
 
 export function parseEnglishFull(html: string, slug: string): FullReadingItem {
@@ -293,7 +321,7 @@ async function fetchEnglishHtml(enSlug: string, year: number): Promise<string> {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
       Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
     },
-    signal: AbortSignal.timeout(6000),
+    signal: AbortSignal.timeout(12000),
     next: { revalidate: 3600 }
   });
 
@@ -303,7 +331,8 @@ async function fetchEnglishHtml(enSlug: string, year: number): Promise<string> {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-      }
+      },
+      signal: AbortSignal.timeout(12000)
     });
 
     if (!indexRes.ok) {
@@ -323,7 +352,8 @@ async function fetchEnglishHtml(enSlug: string, year: number): Promise<string> {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-      }
+      },
+      signal: AbortSignal.timeout(12000)
     });
 
     if (!res.ok) {
@@ -343,7 +373,7 @@ async function fetchTamilHtml(taSlug: string, year: number): Promise<string> {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
       Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
     },
-    signal: AbortSignal.timeout(6000),
+    signal: AbortSignal.timeout(12000),
     next: { revalidate: 3600 }
   });
 
@@ -353,7 +383,8 @@ async function fetchTamilHtml(taSlug: string, year: number): Promise<string> {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-      }
+      },
+      signal: AbortSignal.timeout(12000)
     });
 
     if (!indexRes.ok) {
@@ -373,7 +404,8 @@ async function fetchTamilHtml(taSlug: string, year: number): Promise<string> {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-      }
+      },
+      signal: AbortSignal.timeout(12000)
     });
 
     if (!res.ok) {
@@ -406,7 +438,7 @@ export async function getReadingsForDate(dateStr: string): Promise<DualReadingsD
   const dateKey = `${year}-${mm}-${dd}`;
 
   // 1. Ticker entry
-  const tickerEntry = readings2026[dateKey];
+  const tickerEntry = year === 2027 ? (readings2027[dateKey] || null) : (readings2026[dateKey] || null);
   let enSummary: ReadingItem | null = tickerEntry?.en || null;
   let taSummary: ReadingItem | null = tickerEntry?.ta || null;
 
@@ -490,6 +522,94 @@ export async function getReadingsForDate(dateStr: string): Promise<DualReadingsD
       gospel: fullTa.gospel?.reference || null,
       dayDescription: fullTa.dayTitle,
       tickerText: parts.join(" | ")
+    };
+  }
+
+  // Graceful fallback: If full reading text is missing but lectionary references exist,
+  // synthesize structured reading items so the page NEVER displays a failure state!
+  if (!fullEn && enSummary) {
+    fullEn = {
+      slug: enSlug,
+      sourceUrl: enSummary.sourceUrl,
+      dayTitle: enSummary.dayDescription,
+      firstReading: enSummary.firstReading
+        ? {
+            heading: "First Reading",
+            reference: enSummary.firstReading,
+            paragraphs: [`Scripture Reference: ${enSummary.firstReading}`]
+          }
+        : null,
+      psalm: enSummary.psalm
+        ? {
+            heading: "Responsorial Psalm",
+            reference: enSummary.psalm,
+            paragraphs: [`Psalm Reference: ${enSummary.psalm}`]
+          }
+        : null,
+      secondReading: enSummary.secondReading
+        ? {
+            heading: "Second Reading",
+            reference: enSummary.secondReading,
+            paragraphs: [`Scripture Reference: ${enSummary.secondReading}`]
+          }
+        : null,
+      alleluia: enSummary.alleluia
+        ? {
+            heading: "Alleluia",
+            reference: enSummary.alleluia,
+            paragraphs: [`Acclamation: ${enSummary.alleluia}`]
+          }
+        : null,
+      gospel: enSummary.gospel
+        ? {
+            heading: "Gospel",
+            reference: enSummary.gospel,
+            paragraphs: [`Holy Gospel Reference: ${enSummary.gospel}`]
+          }
+        : null
+    };
+  }
+
+  if (!fullTa && taSummary) {
+    fullTa = {
+      slug: taSlug,
+      sourceUrl: taSummary.sourceUrl,
+      dayTitle: taSummary.dayDescription,
+      firstReading: taSummary.firstReading
+        ? {
+            heading: "முதல் வாசகம்",
+            reference: taSummary.firstReading,
+            paragraphs: [`திருவிவிலிய மேற்கோள்: ${taSummary.firstReading}`]
+          }
+        : null,
+      psalm: taSummary.psalm
+        ? {
+            heading: "பதிலுரைப் பாடல்",
+            reference: taSummary.psalm,
+            paragraphs: [`திருப்பாடல் மேற்கோள்: ${taSummary.psalm}`]
+          }
+        : null,
+      secondReading: taSummary.secondReading
+        ? {
+            heading: "இரண்டாம் வாசகம்",
+            reference: taSummary.secondReading,
+            paragraphs: [`திருவிவிலிய மேற்கோள்: ${taSummary.secondReading}`]
+          }
+        : null,
+      alleluia: taSummary.alleluia
+        ? {
+            heading: "நற்செய்திக்கு முன் வாழ்த்தொலி",
+            reference: taSummary.alleluia,
+            paragraphs: [`வாழ்த்தொலி மேற்கோள்: ${taSummary.alleluia}`]
+          }
+        : null,
+      gospel: taSummary.gospel
+        ? {
+            heading: "நற்செய்தி வாசகம்",
+            reference: taSummary.gospel,
+            paragraphs: [`நற்செய்தி மேற்கோள்: ${taSummary.gospel}`]
+          }
+        : null
     };
   }
 
