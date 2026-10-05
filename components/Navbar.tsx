@@ -20,6 +20,7 @@ const mainLinks = [
   { label: "Anbiyam", href: "/anbiyam" },
   { label: "Prayer", href: "/prayer" },
   { label: "Prayer Request", href: "/prayer-request", tamilLabel: "ஜெப வேண்டுகோள்" },
+  { label: "Tamil Bible", href: "/tamil-bible", tamilLabel: "திருவிவிலியம்" },
   { label: "Contact", href: "/contact" }
 ];
 
@@ -47,7 +48,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur print:hidden">
-      <div className="container-site flex h-20 items-center justify-between gap-6">
+      <div className="container-site flex h-20 items-center justify-between gap-4 xl:gap-6">
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <img
             src="/images/logo.jpg"
@@ -65,10 +66,10 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-4 xl:gap-5 lg:flex">
+        <nav className="hidden items-center gap-2.5 xl:gap-4 lg:flex">
           <Link
             href="/"
-            className={`text-sm font-medium transition hover:text-[#80142b] ${
+            className={`text-xs xl:text-sm font-medium transition hover:text-[#80142b] ${
               pathname === "/" ? "text-[#80142b] font-bold" : "text-slate-700"
             }`}
           >
@@ -85,7 +86,7 @@ export default function Navbar() {
             <div className="flex items-center gap-1">
               <Link
                 href="/about"
-                className={`text-sm font-medium transition hover:text-[#80142b] ${
+                className={`text-xs xl:text-sm font-medium transition hover:text-[#80142b] ${
                   isAboutActive ? "text-[#80142b] font-bold" : "text-slate-700"
                 }`}
               >
@@ -145,7 +146,9 @@ export default function Navbar() {
 
           {/* Other Main Links (Mass, Ministries, Events, Gallery, Videos, Prayer, Prayer Request, Contact) */}
           {mainLinks.slice(1).map((link) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              pathname === link.href ||
+              (link.href === "/tamil-bible" && pathname.startsWith("/tamil-bible"));
             const isPrayerReq = link.href === "/prayer-request";
 
             return (
@@ -160,7 +163,7 @@ export default function Navbar() {
                   }
                 }}
                 title={link.tamilLabel ? `${link.label} (${link.tamilLabel})` : link.label}
-                className={`text-sm font-medium transition hover:text-[#80142b] whitespace-nowrap ${
+                className={`text-xs xl:text-sm font-medium transition hover:text-[#80142b] whitespace-nowrap ${
                   isActive
                     ? "text-[#80142b] font-bold"
                     : isPrayerReq
@@ -255,7 +258,9 @@ export default function Navbar() {
             </div>
 
             {mainLinks.slice(1).map((link) => {
-              const isActive = pathname === link.href;
+              const isActive =
+                pathname === link.href ||
+                (link.href === "/tamil-bible" && pathname.startsWith("/tamil-bible"));
               return (
                 <Link
                   key={link.href}
