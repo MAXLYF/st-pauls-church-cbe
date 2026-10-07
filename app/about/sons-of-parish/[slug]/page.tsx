@@ -22,18 +22,18 @@ export default async function SonDetailPage({ params }: SonDetailPageProps) {
       <Breadcrumbs
         items={[
           { label: "About", href: "/about" },
-          { label: "Sons of the Parish", href: "/about/sons-of-parish" },
+          { label: "Sons of the soil", href: "/about/sons-of-the-soil" },
           { label: formattedName }
         ]}
       />
 
       <div className="container-site max-w-3xl mt-6">
         <Link
-          href="/about/sons-of-parish"
+          href="/about/sons-of-the-soil"
           className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#80142b] hover:text-[#c59b27] transition"
         >
           <ArrowLeft className="h-4 w-4" />
-          <span>Back to Sons of the Parish</span>
+          <span>Back to Sons of the soil</span>
         </Link>
 
         <div className="mt-6 overflow-hidden rounded-3xl border border-[#e7dec8] bg-white p-8 md:p-12 shadow-md">
