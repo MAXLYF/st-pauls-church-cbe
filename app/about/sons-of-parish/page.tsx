@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { parishVocations } from "@/lib/data/sons-of-parish";
+import { parishVocations } from "@/lib/data/sons-of-the-soil";
 import ParishVocationCard from "@/components/ParishVocationCard";
 import { HeartHandshake, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sons of the Parish | St. Paul's Church Rathinapuri",
+  title: "Sons of the soil | St. Paul's Church Rathinapuri",
   description:
     "Discover the priests and religious sisters connected with St. Paul's Church Rathinapuri and celebrate their vocation and service to the Church.",
   keywords: [
-    "Sons of the Parish St Paul's Church",
+    "Sons of the soil St Paul's Church",
     "Priestly Vocations Rathinapuri",
     "Religious Sisters Coimbatore",
     "Catholic Vocations St Paul's Church"
   ]
 };
 
-export default function SonsOfParishPage() {
+export default function SonsOfthesoilPage() {
   const vocations = parishVocations.filter((person) => person.published !== false);
 
   return (
@@ -26,7 +26,7 @@ export default function SonsOfParishPage() {
       <Breadcrumbs
         items={[
           { label: "About", href: "/about" },
-          { label: "Sons of the Parish" }
+          { label: "Sons of the soil" }
         ]}
       />
 
@@ -41,12 +41,12 @@ export default function SonsOfParishPage() {
           <div className="mx-auto max-w-3xl">
             {/* Small Gold Uppercase Label */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-sm backdrop-blur">
-              SONS OF THE PARISH
+              SONS OF THE SOIL
             </div>
 
             {/* Main Heading */}
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-              Sons of the Parish
+              Sons of the Soil
             </h1>
 
             {/* Gold Divider */}

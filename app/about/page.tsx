@@ -211,12 +211,12 @@ export default function AboutPage() {
               </Link>
 
               <Link
-                href="/about/sons-of-parish"
+                href="/about/sons-of-the-soil"
                 className="group flex items-center justify-between rounded-2xl border border-[#d4af37]/40 bg-gradient-to-r from-white to-[#faf6ee] p-4 shadow-xs transition-all hover:border-[#80142b] hover:shadow-md"
               >
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-[#80142b]">Vocations</div>
-                  <div className="text-sm font-bold text-[#1f040b] group-hover:text-[#80142b]">Sons of the Parish</div>
+                  <div className="text-sm font-bold text-[#1f040b] group-hover:text-[#80142b]">Sons of the soil</div>
                 </div>
                 <ArrowRight className="h-4 w-4 text-[#80142b] group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -351,7 +351,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Explore Historical Priests & Sons of Parish CTA */}
+      {/* Explore Historical Priests & Sons of the soil CTA */}
       <section className="section-pad bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] text-white">
         <div className="container-site">
           <div className="mx-auto max-w-3xl text-center">
@@ -386,7 +386,7 @@ export default function AboutPage() {
             </Link>
 
             <Link
-              href="/about/sons-of-parish"
+              href="/about/sons-of-the-soil"
               className="group rounded-3xl border border-[#d4af37]/30 bg-white/5 p-8 backdrop-blur transition-all hover:bg-white/10 hover:border-[#f5d77f] hover:scale-[1.02]"
             >
               <div className="flex items-center justify-between">
@@ -396,7 +396,7 @@ export default function AboutPage() {
                 <ArrowRight className="h-5 w-5 text-[#f5d77f] group-hover:translate-x-1 transition-transform" />
               </div>
               <h3 className="mt-5 text-xl font-bold text-white group-hover:text-[#f5d77f] transition-colors">
-                Sons of the Parish
+                Sons of the the soil
               </h3>
               <p className="mt-2 text-sm text-slate-300 leading-relaxed">
                 Meet the holy priests and religious vocations nurtured within St. Paul&apos;s parish community now serving across various dioceses and congregations.
