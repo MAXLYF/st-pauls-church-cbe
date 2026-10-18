@@ -146,7 +146,7 @@ export default function EventsPage() {
                   Have an announcement or ministry update?
                 </h3>
                 <p className="mt-1 text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
-                  For inclusion in the weekly parish bulletin or online calendar, please contact the St. Paul&apos;s Parish Office at least 5 days prior to the event date.
+                  For inclusion in the weekly parish bulletin or online calendar, please contact the St. Paul&apos;s Catholic Church Parish Office at least 5 days prior to the event date.
                 </p>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { ParishEvent } from "@/types";
 export function getGoogleCalendarUrl(event: ParishEvent): string {
   const title = encodeURIComponent(event.title);
   const description = encodeURIComponent(event.description || event.longDescription || "");
-  const location = encodeURIComponent(event.location || "St. Paul's Church, Rathinapuri, Coimbatore");
+  const location = encodeURIComponent(event.location || "St. Paul's Catholic Church, Rathinapuri, Coimbatore");
 
   // Format date YYYYMMDD
   const rawDate = event.date.replace(/-/g, "");
@@ -18,11 +18,11 @@ export function downloadIcsFile(event: ParishEvent) {
   const icsContent = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//St. Paul's Church Rathinapuri//Events//EN",
+    "PRODID:-//St. Paul's Catholic Church, Rathinapuri//Events//EN",
     "BEGIN:VEVENT",
     `SUMMARY:${event.title}`,
     `DESCRIPTION:${(event.description || "").replace(/\n/g, " ")}`,
-    `LOCATION:${event.location || "St. Paul's Church, Rathinapuri"}`,
+    `LOCATION:${event.location || "St. Paul's Catholic Church, Rathinapuri"}`,
     `DTSTART:${rawDate}T090000Z`,
     `DTEND:${rawDate}T110000Z`,
     "STATUS:CONFIRMED",

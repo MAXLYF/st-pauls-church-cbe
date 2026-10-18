@@ -25,8 +25,8 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
     displayPeriod: "Parish Priest",
     role: "Parish Priest",
     image: "/images/church-front.png",
-    description: "Historical parish priest of St. Paul's Church, Rathinapuri.",
-    biography: "Historical parish priest of St. Paul's Church, Rathinapuri."
+    description: "Historical parish priest of St. Paul's Catholic Church, Rathinapuri.",
+    biography: "Historical parish priest of St. Paul's Catholic Church, Rathinapuri."
   };
 
   const pastor: Pastor = pastPriests.find((p) => p.id === slug) || fallbackPastor;
@@ -85,7 +85,7 @@ export default async function PastorDetailPage({ params }: PastorDetailPageProps
                 Parish Ministry &amp; Priestly Legacy
               </p>
               <p className="mt-2 text-slate-600">
-                {pastor.description || pastor.biography || "Dedicated priest of St. Paul's Church Rathinapuri parish community, faithfully guiding the congregation in prayer, fellowship, and sacred liturgies."}
+                {pastor.description || pastor.biography || "Dedicated priest of St. Paul's Catholic Church, Rathinapuri parish community, faithfully guiding the congregation in prayer, fellowship, and sacred liturgies."}
               </p>
             </div>
           </div>

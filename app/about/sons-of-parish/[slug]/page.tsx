@@ -48,7 +48,7 @@ export default async function SonDetailPage({ params }: SonDetailPageProps) {
 
             <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-[#781226]/10 px-4 py-1 text-xs font-bold text-[#1f040b]">
               <Church className="h-3.5 w-3.5 text-[#80142b]" />
-              <span>Son of St. Paul&apos;s Church Parish</span>
+              <span>Son of St. Paul&apos;s Catholic Church, Rathinapuri</span>
             </div>
 
             <div className="mt-8 rounded-2xl bg-[#fbf8f1] p-6 text-slate-700 leading-relaxed text-sm border border-[#e7dec8] w-full text-left">

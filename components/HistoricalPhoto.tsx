@@ -10,7 +10,7 @@ interface HistoricalPhotoProps {
 
 export default function HistoricalPhoto({
   imageSrc = "/images/church-interior.jpg",
-  caption = "Parish Priests of St. Paul's Church through the years"
+  caption = "Parish Priests of St. Paul's Catholic Church, Rathinapuri through the years"
 }: HistoricalPhotoProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
@@ -117,7 +117,7 @@ export default function HistoricalPhoto({
               &ldquo;{caption}&rdquo;
             </p>
             <p className="mt-1 text-xs text-slate-500 uppercase tracking-widest">
-              St. Paul&apos;s Church Historical Record
+              St. Paul&apos;s Catholic Church Historical Record
             </p>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function HistoricalPhoto({
                 {caption}
               </p>
               <p className="mt-1 text-xs text-slate-300">
-                St. Paul&apos;s Church, Rathinapuri • Historical Archival Record
+                St. Paul&apos;s Catholic Church, Rathinapuri • Historical Archival Record
               </p>
             </div>
           </div>

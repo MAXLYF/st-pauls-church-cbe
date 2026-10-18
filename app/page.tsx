@@ -49,7 +49,7 @@ export default function Home() {
       <section className="relative min-h-[700px] overflow-hidden bg-[#160207]">
         <img
           src="/images/church-front.png"
-          alt="St. Paul's Church exterior"
+          alt="St. Paul's Catholic Church, Rathinapuri exterior"
           className="absolute inset-0 h-full w-full object-cover object-center opacity-80 scale-[1.02] transition-transform duration-1000"
         />
         {/* Cinematic rich wine-to-dark gradient overlay harmonized with the sunrise and red church towers */}
@@ -60,7 +60,7 @@ export default function Home() {
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/45 bg-[#781226]/40 px-4 py-2 text-xs font-bold tracking-[.22em] text-[#f5d77f] backdrop-blur-md shadow-lg">
               <Cross className="h-4 w-4 text-[#f5d77f]" /> WELCOME TO OUR PARISH
             </div>
-            <h1 className="text-5xl font-extrabold leading-tight text-white drop-shadow-md md:text-7xl">St. Paul&apos;s Church</h1>
+            <h1 className="text-5xl font-extrabold leading-tight text-white drop-shadow-md md:text-7xl">St. Paul&apos;s Catholic Church</h1>
             <p className="mt-3 text-xl font-bold tracking-[.28em] text-[#f1cf7a] drop-shadow-sm">RATHINAPURI · COIMBATORE</p>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-100">
               A welcoming Catholic community rooted in faith, fellowship, service and prayer.
@@ -79,9 +79,9 @@ export default function Home() {
 
       <section className="section-pad">
         <div className="container-site">
-          <SectionTitle eyebrow="OUR PARISH" title="Welcome to St. Paul&apos;s Church" description="St. Paul's Church is a Roman Catholic parish serving the faithful of the Rathinapuri / Tatabad area of Coimbatore under the Coimbatore Diocese." />
+          <SectionTitle eyebrow="OUR PARISH" title="Welcome to St. Paul&apos;s Catholic Church" description="St. Paul's Catholic Church, Rathinapuri is a Roman Catholic parish serving the faithful of the Rathinapuri / Tatabad area of Coimbatore under the Coimbatore Diocese." />
           <div className="grid gap-8 md:grid-cols-2">
-            <img src="/images/church-interior.jpg" alt="Inside St. Paul's Church" className="h-full min-h-[360px] w-full rounded-3xl object-cover shadow-lg border border-[#d4af37]/20" />
+            <img src="/images/church-interior.jpg" alt="Inside St. Paul's Catholic Church, Rathinapuri" className="h-full min-h-[360px] w-full rounded-3xl object-cover shadow-lg border border-[#d4af37]/20" />
             <div className="flex flex-col justify-center">
               <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#781226] to-[#4e0917] text-[#f5d77f] border border-[#d4af37]/35 shadow-md"><Church /></div>
               <h3 className="text-3xl font-bold text-[#1f040b]">A place of prayer and fellowship</h3>
@@ -197,7 +197,7 @@ export default function Home() {
             <p className="mt-5 leading-8 text-slate-300">Watch livestreams, browse parish videos and revisit moments from our community.</p>
             <Link href="/live" className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#c59b27] via-[#e5c158] to-[#b8860b] px-7 py-3.5 font-bold text-[#1f040b] shadow-[0_10px_25px_rgba(197,155,39,0.35)] hover:scale-105 transition-all"><Play className="h-4 w-4" /> Watch Live</Link>
           </div>
-          <img src="/images/church-banner.jpg" alt="St. Paul's Church banner" className="rounded-3xl shadow-2xl border-2 border-[#d4af37]/30" />
+          <img src="/images/church-banner.jpg" alt="St. Paul's Catholic Church, Rathinapuri banner" className="rounded-3xl shadow-2xl border-2 border-[#d4af37]/30" />
         </div>
       </section>
 

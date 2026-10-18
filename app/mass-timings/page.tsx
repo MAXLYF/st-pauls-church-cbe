@@ -16,9 +16,9 @@ import {
 import TodaySchedule from "./TodaySchedule";
 
 export const metadata: Metadata = {
-  title: "Mass Timings",
+  title: "Mass Timings | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Official Mass and service schedule for St. Paul's Church, Rathinapuri, Coimbatore.",
+    "Official Mass and service schedule for St. Paul's Catholic Church, Rathinapuri, Coimbatore.",
 };
 
 export type ServiceEntry = {

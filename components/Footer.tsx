@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="container-site grid gap-10 py-14 md:grid-cols-3">
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <img src="/images/logo.jpg" alt="St. Paul's Church logo" className="h-12 w-12 rounded-full bg-white object-cover border-2 border-[#d4af37]/50 shadow-md" />
+            <img src="/images/logo.jpg" alt="St. Paul's Catholic Church, Rathinapuri logo" className="h-12 w-12 rounded-full bg-white object-cover border-2 border-[#d4af37]/50 shadow-md" />
             <div>
-              <div className="font-bold tracking-[.15em] text-[#f1cf7a]">ST. PAUL&apos;S CHURCH</div>
+              <div className="font-bold tracking-[.15em] text-[#f1cf7a]">ST. PAUL&apos;S CATHOLIC CHURCH</div>
               <div className="text-xs tracking-[.3em] text-[#d4af37]/80">RATHINAPURI</div>
             </div>
           </div>
@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} St. Paul&apos;s Church, Rathinapuri. All rights reserved.
+        © {new Date().getFullYear()} St. Paul&apos;s Catholic Church, Rathinapuri. All rights reserved.
       </div>
     </footer>
   );

@@ -127,7 +127,7 @@ export default function PastorProfile({
             </p>
           ) : (
             <p className="text-sm md:text-base leading-relaxed text-slate-600 italic">
-              Faithfully guided the parishioners of St. Paul&apos;s Church Rathinapuri with priestly leadership, celebration of the Holy Sacraments, and spiritual care.
+              Faithfully guided the parishioners of St. Paul&apos;s Catholic Church, Rathinapuri with priestly leadership, celebration of the Holy Sacraments, and spiritual care.
             </p>
           )}
 

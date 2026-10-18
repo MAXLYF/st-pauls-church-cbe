@@ -184,7 +184,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                     {!hasImgError ? (
                       <img
                         src={anbiyam.photo}
-                        alt={`${anbiyam.name} - St. Paul's Church`}
+                        alt={`${anbiyam.name} - St. Paul's Catholic Church, Rathinapuri`}
                         onError={() => handleImageError(anbiyam.id)}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -196,7 +196,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                           <Church className="h-7 w-7 text-[#f5d77f]" />
                         </div>
                         <span className="mt-3 text-xs font-semibold tracking-wider text-slate-300">
-                          St. Paul&apos;s Church
+                          St. Paul&apos;s Catholic Church
                         </span>
                       </div>
                     )}
@@ -290,7 +290,7 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                     <Church className="h-6 w-6 text-[#f5d77f]" />
                   </div>
                   <span className="mt-2 text-xs font-semibold tracking-wider text-slate-300">
-                    St. Paul&apos;s Church Rathinapuri
+                    St. Paul&apos;s Catholic Church, Rathinapuri
                   </span>
                 </div>
               )}

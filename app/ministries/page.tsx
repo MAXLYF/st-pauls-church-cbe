@@ -4,9 +4,9 @@ import MinistriesList from "./MinistriesList";
 import { ministries } from "@/lib/data/ministries";
 
 export const metadata: Metadata = {
-  title: "Ministries & Groups",
+  title: "Ministries & Groups | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Discover the ministries and groups that help our parish grow in faith, service, fellowship and love.",
+    "Discover the ministries and groups at St. Paul's Catholic Church, Rathinapuri that help our parish grow in faith, service, fellowship and love.",
 };
 
 export default function MinistriesPage() {

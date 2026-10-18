@@ -3,11 +3,11 @@ import AnbiyamClient from "./AnbiyamClient";
 import { anbiyams } from "@/lib/data/anbiyam-data";
 
 export const metadata: Metadata = {
-  title: "ANBIYAM | Our Parish Anbiyams",
+  title: "Anbiyam | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Explore the 40 Anbiyams (Basic Christian Communities) of St. Paul's Church, Rathinapuri, Coimbatore. Growing together in faith, prayer, fellowship and service.",
+    "Explore the 40 Anbiyams (Basic Christian Communities) of St. Paul's Catholic Church, Rathinapuri, Coimbatore. Growing together in faith, prayer, fellowship and service.",
   keywords: [
-    "St Paul's Church Anbiyam",
+    "St. Paul's Catholic Church Anbiyam",
     "Anbiyam Rathinapuri",
     "Catholic Anbiyam Coimbatore",
     "Basic Christian Communities Coimbatore",

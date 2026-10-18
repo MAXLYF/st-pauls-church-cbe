@@ -36,7 +36,7 @@ export default function Map() {
 
       L.marker([11.021, 76.968])
         .addTo(map)
-        .bindPopup("<b>St. Paul's Church</b><br/>Rathinapuri, Coimbatore")
+        .bindPopup("<b>St. Paul's Catholic Church</b><br/>Rathinapuri, Coimbatore")
         .openPopup();
     };
 

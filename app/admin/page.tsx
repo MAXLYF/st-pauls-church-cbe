@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Admin Dashboard",
+  description: "Parish content dashboard for St. Paul's Catholic Church, Rathinapuri.",
+};
 
 const items = [
   ["Mass Timings", "/mass-timings"],

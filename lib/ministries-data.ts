@@ -1,4 +1,4 @@
-﻿// ─────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
 // Ministry data types — Firebase-ready
 // Each field maps 1:1 to a Firestore document field.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -88,7 +88,7 @@ export const ministriesData: Ministry[] = [
 
     about: {
       introduction:
-        "The Altar Service ministry plays a vital and honoured role in the celebration of the Holy Mass and other liturgical services at St. Paul's Church. Altar servers serve with reverence and dedication, supporting the priest at the altar and helping to create a spirit of worship and prayerful participation in the congregation.",
+        "The Altar Service ministry plays a vital and honoured role in the celebration of the Holy Mass and other liturgical services at St. Paul's Catholic Church, Rathinapuri. Altar servers serve with reverence and dedication, supporting the priest at the altar and helping to create a spirit of worship and prayerful participation in the congregation.",
       mission:
         "To serve the parish faithfully at the altar, assisting in the dignified celebration of the Holy Eucharist and all liturgical ceremonies.",
       vision:
@@ -134,7 +134,7 @@ export const ministriesData: Ministry[] = [
 
     about: {
       introduction:
-        "The Choir ministry of St. Paul's Church enriches the celebration of the Holy Mass and all parish liturgies through sacred music and song. The choir leads the congregation in prayerful worship, lifting hearts and minds to God through music.",
+        "The Choir ministry of St. Paul's Catholic Church, Rathinapuri enriches the celebration of the Holy Mass and all parish liturgies through sacred music and song. The choir leads the congregation in prayerful worship, lifting hearts and minds to God through music.",
       mission:
         "To glorify God through sacred music and to lead the parish community in meaningful, prayerful and joyful worship.",
       vision:
@@ -180,7 +180,7 @@ export const ministriesData: Ministry[] = [
 
     about: {
       introduction:
-        "The Catechism ministry at St. Paul's Church is committed to nurturing the faith of children and young people through systematic religious education. Catechism classes provide a foundation in Catholic teaching, prayer, the sacraments and Christian living.",
+        "The Catechism ministry at St. Paul's Catholic Church, Rathinapuri is committed to nurturing the faith of children and young people through systematic religious education. Catechism classes provide a foundation in Catholic teaching, prayer, the sacraments and Christian living.",
       mission:
         "To teach, form and inspire children and youth in the Catholic faith, preparing them to live as disciples of Jesus Christ.",
       vision:
@@ -226,7 +226,7 @@ export const ministriesData: Ministry[] = [
 
     about: {
       introduction:
-        "Vacation Bible School (VBS) is a joyful and energetic children's programme at St. Paul's Church that brings children together for days filled with faith, fun, creativity and prayer. VBS is a highlight of the parish year for children and families.",
+        "Vacation Bible School (VBS) is a joyful and energetic children's programme at St. Paul's Catholic Church, Rathinapuri that brings children together for days filled with faith, fun, creativity and prayer. VBS is a highlight of the parish year for children and families.",
       mission:
         "To introduce children to the love of God through engaging, age-appropriate programmes that combine faith, fun, creativity and community.",
       vision:
@@ -272,11 +272,11 @@ export const ministriesData: Ministry[] = [
 
     about: {
       introduction:
-        "The Social Media Team at St. Paul's Church is a creative and dedicated group that helps the parish communicate with its community through digital platforms. From sharing Mass schedules and parish news to celebrating special feast days online, the team brings the parish closer together in the digital space.",
+        "The Social Media Team at St. Paul's Catholic Church, Rathinapuri is a creative and dedicated group that helps the parish communicate with its community through digital platforms. From sharing Mass schedules and parish news to celebrating special feast days online, the team brings the parish closer together in the digital space.",
       mission:
         "To proclaim the Good News and connect the parish community through faithful, creative and impactful digital communications.",
       vision:
-        "To make the digital presence of St. Paul's Church a place of encounter with faith, community and the love of God.",
+        "To make the digital presence of St. Paul's Catholic Church, Rathinapuri a place of encounter with faith, community and the love of God.",
       whoCanJoin:
         "Parishioners with a passion for communication, creativity, photography, video or social media are welcome to serve on the team.",
       responsibilities: [

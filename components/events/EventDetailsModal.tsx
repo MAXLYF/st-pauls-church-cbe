@@ -79,7 +79,7 @@ export default function EventDetailsModal({ event, onClose }: EventDetailsModalP
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="text-xs font-bold tracking-[0.2em] text-[#80142b] uppercase mb-1">
-                St. Paul&apos;s Church Rathinapuri
+                St. Paul&apos;s Catholic Church, Rathinapuri
               </div>
               <h2 id="event-modal-title" className="text-2xl sm:text-3xl font-extrabold text-[#1f040b] leading-snug">
                 {event.title}
@@ -185,7 +185,7 @@ export default function EventDetailsModal({ event, onClose }: EventDetailsModalP
           {/* Church footer note */}
           <div className="flex items-center justify-center gap-2 text-center text-xs text-slate-500 pt-2 border-t border-[#e7dec8]/60">
             <Cross className="h-3.5 w-3.5 text-[#80142b]" />
-            <span>St. Paul&apos;s Church, Rathinapuri, Coimbatore</span>
+            <span>St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore</span>
           </div>
         </div>
       </div>

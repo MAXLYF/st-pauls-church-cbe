@@ -47,7 +47,7 @@ export default function FeaturedEventCard({ event, onSelect }: FeaturedEventCard
                     {event.category || "SPECIAL EVENT"}
                   </span>
                   <div className="mt-2 text-xs font-semibold tracking-wider text-[#c59b27] uppercase">
-                    St. Paul&apos;s Church Rathinapuri
+                    St. Paul&apos;s Catholic Church, Rathinapuri
                   </div>
                 </div>
 
