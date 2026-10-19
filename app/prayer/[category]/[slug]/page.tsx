@@ -54,7 +54,7 @@ export default async function ResourceDetailPage({
               <span className="flex items-center gap-1">
                 <Languages className="h-3.5 w-3.5 text-[#f5d77f]" /> English • தமிழ்
               </span>
-              <span>• St. Paul&apos;s Church Spiritual Archive</span>
+              <span>• St. Paul&apos;s Catholic Church Spiritual Archive</span>
             </div>
           </div>
 

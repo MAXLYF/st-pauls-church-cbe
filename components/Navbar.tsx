@@ -52,12 +52,12 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <img
             src="/images/logo.jpg"
-            alt="St. Paul's Church logo"
+            alt="St. Paul's Catholic Church, Rathinapuri logo"
             className="h-12 w-12 rounded-full object-cover border-2 border-[#d4af37]/50 shadow-xs"
           />
           <div>
             <div className="text-sm font-bold tracking-[.18em] text-[#80142b]">
-              ST. PAUL&apos;S CHURCH
+              ST. PAUL&apos;S CATHOLIC CHURCH
             </div>
             <div className="text-xs font-semibold tracking-[.32em] text-[#c59b27]">
               RATHINAPURI

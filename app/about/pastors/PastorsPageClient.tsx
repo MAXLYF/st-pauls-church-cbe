@@ -71,7 +71,7 @@ export default function PastorsPageClient() {
 
             {/* Introduction */}
             <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-300 max-w-2xl mx-auto">
-              Through the years, St. Paul&apos;s Church has been blessed by priests who
+              Through the years, St. Paul&apos;s Catholic Church, Rathinapuri has been blessed by priests who
               have dedicated their lives to serving God and the parish community.
               This timeline honours those who have served our parish across the years.
             </p>
@@ -150,7 +150,7 @@ export default function PastorsPageClient() {
         <div className="container-site max-w-5xl">
           <HistoricalPhoto
             imageSrc={historicalJourneyInfo.image || "/images/church-banner.jpg"}
-            caption={historicalJourneyInfo.caption || "Parish Priests of St. Paul's Church through the years"}
+            caption={historicalJourneyInfo.caption || "Parish Priests of St. Paul's Catholic Church, Rathinapuri through the years"}
           />
         </div>
       </section>

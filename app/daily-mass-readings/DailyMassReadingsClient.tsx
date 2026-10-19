@@ -277,7 +277,7 @@ export default function DailyMassReadingsClient({
     if (!effectiveItem) return;
 
     const sections: string[] = [];
-    sections.push(`ST. PAUL'S CHURCH, RATHINAPURI, COIMBATORE`);
+    sections.push(`ST. PAUL'S CATHOLIC CHURCH, RATHINAPURI, COIMBATORE`);
     sections.push(language === "ta" ? "அன்றாட திருப்பலி வாசகங்கள்" : "DAILY MASS READINGS");
     sections.push(formattedDate);
     if (effectiveItem.dayTitle) sections.push(effectiveItem.dayTitle);
@@ -343,7 +343,7 @@ export default function DailyMassReadingsClient({
         />
       </div>
 
-      {/* Screen Hero Banner with St. Paul's Church Identity */}
+      {/* Screen Hero Banner with St. Paul's Catholic Church Identity */}
       <section className="no-print relative overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#450a16] to-[#140206] py-12 md:py-16 text-white border-b-2 border-[#c59b27]/40 shadow-md">
         <div
           aria-hidden="true"
@@ -355,7 +355,7 @@ export default function DailyMassReadingsClient({
             {/* Top Church Identity Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#f5d77f]/40 bg-[#781226]/60 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-inner backdrop-blur">
               <BookOpen className="h-3.5 w-3.5 text-[#f5d77f]" />
-              <span>ST. PAUL&apos;S CHURCH • RATHINAPURI, COIMBATORE</span>
+              <span>ST. PAUL&apos;S CATHOLIC CHURCH • RATHINAPURI, COIMBATORE</span>
             </div>
 
             {/* Main Header Title */}
@@ -612,12 +612,12 @@ export default function DailyMassReadingsClient({
                       <div className="flex items-center gap-3">
                         <img
                           src="/images/logo.jpg"
-                          alt="St. Paul's Church Logo"
+                          alt="St. Paul's Catholic Church, Rathinapuri Logo"
                           className="h-14 w-14 rounded-full border border-black/80 object-cover"
                         />
                         <div>
                           <div className="text-base font-bold tracking-wider text-black uppercase">
-                            ST. PAUL&apos;S CHURCH
+                            ST. PAUL&apos;S CATHOLIC CHURCH
                           </div>
                           <div className="text-xs font-semibold tracking-widest text-neutral-700 uppercase">
                             RATHINAPURI, COIMBATORE
@@ -647,7 +647,7 @@ export default function DailyMassReadingsClient({
                 <tr>
                   <td className="pt-3 border-t border-black/40 text-[9pt] text-neutral-700">
                     <div className="flex justify-between items-center">
-                      <span>St. Paul&apos;s Church, Rathinapuri, Coimbatore</span>
+                      <span>St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore</span>
                       <span className="print-page-number"></span>
                     </div>
                   </td>

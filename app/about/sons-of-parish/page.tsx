@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { parishVocations } from "@/lib/data/sons-of-the-soil";
+import { parishVocations } from "@/lib/data/sons-of-parish";
 import ParishVocationCard from "@/components/ParishVocationCard";
 import { HeartHandshake, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sons of the soil | St. Paul's Church Rathinapuri",
+  title: "Sons of the Parish | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Discover the priests and religious sisters connected with St. Paul's Church Rathinapuri and celebrate their vocation and service to the Church.",
+    "Discover the priests and religious sisters connected with St. Paul's Catholic Church, Rathinapuri and celebrate their vocation and service to the Church.",
   keywords: [
-    "Sons of the soil St Paul's Church",
+    "Sons of the Parish St. Paul's Catholic Church",
     "Priestly Vocations Rathinapuri",
     "Religious Sisters Coimbatore",
-    "Catholic Vocations St Paul's Church"
+    "Catholic Vocations St. Paul's Catholic Church"
   ]
 };
 
@@ -100,7 +100,7 @@ export default function SonsOfthesoilPage() {
               &ldquo;We continue to pray for more vocations from our parish. May God bless and strengthen them in their journey.&rdquo;
             </p>
             <div className="mt-4 text-xs font-bold uppercase tracking-widest text-[#80142b]">
-              St. Paul&apos;s Church Vocation Prayer
+              St. Paul&apos;s Catholic Church Vocation Prayer
             </div>
           </div>
 

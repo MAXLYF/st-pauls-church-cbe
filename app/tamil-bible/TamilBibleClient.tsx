@@ -163,7 +163,7 @@ export default function TamilBibleClient({
       })
       .join("\n");
 
-    const fullContent = `${chapterData.title}\nSt. Paul's Church, Rathinapuri, Coimbatore\n${"-".repeat(
+    const fullContent = `${chapterData.title}\nSt. Paul's Catholic Church, Rathinapuri, Coimbatore\n${"-".repeat(
       40
     )}\n\n${textLines}\n\nமூலம்: கத்தோலிக்க திருவிவிலியம் (Catholic Gallery Tamil Bible)`;
 
@@ -206,12 +206,12 @@ export default function TamilBibleClient({
           <div className="flex items-center justify-center gap-3 mb-3">
             <img
               src="/images/logo.jpg"
-              alt="St. Paul's Church logo"
+              alt="St. Paul's Catholic Church, Rathinapuri logo"
               className="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-[#d4af37]/60 object-cover shadow-sm"
             />
             <div className="text-left">
               <h2 className="text-xs sm:text-sm font-extrabold tracking-[0.22em] text-[#80142b] uppercase">
-                ST. PAUL&apos;S CHURCH
+                ST. PAUL&apos;S CATHOLIC CHURCH
               </h2>
               <p className="text-[11px] sm:text-xs font-bold tracking-[0.28em] text-[#b8860b] uppercase">
                 RATHINAPURI, COIMBATORE
@@ -498,12 +498,12 @@ export default function TamilBibleClient({
                         <div className="flex items-center gap-3">
                           <img
                             src="/images/logo.jpg"
-                            alt="St. Paul's Church Logo"
+                            alt="St. Paul's Catholic Church, Rathinapuri Logo"
                             className="h-14 w-14 rounded-full border border-black object-cover"
                           />
                           <div>
                             <div className="text-base font-bold tracking-wider text-black uppercase">
-                              ST. PAUL&apos;S CHURCH
+                              ST. PAUL&apos;S CATHOLIC CHURCH
                             </div>
                             <div className="text-xs font-semibold tracking-widest text-neutral-700 uppercase">
                               RATHINAPURI, COIMBATORE
@@ -531,7 +531,7 @@ export default function TamilBibleClient({
                   <tr>
                     <td className="pt-3 border-t border-black/50 text-[9pt] text-neutral-700">
                       <div className="flex justify-between items-center">
-                        <span>St. Paul&apos;s Church, Rathinapuri, Coimbatore</span>
+                        <span>St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore</span>
                         <span className="print-page-number"></span>
                       </div>
                     </td>
@@ -661,7 +661,7 @@ export default function TamilBibleClient({
                           திருவிவிலிய வாசகங்கள் மாற்றமின்றி பொது மொழிபெயர்ப்பின்படி வழங்கப்பட்டுள்ளன.
                         </p>
                         <p className="text-[11px] text-slate-400">
-                          St. Paul&apos;s Church • Rathinapuri, Coimbatore
+                          St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore
                         </p>
                       </div>
                     </td>

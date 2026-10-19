@@ -40,7 +40,7 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
             &ldquo;Honouring the priests who have faithfully served our parish community.&rdquo;
           </p>
           <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-600 max-w-2xl mx-auto">
-            Through the years, St. Paul&apos;s Church has been blessed by priests who
+            Through the years, St. Paul&apos;s Catholic Church, Rathinapuri has been blessed by priests who
             have dedicated their lives to serving God and the parish community.
             This timeline honours those who have served our parish across the
             years.
@@ -193,7 +193,7 @@ export default function PastorsTimeline({ pastors }: PastorsTimelineProps) {
         {/* ========================================================================= */}
         <HistoricalPhoto
           imageSrc="/images/church-banner.jpg"
-          caption="Parish Priests of St. Paul's Church through the years"
+          caption="Parish Priests of St. Paul's Catholic Church, Rathinapuri through the years"
         />
       </div>
     </section>

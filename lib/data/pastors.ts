@@ -136,7 +136,7 @@ export const pastPriests: Pastor[] = [
 export const historicalJourneyInfo = {
   title: "OUR JOURNEY",
   heading: "Historical Parish Archive",
-  caption: "Parish Priests of St. Paul's Church through the years",
+  caption: "Parish Priests of St. Paul's Catholic Church, Rathinapuri through the years",
   image: "/images/church-interior.jpg",
   fallbackImage: "/images/church-interior.jpg"
 };

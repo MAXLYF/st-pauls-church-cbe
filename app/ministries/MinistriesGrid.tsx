@@ -192,7 +192,7 @@ export default function MinistriesGrid({ ministries, categories }: Props) {
             Serve with your gifts
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-300">
-            Every ministry at St. Paul''s Church is an opportunity to serve God
+            Every ministry at St. Paul&apos;s Catholic Church, Rathinapuri is an opportunity to serve God
             and the parish community. Browse the ministries above and click
             &ldquo;View Ministry&rdquo; to learn more and express your interest.
           </p>

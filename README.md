@@ -1,4 +1,4 @@
-# St. Paul's Church — Rathinapuri, Coimbatore
+# St. Paul's Catholic Church, Rathinapuri
 
 A modern parish website starter built with:
 

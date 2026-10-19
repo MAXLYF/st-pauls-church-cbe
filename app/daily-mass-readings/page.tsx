@@ -4,14 +4,14 @@ import DailyMassReadingsClient from "./DailyMassReadingsClient";
 import { getReadingsForDate } from "@/lib/readings";
 
 export const metadata: Metadata = {
-  title: "Daily Mass Readings",
+  title: "Daily Mass Readings | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Official Catholic Daily Mass Readings in English and Tamil (முழு திருப்பலி வாசகங்கள்) at St. Paul's Church, Rathinapuri, Coimbatore. First Reading, Responsorial Psalm, Second Reading, Alleluia and Gospel with print layout.",
+    "Official Catholic Daily Mass Readings in English and Tamil (முழு திருப்பலி வாசகங்கள்) at St. Paul's Catholic Church, Rathinapuri, Coimbatore. First Reading, Responsorial Psalm, Second Reading, Alleluia and Gospel with print layout.",
   keywords: [
     "Daily Mass Readings Coimbatore",
     "Tamil Catholic Mass Readings",
     "Catholic Gallery Daily Mass Readings",
-    "St Pauls Church Rathinapuri Readings",
+    "St. Paul's Catholic Church Rathinapuri Readings",
     "இன்றைய திருப்பலி வாசகங்கள்",
     "Rathinapuri Church Readings"
   ]

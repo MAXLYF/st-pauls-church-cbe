@@ -19,12 +19,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "History & About St. Paul's Church Rathinapuri | Our Parish Heritage",
+  title: "History & About St. Paul's Catholic Church, Rathinapuri | Our Parish Heritage",
   description:
-    "Explore the 50-year history, foundation, patron saint, clergy milestones, and vibrant Catholic community of St. Paul's Church, Rathinapuri, Coimbatore.",
+    "Explore the 50-year history, foundation, patron saint, clergy milestones, and vibrant Catholic community of St. Paul's Catholic Church, Rathinapuri, Coimbatore.",
   keywords: [
-    "About St Paul's Church",
-    "St Paul's Church Rathinapuri History",
+    "About St. Paul's Catholic Church",
+    "St. Paul's Catholic Church Rathinapuri History",
     "History of Rathinapuri Church",
     "Catholic Church Coimbatore",
     "Rathinapuri Parish History",
@@ -126,7 +126,7 @@ export default function AboutPage() {
               OUR PARISH &amp; HERITAGE
             </div>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-white">
-              About St. Paul&apos;s Church
+              About St. Paul&apos;s Catholic Church, Rathinapuri
             </h1>
             <div className="mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f5d77f] to-transparent" />
             <p className="mt-6 text-lg md:text-xl leading-8 text-slate-300">
@@ -164,7 +164,7 @@ export default function AboutPage() {
             <div className="relative h-[380px] sm:h-[460px] w-full">
               <Image
                 src="/images/church-front.png"
-                alt="St. Paul's Church, Rathinapuri"
+                alt="St. Paul's Catholic Church, Rathinapuri"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -185,12 +185,12 @@ export default function AboutPage() {
             <SectionTitle
               eyebrow="WHO WE ARE"
               title="A Vibrant Catholic Parish Community"
-              description="St. Paul's Church is a Roman Catholic parish serving the faithful of Rathinapuri and Tatabad under the Coimbatore Diocese. Located just 5 kilometers from St. Michael's Cathedral, it stands as a sanctuary of prayer, sacramental life, and charitable fellowship."
+              description="St. Paul's Catholic Church, Rathinapuri is a Roman Catholic parish serving the faithful of Rathinapuri and Tatabad under the Coimbatore Diocese. Located just 5 kilometers from St. Michael's Cathedral, it stands as a sanctuary of prayer, sacramental life, and charitable fellowship."
             />
 
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed text-base">
               <p>
-                From humble beginnings in a temporary 50 × 20 ft shed to a magnificent architectural landmark featuring an underground crypt chapel and vibrant community ministries, St. Paul&apos;s Church has nurtured thousands of Catholic families over five decades.
+                From humble beginnings in a temporary 50 × 20 ft shed to a magnificent architectural landmark featuring an underground crypt chapel and vibrant community ministries, St. Paul&apos;s Catholic Church, Rathinapuri has nurtured thousands of Catholic families over five decades.
               </p>
               <p>
                 Our parish is home to over <strong>1,300 Catholic families</strong> in the main station (with over <strong>6,000 faithful</strong>) alongside our devoted sub-station at Karunanithi Nagar, actively engaged in Eucharistic adoration, Anbiyam neighborhood units, youth animation, and catechism.
@@ -234,7 +234,7 @@ export default function AboutPage() {
               PARISH CHRONICLES
             </div>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#1f040b] md:text-5xl">
-              History of St. Paul&apos;s Church
+              History of St. Paul&apos;s Catholic Church, Rathinapuri
             </h2>
             <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
             <p className="mt-5 text-base md:text-lg leading-7 text-slate-600">
@@ -314,7 +314,7 @@ export default function AboutPage() {
               <div className="relative mx-auto h-72 w-full overflow-hidden rounded-2xl bg-white border border-[#e2d7c5]">
                 <Image
                   src="/images/parish-priest.png"
-                  alt="Parish priest of St. Paul's Church"
+                  alt="Parish priest of St. Paul's Catholic Church, Rathinapuri"
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   className="object-contain p-2"
@@ -322,7 +322,7 @@ export default function AboutPage() {
               </div>
               <h3 className="mt-6 text-2xl font-bold text-[#1f040b]">Parish Priest</h3>
               <p className="mt-1 text-xs font-bold text-[#80142b] uppercase tracking-widest">
-                St. Paul&apos;s Church, Rathinapuri
+                St. Paul&apos;s Catholic Church, Rathinapuri
               </p>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">
                 Guiding the spiritual life, Holy Masses, spiritual counseling, and administration of the parish community.
@@ -333,7 +333,7 @@ export default function AboutPage() {
               <div className="relative mx-auto h-72 w-full overflow-hidden rounded-2xl bg-white border border-[#e2d7c5]">
                 <Image
                   src="/images/assistant-priest.png"
-                  alt="Assistant priest of St. Paul's Church"
+                  alt="Assistant priest of St. Paul's Catholic Church, Rathinapuri"
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   className="object-contain p-2"
@@ -341,7 +341,7 @@ export default function AboutPage() {
               </div>
               <h3 className="mt-6 text-2xl font-bold text-[#1f040b]">Assistant Priest</h3>
               <p className="mt-1 text-xs font-bold text-[#80142b] uppercase tracking-widest">
-                St. Paul&apos;s Church, Rathinapuri
+                St. Paul&apos;s Catholic Church, Rathinapuri
               </p>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">
                 Fostering youth animation, catechism formation, sacramental preparation, and choir ministry.
@@ -381,7 +381,7 @@ export default function AboutPage() {
                 Our Priests Through the Years
               </h3>
               <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-                Explore the chronological history, biographies, and tenures of every parish priest who served St. Paul&apos;s from 1983 to the present.
+                Explore the chronological history, biographies, and tenures of every parish priest who served St. Paul&apos;s Catholic Church, Rathinapuri from 1983 to the present.
               </p>
             </Link>
 
@@ -396,10 +396,10 @@ export default function AboutPage() {
                 <ArrowRight className="h-5 w-5 text-[#f5d77f] group-hover:translate-x-1 transition-transform" />
               </div>
               <h3 className="mt-5 text-xl font-bold text-white group-hover:text-[#f5d77f] transition-colors">
-                Sons of the the soil
+                Sons of the soil
               </h3>
               <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-                Meet the holy priests and religious vocations nurtured within St. Paul&apos;s parish community now serving across various dioceses and congregations.
+                Meet the holy priests and religious vocations nurtured within St. Paul&apos;s Catholic Church, Rathinapuri parish community now serving across various dioceses and congregations.
               </p>
             </Link>
           </div>
