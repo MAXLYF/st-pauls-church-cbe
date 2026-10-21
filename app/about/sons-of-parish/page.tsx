@@ -6,18 +6,18 @@ import ParishVocationCard from "@/components/ParishVocationCard";
 import { HeartHandshake, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sons of the Parish | St. Paul's Catholic Church, Rathinapuri",
+  title: "Sons of the Soil | St. Paul's Catholic Church, Rathinapuri",
   description:
     "Discover the priests and religious sisters connected with St. Paul's Catholic Church, Rathinapuri and celebrate their vocation and service to the Church.",
   keywords: [
-    "Sons of the Parish St. Paul's Catholic Church",
+    "Sons of the Soil St. Paul's Catholic Church",
     "Priestly Vocations Rathinapuri",
     "Religious Sisters Coimbatore",
     "Catholic Vocations St. Paul's Catholic Church"
   ]
 };
 
-export default function SonsOfthesoilPage() {
+export default function SonsOfTheSoilPage() {
   const vocations = parishVocations.filter((person) => person.published !== false);
 
   return (
@@ -26,7 +26,7 @@ export default function SonsOfthesoilPage() {
       <Breadcrumbs
         items={[
           { label: "About", href: "/about" },
-          { label: "Sons of the soil" }
+          { label: "Sons of the Soil" }
         ]}
       />
 
@@ -40,7 +40,7 @@ export default function SonsOfthesoilPage() {
         <div className="container-site relative z-10 text-center">
           <div className="mx-auto max-w-3xl">
             {/* Small Gold Uppercase Label */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-sm">
               SONS OF THE SOIL
             </div>
 
@@ -112,7 +112,7 @@ export default function SonsOfthesoilPage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#80142b] bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#80142b] transition hover:bg-[#80142b] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#80142b] bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#80142b] transition hover:bg-[#f5eddf]"
               >
                 ← About the Parish
               </Link>
