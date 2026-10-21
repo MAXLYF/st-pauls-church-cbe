@@ -15,7 +15,6 @@ const mainLinks = [
   { label: "Home", href: "/" },
   { label: "Mass", href: "/#mass-timings" },
   { label: "Ministries", href: "/ministries" },
-  { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
   { label: "Anbiyam", href: "/anbiyam" },
   { label: "Prayer", href: "/prayer" },
@@ -33,7 +32,6 @@ export default function Navbar() {
 
   const isAboutActive = pathname.startsWith("/about");
 
-  // Close desktop dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -65,7 +63,6 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-2.5 xl:gap-4 lg:flex">
           <Link
             href="/"
@@ -76,7 +73,6 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* About Dropdown Menu */}
           <div
             ref={dropdownRef}
             className="relative"
@@ -111,9 +107,8 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Dropdown Box */}
             {aboutDropdownOpen && (
-              <div className="absolute top-full left-0 z-50 mt-2 w-72 origin-top-left rounded-2xl border border-[#e7dec8] bg-white p-2 shadow-xl ring-1 ring-black/5 animate-in fade-in slide-in-from-top-2">
+              <div className="absolute top-full left-0 z-50 mt-2 w-72 origin-top-left rounded-2xl border border-[#e7dec8] bg-white p-2 shadow-xl ring-1 ring-black/5 animate-in fade-in slide-in-from-top-1">
                 <div className="space-y-1">
                   {aboutSubmenu.map((item) => {
                     const isSubActive = pathname === item.href;
@@ -144,7 +139,6 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Other Main Links (Mass, Ministries, Events, Gallery, Videos, Prayer, Prayer Request, Contact) */}
           {mainLinks.slice(1).map((link) => {
             const isActive =
               pathname === link.href ||
@@ -178,13 +172,12 @@ export default function Navbar() {
 
           <Link
             href="/live"
-            className="rounded-full bg-gradient-to-r from-[#781226] via-[#8c1830] to-[#6a0f21] border border-[#d4af37]/35 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-[#8d1630] hover:to-[#a11b37] whitespace-nowrap ml-1"
+            className="rounded-full bg-gradient-to-r from-[#781226] via-[#8c1830] to-[#6a0f21] border border-[#d4af37]/35 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:shadow-md"
           >
             Live Mass
           </Link>
         </nav>
 
-        {/* Mobile menu toggle */}
         <button
           aria-label="Open menu"
           onClick={() => setOpen(!open)}
@@ -194,7 +187,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
       {open && (
         <div className="border-t bg-white px-5 py-4 lg:hidden">
           <div className="container-site flex flex-col gap-2">
@@ -208,7 +200,6 @@ export default function Navbar() {
               Home
             </Link>
 
-            {/* Mobile About Accordion */}
             <div className="border-y border-slate-100 py-1">
               <div className="flex items-center justify-between py-2">
                 <Link
