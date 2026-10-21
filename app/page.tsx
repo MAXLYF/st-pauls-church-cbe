@@ -4,6 +4,7 @@ import SectionTitle from "@/components/SectionTitle";
 import Map from "@/components/Map";
 import MediaCard from "@/components/MediaCard";
 import TodayMassTimings from "@/components/TodayMassTimings";
+import LiveMassTelecastSection from "@/components/LiveMassTelecastSection";
 
 const events = [
   { date: "UPCOMING", title: "Parish Feast & Celebrations", text: "Details and schedule will be updated by the parish office." },
@@ -34,11 +35,23 @@ const massTimings = [
   },
   {
     day: "Friday & Saturday",
-    subtitle: "Novena and Eucharistic Adoration",
+    subtitle: "Novena & Adoration",
     featured: false,
     timings: [
       { name: "Morning Mass", time: "6:00 AM" },
       { name: "Rosary, Mass and Adoration", time: "5:45 PM" },
+    ],
+  },
+  {
+    day: "First Friday",
+    subtitle: "Monthly Confession",
+    featured: false,
+    badge: "First Friday",
+    note: "Every First Friday of the month will be Confession from morning 10:00 AM to evening 8:00 PM",
+    timings: [
+      { name: "Holy Confession", time: "10:00 AM – 8:00 PM" },
+      { name: "Morning Mass", time: "6:15 AM" },
+      { name: "Evening Mass & Adoration", time: "6:00 PM" },
     ],
   },
 ];
@@ -116,21 +129,27 @@ export default function Home() {
           <TodayMassTimings massTimings={massTimings} />
 
           {/* Cards */}
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {massTimings.map((item) => (
               <div
                 key={item.day}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${item.featured
-                  ? "border-[#d4af37]/50 bg-gradient-to-b from-[#3d0917]/60 via-white/[0.06] to-white/[0.02] shadow-[0_15px_40px_rgba(20,2,6,0.5),0_0_30px_rgba(212,175,55,0.18)] hover:border-[#f1cf7a]/55"
-                  : "border-white/10 bg-white/[0.04] shadow-[0_15px_35px_rgba(0,0,0,0.35)] hover:border-[#d4af37]/45 hover:bg-[#360814]/30 hover:shadow-[0_20px_45px_rgba(0,0,0,0.5)]"
-                  }`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${
+                  item.featured
+                    ? "border-[#d4af37]/50 bg-gradient-to-b from-[#3d0917]/60 via-white/[0.06] to-white/[0.02] shadow-[0_15px_40px_rgba(20,2,6,0.5),0_0_30px_rgba(212,175,55,0.18)] hover:border-[#f1cf7a]/55"
+                    : item.badge
+                    ? "border-[#d4af37]/45 bg-gradient-to-b from-[#300813]/70 via-white/[0.05] to-white/[0.02] shadow-[0_15px_35px_rgba(0,0,0,0.4)] hover:border-[#f1cf7a]/60 hover:shadow-[0_20px_45px_rgba(0,0,0,0.55)]"
+                    : "border-white/10 bg-white/[0.04] shadow-[0_15px_35px_rgba(0,0,0,0.35)] hover:border-[#d4af37]/45 hover:bg-[#360814]/30 hover:shadow-[0_20px_45px_rgba(0,0,0,0.5)]"
+                }`}
               >
                 {/* Top glow line */}
                 <div
-                  className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r ${item.featured
-                    ? "from-transparent via-[#f5d77f] to-transparent"
-                    : "from-transparent via-[#d4af37]/45 to-transparent group-hover:via-[#f5d77f]"
-                    } transition-all duration-500`}
+                  className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r ${
+                    item.featured
+                      ? "from-transparent via-[#f5d77f] to-transparent"
+                      : item.badge
+                      ? "from-transparent via-[#f5d77f] to-transparent"
+                      : "from-transparent via-[#d4af37]/45 to-transparent group-hover:via-[#f5d77f]"
+                  } transition-all duration-500`}
                 />
 
                 <div>
@@ -143,22 +162,34 @@ export default function Home() {
                         <Sparkles className="h-3 w-3" /> Lord&apos;s Day
                       </span>
                     )}
+                    {item.badge && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-[#d4af37]/40 bg-[#781226]/60 px-2.5 py-0.5 text-[11px] font-semibold text-[#f5d77f]">
+                        <Sparkles className="h-3 w-3" /> {item.badge}
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-2xl font-bold tracking-tight text-white">{item.day}</h3>
 
-                  <div className="mt-7 space-y-4">
+                  {item.note && (
+                    <div className="mt-3 rounded-xl border border-[#d4af37]/30 bg-[#781226]/40 p-2.5 text-xs text-[#f5d77f] leading-relaxed">
+                      <span className="font-semibold text-white">✨ Confession: </span>
+                      {item.note}
+                    </div>
+                  )}
+
+                  <div className="mt-6 space-y-3.5">
                     {item.timings.map((t, idx) => (
                       <div
                         key={`${t.name}-${t.time}-${idx}`}
-                        className="group/row flex items-center justify-between border-b border-white/[0.07] pb-3.5 last:border-b-0 last:pb-0"
+                        className="group/row flex items-center justify-between border-b border-white/[0.07] pb-3 last:border-b-0 last:pb-0"
                       >
-                        <div className="flex items-center gap-2.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#d4af37] opacity-70 transition-all duration-300 group-hover/row:scale-125 group-hover/row:opacity-100" />
-                          <span className="text-sm font-medium text-slate-200 transition-colors duration-200 group-hover/row:text-white">
+                        <div className="flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#d4af37] opacity-70 transition-all duration-300 group-hover/row:scale-125 group-hover/row:opacity-100 shrink-0" />
+                          <span className="text-xs sm:text-sm font-medium text-slate-200 transition-colors duration-200 group-hover/row:text-white">
                             {t.name}
                           </span>
                         </div>
-                        <span className="shrink-0 rounded-xl border border-white/10 bg-white/[0.06] px-3.5 py-1.5 text-xs font-bold tracking-wider text-[#f5d77f] shadow-inner transition-all duration-300 group-hover/row:border-[#d4af37]/40 group-hover/row:bg-white/[0.12]">
+                        <span className="shrink-0 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider text-[#f5d77f] shadow-inner transition-all duration-300 group-hover/row:border-[#d4af37]/40 group-hover/row:bg-white/[0.12]">
                           {t.time}
                         </span>
                       </div>
@@ -170,6 +201,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Live Mass Telecast Section */}
+      <LiveMassTelecastSection />
 
       <section className="section-pad bg-[#fbf9f5]">
         <div className="container-site">

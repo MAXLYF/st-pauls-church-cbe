@@ -12,6 +12,8 @@ export type MassScheduleGroup = {
   day: string;
   subtitle?: string;
   featured?: boolean;
+  badge?: string;
+  note?: string;
   timings: Timing[];
 };
 
@@ -22,17 +24,26 @@ type Props = {
 export default function TodayMassTimings({ massTimings }: Props) {
   // Initialize with current day to support SSR, re-sync on client mount
   const [dayIndex, setDayIndex] = useState(() => new Date().getDay());
+  const [isFirstFridayOfMonth, setIsFirstFridayOfMonth] = useState(false);
 
   useEffect(() => {
-    setDayIndex(new Date().getDay());
+    const today = new Date();
+    setDayIndex(today.getDay());
+    setIsFirstFridayOfMonth(today.getDay() === 5 && today.getDate() <= 7);
   }, []);
 
   const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const currentDayName = dayNames[dayIndex];
+  const currentDayName = isFirstFridayOfMonth
+    ? "Friday (First Friday of Month)"
+    : dayNames[dayIndex];
 
   let targetGroup: MassScheduleGroup | undefined;
   if (dayIndex === 0) {
     targetGroup = massTimings.find((g) => g.day === "Sunday");
+  } else if (isFirstFridayOfMonth) {
+    targetGroup =
+      massTimings.find((g) => g.day === "First Friday") ||
+      massTimings.find((g) => g.day === "Friday & Saturday");
   } else if (dayIndex === 5 || dayIndex === 6) {
     targetGroup = massTimings.find((g) => g.day === "Friday & Saturday");
   } else {

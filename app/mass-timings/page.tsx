@@ -1,283 +1,197 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Church,
-  BookOpen,
-  Heart,
-  Users,
-  Sparkles,
-  Star,
   MapPin,
   Phone,
   Play,
-  Info,
   Cross,
+  Sparkles,
+  Info
 } from "lucide-react";
-import TodaySchedule from "./TodaySchedule";
+import TodayMassTimings, { MassScheduleGroup } from "@/components/TodayMassTimings";
 import LiveMassTelecastSection from "@/components/LiveMassTelecastSection";
 
 export const metadata: Metadata = {
   title: "Mass Timings | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Official Mass and service schedule for St. Paul's Catholic Church, Rathinapuri, Coimbatore.",
+    "Official Mass, Confession and service schedule for St. Paul's Catholic Church, Rathinapuri, Coimbatore.",
 };
 
-export type ServiceEntry = {
-  id: string;
-  name: string;
-  startTime: string;
-  endTime: string;
-  icon: "cross" | "heart" | "sparkles" | "bookOpen" | "users" | "star";
-  period: "morning" | "evening";
-};
-
-export type DaySchedule = {
-  day: string;
-  label: string;
-  services: ServiceEntry[];
-};
-
-export const massSchedule: DaySchedule[] = [
+export const massTimings: MassScheduleGroup[] = [
   {
-    day: "monday",
-    label: "Monday \u2013 Thursday",
-    services: [
-      { id: "mon-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-      { id: "mon-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
+    day: "Sunday",
+    subtitle: "The Lord's Day",
+    featured: true,
+    timings: [
+      { name: "First Holy Mass", time: "6:00 AM" },
+      { name: "Catechism", time: "7:45 AM" },
+      { name: "Second Holy Mass", time: "8:00 AM" },
+      { name: "Children's Mass", time: "9:00 AM" },
+      { name: "Evening Holy Mass", time: "5:30 PM" },
     ],
   },
   {
-    day: "friday",
-    label: "Friday",
-    services: [
-      { id: "fri-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-      { id: "fri-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
+    day: "Monday to Thursday",
+    subtitle: "Daily Liturgy",
+    featured: false,
+    timings: [
+      { name: "Morning Mass", time: "6:15 AM" },
+      { name: "Evening Mass", time: "6:00 PM" },
     ],
   },
   {
-    day: "saturday",
-    label: "Saturday",
-    services: [
-      { id: "sat-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-      { id: "sat-ro", name: "Rosary", startTime: "5:30 PM", endTime: "6:00 PM", icon: "heart", period: "evening" },
-      { id: "sat-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
-      { id: "sat-ad", name: "Adoration", startTime: "7:00 PM", endTime: "8:00 PM", icon: "sparkles", period: "evening" },
+    day: "Friday & Saturday",
+    subtitle: "Novena & Adoration",
+    featured: false,
+    timings: [
+      { name: "Morning Mass", time: "6:15 AM" },
+      { name: "Rosary (Saturday)", time: "5:30 PM" },
+      { name: "Evening Mass", time: "6:00 PM" },
+      { name: "Eucharistic Adoration (Sat)", time: "7:00 PM" },
     ],
   },
   {
-    day: "sunday",
-    label: "Sunday",
-    services: [
-      { id: "sun-1m", name: "First Holy Mass", startTime: "6:00 AM", endTime: "7:30 AM", icon: "cross", period: "morning" },
-      { id: "sun-ca", name: "Catechism", startTime: "7:45 AM", endTime: "8:55 AM", icon: "bookOpen", period: "morning" },
-      { id: "sun-2m", name: "Second Holy Mass", startTime: "8:00 AM", endTime: "9:45 AM", icon: "cross", period: "morning" },
-      { id: "sun-ch", name: "Children's Mass", startTime: "9:00 AM", endTime: "9:45 AM", icon: "users", period: "morning" },
-      { id: "sun-ev", name: "Evening Holy Mass", startTime: "5:30 PM", endTime: "7:00 PM", icon: "sparkles", period: "evening" },
+    day: "First Friday",
+    subtitle: "Monthly Confession",
+    featured: false,
+    badge: "First Friday",
+    note: "Every First Friday of the month will be Confession from morning 10:00 AM to evening 8:00 PM",
+    timings: [
+      { name: "Holy Confession", time: "10:00 AM – 8:00 PM" },
+      { name: "Morning Holy Mass", time: "6:15 AM" },
+      { name: "Evening Mass & Adoration", time: "6:00 PM" },
     ],
   },
 ];
 
-export const dailyScheduleMap: Record<string, ServiceEntry[]> = {
-  monday: [
-    { id: "mon-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-    { id: "mon-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
-  ],
-  tuesday: [
-    { id: "tue-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-    { id: "tue-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
-  ],
-  wednesday: [
-    { id: "wed-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-    { id: "wed-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
-  ],
-  thursday: [
-    { id: "thu-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-    { id: "thu-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
-  ],
-  friday: [
-    { id: "fri-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-    { id: "fri-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
-  ],
-  saturday: [
-    { id: "sat-am", name: "Holy Mass", startTime: "6:15 AM", endTime: "7:00 AM", icon: "cross", period: "morning" },
-    { id: "sat-ro", name: "Rosary", startTime: "5:30 PM", endTime: "6:00 PM", icon: "heart", period: "evening" },
-    { id: "sat-pm", name: "Holy Mass", startTime: "6:00 PM", endTime: "7:00 PM", icon: "cross", period: "evening" },
-    { id: "sat-ad", name: "Adoration", startTime: "7:00 PM", endTime: "8:00 PM", icon: "sparkles", period: "evening" },
-  ],
-  sunday: [
-    { id: "sun-1m", name: "First Holy Mass", startTime: "6:00 AM", endTime: "7:30 AM", icon: "cross", period: "morning" },
-    { id: "sun-ca", name: "Catechism", startTime: "7:45 AM", endTime: "8:55 AM", icon: "bookOpen", period: "morning" },
-    { id: "sun-2m", name: "Second Holy Mass", startTime: "8:00 AM", endTime: "9:45 AM", icon: "cross", period: "morning" },
-    { id: "sun-ch", name: "Children's Mass", startTime: "9:00 AM", endTime: "9:45 AM", icon: "users", period: "morning" },
-    { id: "sun-ev", name: "Evening Holy Mass", startTime: "5:30 PM", endTime: "7:00 PM", icon: "sparkles", period: "evening" },
-  ],
-};
-
-export function ServiceIcon({ icon, className }: { icon: ServiceEntry["icon"]; className?: string }) {
-  const cls = className ?? "h-5 w-5";
-  switch (icon) {
-    case "cross":    return <Cross className={cls} aria-hidden="true" />;
-    case "heart":    return <Heart className={cls} aria-hidden="true" />;
-    case "sparkles": return <Sparkles className={cls} aria-hidden="true" />;
-    case "bookOpen": return <BookOpen className={cls} aria-hidden="true" />;
-    case "users":    return <Users className={cls} aria-hidden="true" />;
-    case "star":     return <Star className={cls} aria-hidden="true" />;
-    default:         return <Church className={cls} aria-hidden="true" />;
-  }
-}
-
-function ServiceCard({ service }: { service: ServiceEntry }) {
-  const isMorning = service.period === "morning";
-  return (
-    <div className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-      <div className={`absolute inset-x-0 top-0 h-1 rounded-t-2xl ${isMorning ? "bg-[#c59b27]" : "bg-[#80142b]"}`} />
-      <div className="mb-4 flex items-center gap-3">
-        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${isMorning ? "bg-amber-50 text-[#80142b]" : "bg-[#781226]/10 text-[#80142b]"}`}>
-          <ServiceIcon icon={service.icon} className="h-5 w-5" />
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[.15em] text-slate-400">{isMorning ? "Morning" : "Evening"}</p>
-          <h4 className="font-bold text-[#1f040b]">{service.name}</h4>
-        </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-2xl font-bold text-[#1f040b]">{service.startTime}</span>
-        <div className="mx-1 h-px flex-1 bg-slate-200" />
-        <span className="text-sm font-medium text-slate-500">{service.endTime}</span>
-      </div>
-    </div>
-  );
-}
-
-function SundayCard({ service }: { service: ServiceEntry }) {
-  return (
-    <div className="group relative overflow-hidden rounded-2xl border border-amber-100 bg-gradient-to-br from-white to-amber-50/40 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-amber-200">
-      <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-[#c59b27] to-[#d4af37]" />
-      <div className="mb-4 flex items-center gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-[#80142b]">
-          <ServiceIcon icon={service.icon} className="h-6 w-6" />
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[.15em] text-[#80142b]">{service.period === "morning" ? "Morning" : "Evening"}</p>
-          <h4 className="font-bold text-[#1f040b]">{service.name}</h4>
-        </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-2xl font-bold text-[#1f040b]">{service.startTime}</span>
-        <div className="mx-1 h-px flex-1 bg-amber-200" />
-        <span className="text-sm font-medium text-[#80142b]">{service.endTime}</span>
-      </div>
-    </div>
-  );
-}
-
-function DaySection({ schedule }: { schedule: DaySchedule }) {
-  const morning = schedule.services.filter((s) => s.period === "morning");
-  const evening = schedule.services.filter((s) => s.period === "evening");
-  return (
-    <section aria-label={`${schedule.label} schedule`} className="rounded-3xl border border-slate-100 bg-white/70 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md">
-      <div className="mb-5 flex items-center gap-3">
-        <div className="h-8 w-1 rounded-full bg-[#c59b27]" />
-        <h3 className="text-xl font-bold tracking-tight text-[#1f040b]">{schedule.label}</h3>
-      </div>
-      <div className="grid gap-6 sm:grid-cols-2">
-        {morning.length > 0 && (
-          <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[.2em] text-slate-400">Morning</p>
-            <div className="grid gap-3">{morning.map((s) => <ServiceCard key={s.id} service={s} />)}</div>
-          </div>
-        )}
-        {evening.length > 0 && (
-          <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[.2em] text-slate-400">Evening</p>
-            <div className="grid gap-3">{evening.map((s) => <ServiceCard key={s.id} service={s} />)}</div>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function SundaySection({ schedule }: { schedule: DaySchedule }) {
-  const morning = schedule.services.filter((s) => s.period === "morning");
-  const evening = schedule.services.filter((s) => s.period === "evening");
-  return (
-    <section aria-label="Sunday schedule" className="relative overflow-hidden rounded-3xl border border-amber-200 bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] p-8 shadow-xl text-white">
-      <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(212,175,55,0.15) 0%, transparent 55%)" }} />
-      <div className="relative mb-2 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#c59b27]">
-          <Cross className="h-5 w-5 text-[#1f040b]" aria-hidden="true" />
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[.25em] text-[#f5d77f]">The Lord&apos;s Day</p>
-          <h3 className="text-2xl font-bold text-white">Sunday</h3>
-        </div>
-      </div>
-      <div className="relative mb-6 h-px w-24 bg-gradient-to-r from-[#c59b27] to-transparent" />
-      <div className="relative grid gap-6 sm:grid-cols-2">
-        {morning.length > 0 && (
-          <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[.2em] text-amber-300/80">Morning</p>
-            <div className="grid gap-3">{morning.map((s) => <SundayCard key={s.id} service={s} />)}</div>
-          </div>
-        )}
-        {evening.length > 0 && (
-          <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[.2em] text-amber-300/80">Evening</p>
-            <div className="grid gap-3">{evening.map((s) => <SundayCard key={s.id} service={s} />)}</div>
-          </div>
-        )}
-      </div>
-      <p className="relative mt-6 text-xs leading-5 text-amber-200/60">* Some Sunday services may overlap. Each entry represents a separate concurrent activity.</p>
-    </section>
-  );
-}
-
 export default function MassTimingsPage() {
-  const weekdaySections = massSchedule.filter((s) => s.day !== "sunday");
-  const sundaySection = massSchedule.find((s) => s.day === "sunday")!;
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] py-24 text-center text-white" aria-label="Mass Timings page header">
-        <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: "radial-gradient(ellipse at 50% 0%, rgba(197,155,39,0.18) 0%, transparent 65%)" }} />
-        <div className="container-site relative">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#781226]/40 px-4 py-1.5 backdrop-blur">
+      {/* Page Header Hero */}
+      <section
+        className="relative overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#140206] py-20 text-center text-white"
+        aria-label="Mass Timings page header"
+      >
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse at 50% 0%, rgba(197,155,39,0.18) 0%, transparent 65%)",
+          }}
+        />
+        <div className="container-site relative z-10">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#781226]/40 px-4 py-1.5 backdrop-blur-md">
             <Cross className="h-3.5 w-3.5 text-[#f5d77f]" aria-hidden="true" />
-            <span className="text-xs font-bold uppercase tracking-[.25em] text-[#f5d77f]">Worship</span>
+            <span className="text-xs font-bold uppercase tracking-[.25em] text-[#f5d77f]">
+              Worship &amp; Sacraments
+            </span>
           </div>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-6xl text-white">Mass Timings</h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
-            Join us in prayer, worship and the celebration of the Holy Eucharist.
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight md:text-6xl text-white">
+            Mass Timings
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
+            Join us in prayer, worship, the celebration of the Holy Eucharist, and the Sacrament of Reconciliation.
           </p>
-          <div className="mx-auto mt-6 h-0.5 w-20 rounded-full bg-gradient-to-r from-transparent via-[#c59b27] to-transparent" />
+          <div className="mx-auto mt-6 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-[#c59b27] to-transparent" />
         </div>
       </section>
 
-      <TodaySchedule scheduleMap={dailyScheduleMap} />
+      {/* Main Mass Schedule Section (Dark Glowing Cards Layout matching Homepage) */}
+      <section
+        id="mass-timings"
+        className="relative overflow-hidden bg-gradient-to-b from-[#140207] via-[#24050f] to-[#120206] py-20 text-white scroll-mt-24"
+        aria-label="Weekly Mass schedule"
+      >
+        {/* Cinematic ambient glow */}
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full bg-[radial-gradient(circle,rgba(229,193,88,0.18)_0%,transparent_70%)] blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 right-1/4 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(168,28,58,0.22)_0%,transparent_70%)] blur-2xl" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:28px_28px]" />
 
-      <section className="section-pad bg-[#fbf8f1]" aria-label="Weekly Mass schedule">
-        <div className="container-site">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <div className="text-xs font-bold uppercase tracking-[.25em] text-[#80142b]">Schedule</div>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#1f040b] md:text-4xl">Weekly Schedule</h2>
-            <div className="gold-line" />
-            <p className="mt-5 leading-7 text-slate-600">Services are held throughout the week. All are welcome to join us for any Mass or devotional service.</p>
-          </div>
-          <div className="grid gap-6">
-            {weekdaySections.map((schedule) => (
-              <DaySection key={schedule.day} schedule={schedule} />
+        <div className="container-site relative z-10">
+          {/* Today's Schedule Highlight */}
+          <TodayMassTimings massTimings={massTimings} />
+
+          {/* 4 Cards Grid: Sunday, Monday-Thursday, Friday & Saturday, First Friday Confession */}
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {massTimings.map((item) => (
+              <div
+                key={item.day}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${
+                  item.featured
+                    ? "border-[#d4af37]/50 bg-gradient-to-b from-[#3d0917]/60 via-white/[0.06] to-white/[0.02] shadow-[0_15px_40px_rgba(20,2,6,0.5),0_0_30px_rgba(212,175,55,0.18)] hover:border-[#f1cf7a]/55"
+                    : item.badge
+                    ? "border-[#d4af37]/45 bg-gradient-to-b from-[#300813]/70 via-white/[0.05] to-white/[0.02] shadow-[0_15px_35px_rgba(0,0,0,0.4)] hover:border-[#f1cf7a]/60 hover:shadow-[0_20px_45px_rgba(0,0,0,0.55)]"
+                    : "border-white/10 bg-white/[0.04] shadow-[0_15px_35px_rgba(0,0,0,0.35)] hover:border-[#d4af37]/45 hover:bg-[#360814]/30 hover:shadow-[0_20px_45px_rgba(0,0,0,0.5)]"
+                }`}
+              >
+                {/* Top glow line */}
+                <div
+                  className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r ${
+                    item.featured
+                      ? "from-transparent via-[#f5d77f] to-transparent"
+                      : item.badge
+                      ? "from-transparent via-[#f5d77f] to-transparent"
+                      : "from-transparent via-[#d4af37]/45 to-transparent group-hover:via-[#f5d77f]"
+                  } transition-all duration-500`}
+                />
+
+                <div>
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f1cf7a]">
+                      {item.subtitle}
+                    </span>
+                    {item.featured && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-[#d4af37]/40 bg-[#781226]/40 px-2.5 py-0.5 text-[11px] font-semibold text-[#f5d77f]">
+                        <Sparkles className="h-3 w-3" /> Lord&apos;s Day
+                      </span>
+                    )}
+                    {item.badge && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-[#d4af37]/40 bg-[#781226]/60 px-2.5 py-0.5 text-[11px] font-semibold text-[#f5d77f]">
+                        <Sparkles className="h-3 w-3" /> {item.badge}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-2xl font-bold tracking-tight text-white">{item.day}</h3>
+
+                  {item.note && (
+                    <div className="mt-3.5 rounded-xl border border-[#d4af37]/30 bg-[#781226]/40 p-3 text-xs text-[#f5d77f] leading-relaxed">
+                      <span className="font-semibold text-white">✨ Confession: </span>
+                      {item.note}
+                    </div>
+                  )}
+
+                  <div className="mt-6 space-y-3.5">
+                    {item.timings.map((t, idx) => (
+                      <div
+                        key={`${t.name}-${t.time}-${idx}`}
+                        className="group/row flex items-center justify-between border-b border-white/[0.07] pb-3 last:border-b-0 last:pb-0"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#d4af37] opacity-70 transition-all duration-300 group-hover/row:scale-125 group-hover/row:opacity-100 shrink-0" />
+                          <span className="text-xs sm:text-sm font-medium text-slate-200 transition-colors duration-200 group-hover/row:text-white">
+                            {t.name}
+                          </span>
+                        </div>
+                        <span className="shrink-0 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider text-[#f5d77f] shadow-inner transition-all duration-300 group-hover/row:border-[#d4af37]/40 group-hover/row:bg-white/[0.12]">
+                          {t.time}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             ))}
-            <SundaySection schedule={sundaySection} />
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-8" aria-label="Schedule notice">
+      {/* Notice Section */}
+      <section className="bg-white py-6 border-b border-amber-900/10" aria-label="Schedule notice">
         <div className="container-site">
-          <div className="mx-auto flex max-w-3xl items-start gap-4 rounded-2xl border border-amber-100 bg-amber-50/60 p-5">
+          <div className="mx-auto flex max-w-4xl items-start gap-4 rounded-2xl border border-amber-100 bg-amber-50/70 p-5">
             <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#80142b]" aria-hidden="true" />
-            <p className="text-sm leading-7 text-slate-600">
-              <strong className="text-[#1f040b]">Please note:</strong> Please arrive a few minutes early for Mass. Schedule changes for special liturgical celebrations will be announced by the parish.
+            <p className="text-sm leading-relaxed text-slate-700">
+              <strong className="text-[#1f040b]">Please note:</strong> Please arrive 10 minutes early for holy Mass and prayer services. Special Mass schedules for liturgical feasts, Lent, Holy Week, and Christmas will be announced by the parish team.
             </p>
           </div>
         </div>
@@ -286,20 +200,33 @@ export default function MassTimingsPage() {
       {/* Live Mass Telecast Section */}
       <LiveMassTelecastSection />
 
+      {/* Plan Your Visit Quick Actions */}
       <section className="section-pad bg-[#fbf8f1]" aria-label="Quick actions">
         <div className="container-site text-center">
           <h2 className="mb-3 text-2xl font-bold text-[#1f040b]">Plan Your Visit</h2>
-          <p className="mb-8 text-slate-500">We would love to see you at Mass.</p>
+          <p className="mb-8 text-slate-600">We would love to welcome you and your family to St. Paul&apos;s Church.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-[#80142b] bg-white px-6 py-3 text-sm font-semibold text-[#80142b] shadow-sm transition-all hover:bg-[#80142b] hover:text-white" aria-label="View church location">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#80142b] bg-white px-6 py-3 text-sm font-semibold text-[#80142b] shadow-sm transition-all hover:bg-[#80142b] hover:text-white"
+              aria-label="View church location"
+            >
               <MapPin className="h-4 w-4" />
               View Location
             </Link>
-            <Link href="/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-[#c59b27] bg-white px-6 py-3 text-sm font-semibold text-[#c59b27] shadow-sm transition-all hover:bg-[#c59b27] hover:text-[#1f040b]" aria-label="Contact the parish office">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#c59b27] bg-white px-6 py-3 text-sm font-semibold text-[#c59b27] shadow-sm transition-all hover:bg-[#c59b27] hover:text-[#1f040b]"
+              aria-label="Contact the parish office"
+            >
               <Phone className="h-4 w-4" />
               Contact Parish
             </Link>
-            <a href="#live-telecast" className="inline-flex items-center gap-2 rounded-full bg-[#80142b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#9e1c36]" aria-label="Watch live Mass telecast">
+            <a
+              href="#live-telecast"
+              className="inline-flex items-center gap-2 rounded-full bg-[#80142b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#9e1c36]"
+              aria-label="Watch live Mass telecast"
+            >
               <Play className="h-4 w-4" />
               Live Mass
             </a>

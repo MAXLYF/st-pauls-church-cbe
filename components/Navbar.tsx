@@ -45,7 +45,7 @@ const aboutSubmenu = [
 
 const mainLinks = [
   { label: "Home", href: "/" },
-  { label: "Mass Timings", href: "/mass-timings" },
+  { label: "Mass Timings", href: "/#mass-timings" },
   { label: "Ministries", href: "/ministries" },
   { label: "Anbiyam", href: "/anbiyam" },
   { label: "Prayer", href: "/prayer" },
@@ -317,7 +317,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => {
-                  if (link.href === "/mass-timings" && pathname === "/") {
+                  if ((link.href === "/#mass-timings" || link.href === "/mass-timings") && pathname === "/") {
                     e.preventDefault();
                     document.getElementById("mass-timings")?.scrollIntoView({ behavior: "smooth" });
                     window.history.pushState(null, "", "/#mass-timings");
@@ -481,7 +481,7 @@ export default function Navbar() {
 
               {/* Mass Timings */}
               <Link
-                href="/mass-timings"
+                href="/#mass-timings"
                 onClick={(e) => {
                   setMobileDrawerOpen(false);
                   if (pathname === "/") {
@@ -491,7 +491,7 @@ export default function Navbar() {
                   }
                 }}
                 className={`flex h-12 items-center rounded-xl px-4 text-sm font-semibold transition-colors ${
-                  pathname === "/mass-timings"
+                  pathname === "/#mass-timings" || pathname === "/mass-timings"
                     ? "bg-[#80142b]/10 text-[#80142b]"
                     : "text-slate-800 hover:bg-slate-100"
                 }`}
