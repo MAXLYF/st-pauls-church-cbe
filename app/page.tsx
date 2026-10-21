@@ -57,7 +57,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#140207]/90 via-transparent to-black/25" />
         <div className="container-site relative flex min-h-[700px] items-center py-24">
           <div className="max-w-2xl text-white">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/45 bg-[#781226]/40 px-4 py-2 text-xs font-bold tracking-[.22em] text-[#f5d77f] backdrop-blur-md shadow-lg">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/45 bg-[#781226]/40 px-4 py-2 text-xs font-bold tracking-[.22em] text-[#f5d77f] backdrop-blur-md">
               <Cross className="h-4 w-4 text-[#f5d77f]" /> WELCOME TO OUR PARISH
             </div>
             <h1 className="text-5xl font-extrabold leading-tight text-white drop-shadow-md md:text-7xl">St. Paul&apos;s Catholic Church</h1>
@@ -66,11 +66,8 @@ export default function Home() {
               A welcoming Catholic community rooted in faith, fellowship, service and prayer.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <Link href="#mass-timings" className="rounded-full bg-gradient-to-r from-[#c59b27] via-[#e5c158] to-[#b8860b] px-7 py-3.5 font-bold text-[#1f040b] shadow-[0_10px_25px_rgba(197,155,39,0.4)] hover:shadow-[0_15px_35px_rgba(197,155,39,0.6)] hover:scale-105 transition-all">
+              <Link href="#mass-timings" className="rounded-full bg-gradient-to-r from-[#c59b27] via-[#e5c158] to-[#b8860b] px-7 py-3.5 font-bold text-[#1f040b] shadow-[0_10px_25px_rgba(197,155,39,0.25)] transition hover:shadow-[0_14px_32px_rgba(197,155,39,0.35)]">
                 Mass Timings
-              </Link>
-              <Link href="/events" className="rounded-full border border-[#f1cf7a]/40 bg-[#781226]/35 px-7 py-3.5 font-semibold text-white backdrop-blur hover:bg-[#781226]/60 hover:border-[#f1cf7a]/70 hover:scale-105 transition-all">
-                Parish Events
               </Link>
             </div>
           </div>
@@ -79,11 +76,13 @@ export default function Home() {
 
       <section className="section-pad">
         <div className="container-site">
-          <SectionTitle eyebrow="OUR PARISH" title="Welcome to St. Paul&apos;s Catholic Church" description="St. Paul's Catholic Church, Rathinapuri is a Roman Catholic parish serving the faithful of the Rathinapuri / Tatabad area of Coimbatore under the Coimbatore Diocese." />
+          <SectionTitle eyebrow="OUR PARISH" title="Welcome to St. Paul&apos;s Catholic Church" description="St. Paul's Catholic Church, Rathinapuri is a Roman Catholic parish serving the faithful of Coimbatore and the surrounding community." />
           <div className="grid gap-8 md:grid-cols-2">
             <img src="/images/church-interior.jpg" alt="Inside St. Paul's Catholic Church, Rathinapuri" className="h-full min-h-[360px] w-full rounded-3xl object-cover shadow-lg border border-[#d4af37]/20" />
             <div className="flex flex-col justify-center">
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#781226] to-[#4e0917] text-[#f5d77f] border border-[#d4af37]/35 shadow-md"><Church /></div>
+              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#781226] to-[#4e0917] text-[#f5d77f] border border-[#d4af37]/35 shadow-md">
+                <Church className="h-7 w-7" />
+              </div>
               <h3 className="text-3xl font-bold text-[#1f040b]">A place of prayer and fellowship</h3>
               <p className="mt-5 leading-8 text-slate-600">
                 Discover parish life, celebrate the Eucharist with us, take part in ministries and events, and stay connected with announcements from the parish.
@@ -122,7 +121,7 @@ export default function Home() {
               <div
                 key={item.day}
                 className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${item.featured
-                  ? "border-[#d4af37]/50 bg-gradient-to-b from-[#3d0917]/60 via-white/[0.06] to-white/[0.02] shadow-[0_15px_40px_rgba(20,2,6,0.5),0_0_30px_rgba(212,175,55,0.18)] hover:border-[#f1cf7a]/70 hover:shadow-[0_20px_50px_rgba(212,175,55,0.25)]"
+                  ? "border-[#d4af37]/50 bg-gradient-to-b from-[#3d0917]/60 via-white/[0.06] to-white/[0.02] shadow-[0_15px_40px_rgba(20,2,6,0.5),0_0_30px_rgba(212,175,55,0.18)] hover:border-[#f1cf7a]/55"
                   : "border-white/10 bg-white/[0.04] shadow-[0_15px_35px_rgba(0,0,0,0.35)] hover:border-[#d4af37]/45 hover:bg-[#360814]/30 hover:shadow-[0_20px_45px_rgba(0,0,0,0.5)]"
                   }`}
               >
@@ -159,7 +158,7 @@ export default function Home() {
                             {t.name}
                           </span>
                         </div>
-                        <span className="shrink-0 rounded-xl border border-white/10 bg-white/[0.06] px-3.5 py-1.5 text-xs font-bold tracking-wider text-[#f5d77f] shadow-inner transition-all duration-300 group-hover/row:border-[#d4af37]/50 group-hover/row:bg-[#781226]/40">
+                        <span className="shrink-0 rounded-xl border border-white/10 bg-white/[0.06] px-3.5 py-1.5 text-xs font-bold tracking-wider text-[#f5d77f] shadow-inner transition-all duration-300 group-hover/row:border-[#d4af37]/40 group-hover/row:bg-white/[0.12]">
                           {t.time}
                         </span>
                       </div>
@@ -181,7 +180,6 @@ export default function Home() {
                 <div className="inline-block rounded-full bg-[#80142b]/10 border border-[#80142b]/20 px-3 py-1 text-xs font-bold tracking-[.15em] text-[#80142b]">{e.date}</div>
                 <h3 className="mt-3 text-xl font-bold text-[#1f040b]">{e.title}</h3>
                 <p className="mt-3 leading-7 text-slate-600">{e.text}</p>
-                <Link href="/events" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#80142b] hover:text-[#9e1c36] transition-colors">View events <ArrowRight className="h-4 w-4" /></Link>
               </div>
             ))}
           </div>
@@ -195,7 +193,7 @@ export default function Home() {
             <div className="text-xs font-bold tracking-[.25em] text-[#f1cf7a]">LIVE & MEDIA</div>
             <h2 className="mt-3 text-4xl font-bold">Stay connected with parish celebrations</h2>
             <p className="mt-5 leading-8 text-slate-300">Watch livestreams, browse parish videos and revisit moments from our community.</p>
-            <Link href="/live" className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#c59b27] via-[#e5c158] to-[#b8860b] px-7 py-3.5 font-bold text-[#1f040b] shadow-[0_10px_25px_rgba(197,155,39,0.35)] hover:scale-105 transition-all"><Play className="h-4 w-4" /> Watch Live</Link>
+            <Link href="/live" className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#c59b27] via-[#e5c158] to-[#b8860b] px-7 py-3.5 font-bold text-[#1f040b] shadow-[0_8px_24px_rgba(197,155,39,0.28)]">Watch Live <Play className="h-4 w-4 fill-current" /></Link>
           </div>
           <img src="/images/church-banner.jpg" alt="St. Paul's Catholic Church, Rathinapuri banner" className="rounded-3xl shadow-2xl border-2 border-[#d4af37]/30" />
         </div>
@@ -217,12 +215,12 @@ export default function Home() {
         <div className="container-site grid gap-8 lg:grid-cols-2">
           <div className="rounded-3xl bg-white p-8 shadow-sm border border-amber-900/10">
             <SectionTitle eyebrow="PRAYER" title="Share a Prayer Request" description="If you would like the parish to pray for an intention, you can send it privately to the parish team." />
-            <Link href="/prayer-request" className="mx-auto flex w-fit rounded-full bg-gradient-to-r from-[#781226] via-[#8c1830] to-[#6a0f21] px-7 py-3.5 font-bold text-white shadow-[0_6px_20px_rgba(120,18,38,0.35)] border border-[#d4af37]/30 hover:scale-105 transition-all">Send Prayer Request</Link>
+            <Link href="/prayer-request" className="mx-auto flex w-fit rounded-full bg-gradient-to-r from-[#781226] via-[#8c1830] to-[#6a0f21] px-7 py-3.5 font-bold text-white shadow-[0_6px_20px_rgba(120,18,38,0.25)]">Send a Prayer Request</Link>
           </div>
           <div className="overflow-hidden rounded-3xl bg-white shadow-sm border border-amber-900/10">
             <div className="h-[380px]"><Map /></div>
             <div className="p-6">
-              <div className="flex items-start gap-3"><MapPin className="mt-1 text-[#c59b27]" /><div><h3 className="font-bold text-[#1f040b]">Find Us</h3><p className="mt-1 text-sm leading-6 text-slate-600">Nehru Street, Tatabad / Rathinapuri, Coimbatore, Tamil Nadu, India</p></div></div>
+              <div className="flex items-start gap-3"><MapPin className="mt-1 text-[#c59b27]" /><div><h3 className="font-bold text-[#1f040b]">Find Us</h3><p className="mt-1 text-sm leading-6 text-slate-600">St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore</p></div></div>
             </div>
           </div>
         </div>
