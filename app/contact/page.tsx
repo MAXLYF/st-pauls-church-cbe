@@ -31,8 +31,18 @@ export default function Contact() {
                 <p className="mt-1 leading-7">
                   Nehru Street, Tatabad / Rathinapuri,
                   <br />
-                  Coimbatore, Tamil Nadu, India
+                  Coimbatore, Tamil Nadu, India - 641027
                 </p>
+                <div className="mt-3">
+                  <a
+                    href="https://maps.app.goo.gl/UML8VeZmrEvJKPMPA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#781226] to-[#4e0917] px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-[#80142b] transition"
+                  >
+                    <span>Get Directions on Google Maps</span>
+                  </a>
+                </div>
               </div>
               <div>
                 <strong className="text-[#80142b]">Diocese</strong>

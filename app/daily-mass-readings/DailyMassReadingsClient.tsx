@@ -603,7 +603,7 @@ export default function DailyMassReadingsClient({
                 tfoot repeats on every printed page
                 tbody contains reading content
             */}
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse print-table">
               {/* PRINT ONLY: Dedicated Church Header on EVERY printed page */}
               <thead className="print-only print-table-header">
                 <tr>
@@ -619,8 +619,11 @@ export default function DailyMassReadingsClient({
                           <div className="text-base font-bold tracking-wider text-black uppercase">
                             ST. PAUL&apos;S CATHOLIC CHURCH
                           </div>
-                          <div className="text-xs font-semibold tracking-widest text-neutral-700 uppercase">
-                            RATHINAPURI, COIMBATORE
+                          <div className="text-xs font-semibold tracking-wider text-neutral-800 uppercase">
+                            Nehru Street, Rathinapuri, Coimbatore - 641027
+                          </div>
+                          <div className="text-[11px] font-medium text-neutral-600">
+                            Catholic Diocese of Coimbatore
                           </div>
                         </div>
                       </div>
@@ -647,206 +650,220 @@ export default function DailyMassReadingsClient({
                 <tr>
                   <td className="pt-3 border-t border-black/40 text-[9pt] text-neutral-700">
                     <div className="flex justify-between items-center">
-                      <span>St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore</span>
+                      <span>St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore - 641027 • Diocese of Coimbatore</span>
                       <span className="print-page-number"></span>
                     </div>
                   </td>
                 </tr>
               </tfoot>
 
-              {/* Body containing all reading sections */}
+              {/* Body containing each reading section in its own row for smooth multi-page printing */}
               <tbody>
-                <tr>
-                  <td className="py-2">
-                    <div className="space-y-8 md:space-y-10">
-                      {/* SECTION 1: FIRST READING (முதல் வாசகம்) */}
-                      {effectiveItem.firstReading && (
-                        <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-white p-6 md:p-8 shadow-sm transition hover:shadow-md">
-                          <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-5">
-                            <div className="flex flex-wrap items-center justify-between gap-2">
-                              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fbf4e6] border border-[#d4af37]/40 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
-                                <Bookmark className="h-3.5 w-3.5 text-[#c59b27]" />
-                                <span>{effectiveItem.firstReading.heading}</span>
-                              </span>
-                              <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
-                                {effectiveItem.firstReading.reference}
-                              </span>
-                            </div>
-
-                            {/* Tamil or English reading intro citation */}
-                            {effectiveItem.firstReading.intro && (
-                              <p className="mt-3 text-sm italic font-medium text-slate-700">
-                                &ldquo;{effectiveItem.firstReading.intro}&rdquo;
-                              </p>
-                            )}
-                          </header>
-
-                          {/* Paragraphs */}
-                          <div className={`space-y-4 text-slate-800 ${fontClass}`}>
-                            {effectiveItem.firstReading.paragraphs.map((p, pIdx) => (
-                              <p key={pIdx} className="leading-relaxed">
-                                {p}
-                              </p>
-                            ))}
+                {/* SECTION 1: FIRST READING (முதல் வாசகம்) */}
+                {effectiveItem.firstReading && (
+                  <tr className="reading-row">
+                    <td className="reading-cell py-3 align-top">
+                      <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-white p-6 md:p-8 shadow-sm transition hover:shadow-md">
+                        <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-5">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fbf4e6] border border-[#d4af37]/40 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
+                              <Bookmark className="h-3.5 w-3.5 text-[#c59b27]" />
+                              <span>{effectiveItem.firstReading.heading}</span>
+                            </span>
+                            <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
+                              {effectiveItem.firstReading.reference}
+                            </span>
                           </div>
 
-                          <footer className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 italic">
-                            {language === "ta"
-                              ? "ஆண்டவரின் அருள்வாக்கு. — இறைவனுக்கு நன்றி."
-                              : "The Word of the Lord. — Thanks be to God."}
-                          </footer>
-                        </article>
-                      )}
+                          {/* Tamil or English reading intro citation */}
+                          {effectiveItem.firstReading.intro && (
+                            <p className="mt-3 text-sm italic font-medium text-slate-700">
+                              &ldquo;{effectiveItem.firstReading.intro}&rdquo;
+                            </p>
+                          )}
+                        </header>
 
-                      {/* SECTION 2: RESPONSORIAL PSALM (பதிலுரைப் பாடல்) */}
-                      {effectiveItem.psalm && (
-                        <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-white p-6 md:p-8 shadow-sm transition hover:shadow-md">
-                          <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-5">
-                            <div className="flex flex-wrap items-center justify-between gap-2">
-                              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fbf4e6] border border-[#d4af37]/40 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
-                                <Sparkles className="h-3.5 w-3.5 text-[#c59b27]" />
-                                <span>{effectiveItem.psalm.heading}</span>
-                              </span>
-                              <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
-                                {effectiveItem.psalm.reference}
-                              </span>
-                            </div>
+                        {/* Paragraphs */}
+                        <div className={`space-y-4 text-slate-800 ${fontClass}`}>
+                          {effectiveItem.firstReading.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx} className="leading-relaxed">
+                              {p}
+                            </p>
+                          ))}
+                        </div>
 
-                            {/* Prominent Psalm Response / பல்லவி Refrain */}
-                            {effectiveItem.psalm.response && (
-                              <div className="mt-4 rounded-xl border-l-4 border-[#80142b] bg-[#fbf6ea] p-4 text-slate-900 shadow-xs">
-                                <div className="text-xs font-bold uppercase tracking-wider text-[#80142b] mb-1">
-                                  {language === "ta" ? "பல்லவி (Response)" : "Response (R.)"}
-                                </div>
-                                <p className="text-base sm:text-lg font-bold text-[#80142b] italic">
-                                  {effectiveItem.psalm.response}
-                                </p>
+                        <footer className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 italic">
+                          {language === "ta"
+                            ? "ஆண்டவரின் அருள்வாக்கு. — இறைவனுக்கு நன்றி."
+                            : "The Word of the Lord. — Thanks be to God."}
+                        </footer>
+                      </article>
+                    </td>
+                  </tr>
+                )}
+
+                {/* SECTION 2: RESPONSORIAL PSALM (பதிலுரைப் பாடல்) */}
+                {effectiveItem.psalm && (
+                  <tr className="reading-row">
+                    <td className="reading-cell py-3 align-top">
+                      <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-white p-6 md:p-8 shadow-sm transition hover:shadow-md">
+                        <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-5">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fbf4e6] border border-[#d4af37]/40 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
+                              <Sparkles className="h-3.5 w-3.5 text-[#c59b27]" />
+                              <span>{effectiveItem.psalm.heading}</span>
+                            </span>
+                            <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
+                              {effectiveItem.psalm.reference}
+                            </span>
+                          </div>
+
+                          {/* Prominent Psalm Response / பல்லவி Refrain */}
+                          {effectiveItem.psalm.response && (
+                            <div className="mt-4 rounded-xl border-l-4 border-[#80142b] bg-[#fbf6ea] p-4 text-slate-900 shadow-xs">
+                              <div className="text-xs font-bold uppercase tracking-wider text-[#80142b] mb-1">
+                                {language === "ta" ? "பல்லவி (Response)" : "Response (R.)"}
                               </div>
-                            )}
-                          </header>
-
-                          {/* Psalm verses / strophes */}
-                          <div className={`space-y-4 text-slate-800 ${fontClass}`}>
-                            {effectiveItem.psalm.paragraphs.map((p, pIdx) => {
-                              const isRefrainEcho = p.startsWith("R.") || p.includes("– பல்லவி") || p.includes("–பல்லவி");
-                              return (
-                                <p
-                                  key={pIdx}
-                                  className={
-                                    isRefrainEcho
-                                      ? "pl-4 text-slate-700 italic border-l-2 border-[#d4af37]/50"
-                                      : "leading-relaxed"
-                                  }
-                                >
-                                  {p}
-                                </p>
-                              );
-                            })}
-                          </div>
-                        </article>
-                      )}
-
-                      {/* SECTION 3: SECOND READING (இரண்டாம் வாசகம்) - Conditional! */}
-                      {effectiveItem.secondReading && (
-                        <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-white p-6 md:p-8 shadow-sm transition hover:shadow-md">
-                          <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-5">
-                            <div className="flex flex-wrap items-center justify-between gap-2">
-                              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fbf4e6] border border-[#d4af37]/40 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
-                                <Bookmark className="h-3.5 w-3.5 text-[#c59b27]" />
-                                <span>{effectiveItem.secondReading.heading}</span>
-                              </span>
-                              <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
-                                {effectiveItem.secondReading.reference}
-                              </span>
-                            </div>
-
-                            {effectiveItem.secondReading.intro && (
-                              <p className="mt-3 text-sm italic font-medium text-slate-700">
-                                &ldquo;{effectiveItem.secondReading.intro}&rdquo;
+                              <p className="text-base sm:text-lg font-bold text-[#80142b] italic">
+                                {effectiveItem.psalm.response}
                               </p>
-                            )}
-                          </header>
+                            </div>
+                          )}
+                        </header>
 
-                          <div className={`space-y-4 text-slate-800 ${fontClass}`}>
-                            {effectiveItem.secondReading.paragraphs.map((p, pIdx) => (
-                              <p key={pIdx} className="leading-relaxed">
+                        {/* Psalm verses / strophes */}
+                        <div className={`space-y-4 text-slate-800 ${fontClass}`}>
+                          {effectiveItem.psalm.paragraphs.map((p, pIdx) => {
+                            const isRefrainEcho = p.startsWith("R.") || p.includes("– பல்லவி") || p.includes("–பல்லவி");
+                            return (
+                              <p
+                                key={pIdx}
+                                className={
+                                  isRefrainEcho
+                                    ? "pl-4 text-slate-700 italic border-l-2 border-[#d4af37]/50"
+                                    : "leading-relaxed"
+                                }
+                              >
                                 {p}
                               </p>
-                            ))}
+                            );
+                          })}
+                        </div>
+                      </article>
+                    </td>
+                  </tr>
+                )}
+
+                {/* SECTION 3: SECOND READING (இரண்டாம் வாசகம்) - Conditional */}
+                {effectiveItem.secondReading && (
+                  <tr className="reading-row">
+                    <td className="reading-cell py-3 align-top">
+                      <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-white p-6 md:p-8 shadow-sm transition hover:shadow-md">
+                        <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-5">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fbf4e6] border border-[#d4af37]/40 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
+                              <Bookmark className="h-3.5 w-3.5 text-[#c59b27]" />
+                              <span>{effectiveItem.secondReading.heading}</span>
+                            </span>
+                            <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
+                              {effectiveItem.secondReading.reference}
+                            </span>
                           </div>
 
-                          <footer className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 italic">
-                            {language === "ta"
-                              ? "ஆண்டவரின் அருள்வாக்கு. — இறைவனுக்கு நன்றி."
-                              : "The Word of the Lord. — Thanks be to God."}
-                          </footer>
-                        </article>
-                      )}
+                          {effectiveItem.secondReading.intro && (
+                            <p className="mt-3 text-sm italic font-medium text-slate-700">
+                              &ldquo;{effectiveItem.secondReading.intro}&rdquo;
+                            </p>
+                          )}
+                        </header>
 
-                      {/* SECTION 4: ALLELUIA / GOSPEL ACCLAMATION (நற்செய்திக்கு முன் வாழ்த்தொலி) */}
-                      {effectiveItem.alleluia && (
-                        <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-gradient-to-br from-white to-[#fbf8f2] p-6 md:p-8 shadow-sm transition hover:shadow-md">
-                          <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-4">
-                            <div className="flex flex-wrap items-center justify-between gap-2">
-                              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#781226]/10 border border-[#80142b]/30 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
-                                <Sparkles className="h-3.5 w-3.5 text-[#80142b]" />
-                                <span>{effectiveItem.alleluia.heading}</span>
-                              </span>
-                              <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
-                                {effectiveItem.alleluia.reference}
-                              </span>
-                            </div>
-                          </header>
+                        <div className={`space-y-4 text-slate-800 ${fontClass}`}>
+                          {effectiveItem.secondReading.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx} className="leading-relaxed">
+                              {p}
+                            </p>
+                          ))}
+                        </div>
 
-                          <div className={`space-y-3 text-slate-800 font-medium ${fontClass}`}>
-                            {effectiveItem.alleluia.paragraphs.map((p, pIdx) => (
-                              <p key={pIdx} className="italic text-[#80142b]">
-                                {p}
-                              </p>
-                            ))}
+                        <footer className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 italic">
+                          {language === "ta"
+                            ? "ஆண்டவரின் அருள்வாக்கு. — இறைவனுக்கு நன்றி."
+                            : "The Word of the Lord. — Thanks be to God."}
+                        </footer>
+                      </article>
+                    </td>
+                  </tr>
+                )}
+
+                {/* SECTION 4: ALLELUIA / GOSPEL ACCLAMATION (நற்செய்திக்கு முன் வாழ்த்தொலி) */}
+                {effectiveItem.alleluia && (
+                  <tr className="reading-row">
+                    <td className="reading-cell py-3 align-top">
+                      <article className="reading-section-card relative rounded-2xl border border-[#e5dcce] bg-gradient-to-br from-white to-[#fbf8f2] p-6 md:p-8 shadow-sm transition hover:shadow-md">
+                        <header className="reading-heading-box border-b border-[#e5dcce]/80 pb-4 mb-4">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#781226]/10 border border-[#80142b]/30 px-3 py-1 text-xs font-bold tracking-wider text-[#80142b] uppercase">
+                              <Sparkles className="h-3.5 w-3.5 text-[#80142b]" />
+                              <span>{effectiveItem.alleluia.heading}</span>
+                            </span>
+                            <span className="text-sm font-semibold text-[#80142b] bg-[#faf7f2] px-3 py-1 rounded-md border border-[#e5dcce]">
+                              {effectiveItem.alleluia.reference}
+                            </span>
                           </div>
-                        </article>
-                      )}
+                        </header>
 
-                      {/* SECTION 5: GOSPEL (நற்செய்தி வாசகம்) */}
-                      {effectiveItem.gospel && (
-                        <article className="reading-section-card relative rounded-2xl border-2 border-[#d4af37]/60 bg-white p-6 md:p-8 shadow-md transition hover:shadow-lg">
-                          <header className="reading-heading-box border-b-2 border-[#d4af37]/40 pb-4 mb-5">
-                            <div className="flex flex-wrap items-center justify-between gap-2">
-                              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#80142b] px-3.5 py-1 text-xs font-bold tracking-wider text-[#f5d77f] uppercase shadow-xs">
-                                <span>✠</span>
-                                <span>{effectiveItem.gospel.heading}</span>
-                              </span>
-                              <span className="text-sm font-bold text-[#80142b] bg-[#faf7f2] px-3.5 py-1 rounded-md border border-[#d4af37]/40">
-                                {effectiveItem.gospel.reference}
-                              </span>
-                            </div>
+                        <div className={`space-y-3 text-slate-800 font-medium ${fontClass}`}>
+                          {effectiveItem.alleluia.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx} className="italic text-[#80142b]">
+                              {p}
+                            </p>
+                          ))}
+                        </div>
+                      </article>
+                    </td>
+                  </tr>
+                )}
 
-                            {effectiveItem.gospel.intro && (
-                              <p className="mt-3 text-sm italic font-semibold text-[#80142b]">
-                                &ldquo;{effectiveItem.gospel.intro}&rdquo;
-                              </p>
-                            )}
-                          </header>
-
-                          <div className={`space-y-4 text-slate-900 ${fontClass}`}>
-                            {effectiveItem.gospel.paragraphs.map((p, pIdx) => (
-                              <p key={pIdx} className="leading-relaxed">
-                                {p}
-                              </p>
-                            ))}
+                {/* SECTION 5: GOSPEL (நற்செய்தி வாசகம்) */}
+                {effectiveItem.gospel && (
+                  <tr className="reading-row">
+                    <td className="reading-cell py-3 align-top">
+                      <article className="reading-section-card relative rounded-2xl border-2 border-[#d4af37]/60 bg-white p-6 md:p-8 shadow-md transition hover:shadow-lg">
+                        <header className="reading-heading-box border-b-2 border-[#d4af37]/40 pb-4 mb-5">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#80142b] px-3.5 py-1 text-xs font-bold tracking-wider text-[#f5d77f] uppercase shadow-xs">
+                              <span>✠</span>
+                              <span>{effectiveItem.gospel.heading}</span>
+                            </span>
+                            <span className="text-sm font-bold text-[#80142b] bg-[#faf7f2] px-3.5 py-1 rounded-md border border-[#d4af37]/40">
+                              {effectiveItem.gospel.reference}
+                            </span>
                           </div>
 
-                          <footer className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 italic">
-                            {language === "ta"
-                              ? "ஆண்டவரின் அருள்வாக்கு. — கிறிஸ்துவே, உமக்கு புகழ்."
-                              : "The Gospel of the Lord. — Praise to you, Lord Jesus Christ."}
-                          </footer>
-                        </article>
-                      )}
-                    </div>
-                  </td>
-                </tr>
+                          {effectiveItem.gospel.intro && (
+                            <p className="mt-3 text-sm italic font-semibold text-[#80142b]">
+                              &ldquo;{effectiveItem.gospel.intro}&rdquo;
+                            </p>
+                          )}
+                        </header>
+
+                        <div className={`space-y-4 text-slate-900 ${fontClass}`}>
+                          {effectiveItem.gospel.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx} className="leading-relaxed">
+                              {p}
+                            </p>
+                          ))}
+                        </div>
+
+                        <footer className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 italic">
+                          {language === "ta"
+                            ? "ஆண்டவரின் அருள்வாக்கு. — கிறிஸ்துவே, உமக்கு புகழ்."
+                            : "The Gospel of the Lord. — Praise to you, Lord Jesus Christ."}
+                        </footer>
+                      </article>
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
 

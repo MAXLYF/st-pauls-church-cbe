@@ -334,9 +334,10 @@ export default function AboutPage() {
                         {milestone.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="inline-block rounded-md bg-[#faf7f2] border border-[#e8dfcb] px-2.5 py-1 text-[11px] font-bold text-slate-600"
+                            className="inline-flex items-center gap-1 rounded-md bg-[#faf7f2] border border-[#e8dfcb] px-2.5 py-1 text-[11px] font-bold text-slate-700"
                           >
-                            #{tag}
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#c59b27]" />
+                            {tag}
                           </span>
                         ))}
                       </div>

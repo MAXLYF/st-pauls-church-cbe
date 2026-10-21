@@ -320,7 +320,25 @@ export default function Home() {
           <div className="overflow-hidden rounded-3xl bg-white shadow-sm border border-amber-900/10">
             <div className="h-[380px]"><Map /></div>
             <div className="p-6">
-              <div className="flex items-start gap-3"><MapPin className="mt-1 text-[#c59b27]" /><div><h3 className="font-bold text-[#1f040b]">Find Us</h3><p className="mt-1 text-sm leading-6 text-slate-600">St. Paul&apos;s Catholic Church, Rathinapuri, Coimbatore</p></div></div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 text-[#c59b27] shrink-0" />
+                  <div>
+                    <h3 className="font-bold text-[#1f040b]">Find Us</h3>
+                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                      St. Paul&apos;s Catholic Church, Nehru Street, Rathinapuri, Coimbatore - 641027
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/UML8VeZmrEvJKPMPA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#781226] to-[#4e0917] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:from-[#9e1c36] hover:to-[#6a0f21] transition shrink-0"
+                >
+                  <span>Get Directions</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

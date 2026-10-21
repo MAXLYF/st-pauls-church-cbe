@@ -88,81 +88,125 @@ a { text-decoration: none; }
   @page {
     size: A4 portrait;
     margin: 12mm 15mm 15mm 15mm;
-    @bottom-left {
-      content: "St. Paul's Catholic Church, Rathinapuri, Coimbatore";
-      font-size: 8pt;
-      color: #444;
-      font-family: inherit;
-    }
-    @bottom-right {
-      content: "Page " counter(page) " of " counter(pages);
-      font-size: 8pt;
-      color: #444;
-      font-family: inherit;
-    }
   }
 
+  html,
   body {
     background: #ffffff !important;
     color: #111111 !important;
-    font-size: 10.5pt !important;
-    line-height: 1.55 !important;
+    font-size: 10pt !important;
+    line-height: 1.5 !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Tamil", "Nirmala UI", Arial, sans-serif !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 100% !important;
+    max-height: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  header,
+  main,
+  .container-site {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide screen-only UI elements */
+  body > div:first-child,
+  body > footer,
+  nav,
   aside,
-  footer,
   .no-print,
   [data-no-print] {
     display: none !important;
   }
 
+  /* CRITICAL: Ensure article headers and footers inside reading cards are NEVER hidden */
+  article header,
+  article footer,
+  .reading-heading-box,
+  .reading-section-card header,
+  .reading-section-card footer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Print table structures */
   .print-only {
     display: block !important;
   }
 
-  .print-table {
-    display: table !important;
-    width: 100% !important;
-    border-collapse: collapse !important;
-  }
-
+  thead.print-only,
   .print-table-header {
     display: table-header-group !important;
   }
 
+  tfoot.print-only,
   .print-table-footer {
     display: table-footer-group !important;
   }
 
-  /* Prevent headings from being separated from the first few lines of their reading */
-  h1, h2, h3, h4, .reading-heading {
-    page-break-after: avoid !important;
-    break-after: avoid !important;
+  tr.print-only,
+  tr.reading-row {
+    display: table-row !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
   }
 
-  /* Keep reading sections intact if possible */
-  .reading-section-card {
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-    margin-bottom: 18pt !important;
-    page-break-inside: auto;
-    break-inside: auto;
+  td.print-only,
+  td.reading-cell {
+    display: table-cell !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
   }
 
+  table,
+  .print-table {
+    display: table !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  tbody {
+    display: table-row-group !important;
+  }
+
+  /* Prevent headings from being separated from the first lines of their reading */
+  h1, h2, h3, h4,
+  .reading-heading,
   .reading-heading-box {
     page-break-after: avoid !important;
     break-after: avoid !important;
+    color: #000000 !important;
+  }
+
+  /* Clean, crisp card styling for printed A4 pages */
+  .reading-section-card {
+    border: 1px solid #d4cabb !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    padding: 10pt 12pt !important;
+    margin-bottom: 12pt !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    border-radius: 4pt !important;
   }
 
   p {
-    orphans: 3;
-    widows: 3;
+    orphans: 2;
+    widows: 2;
+    color: #111111 !important;
   }
 }
 
