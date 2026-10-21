@@ -51,13 +51,13 @@ export const massTimings: MassScheduleGroup[] = [
     ],
   },
   {
-    day: "First Friday",
-    subtitle: "Monthly Confession",
+    day: "Monthly Confession",
+    subtitle: "Sacrament of Reconciliation",
     featured: false,
-    badge: "First Friday",
+    badge: "Every First Friday",
     note: "Every First Friday of the month will be Confession from morning 10:00 AM to evening 8:00 PM",
     timings: [
-      { name: "Holy Confession", time: "10:00 AM – 8:00 PM" },
+      { name: "Holy Confession (All Day)", time: "10:00 AM – 8:00 PM" },
       { name: "Morning Holy Mass", time: "6:15 AM" },
       { name: "Evening Mass & Adoration", time: "6:00 PM" },
     ],
@@ -111,8 +111,8 @@ export default function MassTimingsPage() {
           {/* Today's Schedule Highlight */}
           <TodayMassTimings massTimings={massTimings} />
 
-          {/* 4 Cards Grid: Sunday, Monday-Thursday, Friday & Saturday, First Friday Confession */}
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {/* 4 Cards Grid (2x2 Side-by-Side: Sunday & Weekdays on row 1, Friday/Sat & Monthly Confession on row 2) */}
+          <div className="grid gap-6 md:grid-cols-2">
             {massTimings.map((item) => (
               <div
                 key={item.day}

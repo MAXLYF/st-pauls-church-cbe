@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, MapPin, Play, Church, Cross, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MapPin, Play, Church, Cross, Sparkles, Heart } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import Map from "@/components/Map";
 import MediaCard from "@/components/MediaCard";
@@ -18,10 +19,11 @@ const massTimings = [
     subtitle: "The Lord's Day",
     featured: true,
     timings: [
-      { name: "Morning Mass", time: "6:00 AM" },
-      { name: "Catechism Mass", time: "7:30 AM" },
-      { name: "Morning Mass", time: "8:00 AM" },
-      { name: "Evening Mass", time: "5:30 PM" },
+      { name: "First Holy Mass", time: "6:00 AM" },
+      { name: "Catechism Mass", time: "7:45 AM" },
+      { name: "Second Holy Mass", time: "8:00 AM" },
+      { name: "Children's Mass", time: "9:00 AM" },
+      { name: "Evening Holy Mass", time: "5:30 PM" },
     ],
   },
   {
@@ -35,22 +37,24 @@ const massTimings = [
   },
   {
     day: "Friday & Saturday",
-    subtitle: "Novena & Adoration",
+    subtitle: "Novena & Eucharistic Adoration",
     featured: false,
     timings: [
-      { name: "Morning Mass", time: "6:00 AM" },
-      { name: "Rosary, Mass and Adoration", time: "5:45 PM" },
+      { name: "Morning Mass", time: "6:15 AM" },
+      { name: "Rosary (Saturday)", time: "5:30 PM" },
+      { name: "Evening Mass", time: "6:00 PM" },
+      { name: "Eucharistic Adoration (Sat)", time: "7:00 PM" },
     ],
   },
   {
-    day: "First Friday",
-    subtitle: "Monthly Confession",
+    day: "Monthly Confession",
+    subtitle: "Sacrament of Reconciliation",
     featured: false,
-    badge: "First Friday",
+    badge: "Every First Friday",
     note: "Every First Friday of the month will be Confession from morning 10:00 AM to evening 8:00 PM",
     timings: [
-      { name: "Holy Confession", time: "10:00 AM – 8:00 PM" },
-      { name: "Morning Mass", time: "6:15 AM" },
+      { name: "Holy Confession (All Day)", time: "10:00 AM – 8:00 PM" },
+      { name: "Morning Holy Mass", time: "6:15 AM" },
       { name: "Evening Mass & Adoration", time: "6:00 PM" },
     ],
   },
@@ -106,6 +110,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PARISH CLERGY Section (Immediately above Mass Timings) */}
+      <section id="parish-clergy" className="bg-[#faf7f2] py-20 border-t border-[#e8dfcb]" aria-labelledby="parish-clergy-heading">
+        <div className="container-site">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <div className="text-xs font-bold uppercase tracking-[.25em] text-[#80142b]">
+              PARISH CLERGY
+            </div>
+            <h2 id="parish-clergy-heading" className="mt-2 text-3xl font-bold tracking-tight text-[#1f040b] md:text-4xl">
+              Parish Leadership &amp; Clergy
+            </h2>
+            <div className="gold-line" />
+            <p className="mt-4 text-base text-slate-600 leading-relaxed">
+              Our resident priests ministering to the spiritual and sacramental needs of the faithful at St. Paul&apos;s Catholic Church, Rathinapuri.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            {/* Parish Priest Card */}
+            <div className="group rounded-3xl bg-white p-7 text-center shadow-sm border border-[#e7dec8] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[#c59b27]/60">
+              <div className="relative mx-auto h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#fbf8f1] border border-[#e2d7c5]">
+                <Image
+                  src="/images/parish-priest.png"
+                  alt="Fr. J. Antony Vinodh - Parish Priest"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="mt-6 text-xl sm:text-2xl font-bold text-[#1f040b]">Parish Priest</h3>
+              <p className="mt-1.5 text-lg font-bold text-[#80142b]">Fr. J. Antony Vinodh</p>
+              <p className="mt-1 text-xs font-bold text-[#c59b27] uppercase tracking-widest">
+                St. Paul&apos;s Catholic Church, Rathinapuri
+              </p>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                Guiding the spiritual life, Holy Masses, spiritual counseling, and administration of the parish community.
+              </p>
+            </div>
+
+            {/* Assistant Parish Priest Card */}
+            <div className="group rounded-3xl bg-white p-7 text-center shadow-sm border border-[#e7dec8] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[#c59b27]/60">
+              <div className="relative mx-auto h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#fbf8f1] border border-[#e2d7c5]">
+                <Image
+                  src="/images/assistant-priest.png"
+                  alt="Fr. Naveen Rosario - Assistant Priest"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="mt-6 text-xl sm:text-2xl font-bold text-[#1f040b]">Assistant Priest</h3>
+              <p className="mt-1.5 text-lg font-bold text-[#80142b]">Fr. Naveen Rosario</p>
+              <p className="mt-1 text-xs font-bold text-[#c59b27] uppercase tracking-widest">
+                St. Paul&apos;s Catholic Church, Rathinapuri
+              </p>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                Fostering youth animation, catechism formation, sacramental preparation, and choir ministry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="mass-timings" className="relative overflow-hidden bg-gradient-to-b from-[#140207] via-[#24050f] to-[#120206] py-24 text-white scroll-mt-20">
         {/* Cinematic ambient glow & lighting with wine and warm gold aura */}
         <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full bg-[radial-gradient(circle,rgba(229,193,88,0.18)_0%,transparent_70%)] blur-3xl" />
@@ -128,8 +194,8 @@ export default function Home() {
           {/* Today's Highlighted Mass Timings */}
           <TodayMassTimings massTimings={massTimings} />
 
-          {/* Cards */}
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {/* Cards (2x2 Side-by-Side: Sunday & Weekdays on row 1, Friday/Sat & Monthly Confession on row 2) */}
+          <div className="grid gap-6 md:grid-cols-2">
             {massTimings.map((item) => (
               <div
                 key={item.day}

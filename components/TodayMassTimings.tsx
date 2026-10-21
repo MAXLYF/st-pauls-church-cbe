@@ -42,7 +42,7 @@ export default function TodayMassTimings({ massTimings }: Props) {
     targetGroup = massTimings.find((g) => g.day === "Sunday");
   } else if (isFirstFridayOfMonth) {
     targetGroup =
-      massTimings.find((g) => g.day === "First Friday") ||
+      massTimings.find((g) => g.day === "Monthly Confession" || g.day === "First Friday") ||
       massTimings.find((g) => g.day === "Friday & Saturday");
   } else if (dayIndex === 5 || dayIndex === 6) {
     targetGroup = massTimings.find((g) => g.day === "Friday & Saturday");
