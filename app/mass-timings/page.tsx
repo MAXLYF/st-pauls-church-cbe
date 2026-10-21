@@ -14,6 +14,7 @@ import {
   Cross,
 } from "lucide-react";
 import TodaySchedule from "./TodaySchedule";
+import LiveMassTelecastSection from "@/components/LiveMassTelecastSection";
 
 export const metadata: Metadata = {
   title: "Mass Timings | St. Paul's Catholic Church, Rathinapuri",
@@ -282,6 +283,9 @@ export default function MassTimingsPage() {
         </div>
       </section>
 
+      {/* Live Mass Telecast Section */}
+      <LiveMassTelecastSection />
+
       <section className="section-pad bg-[#fbf8f1]" aria-label="Quick actions">
         <div className="container-site text-center">
           <h2 className="mb-3 text-2xl font-bold text-[#1f040b]">Plan Your Visit</h2>
@@ -295,10 +299,10 @@ export default function MassTimingsPage() {
               <Phone className="h-4 w-4" />
               Contact Parish
             </Link>
-            <Link href="/live" className="inline-flex items-center gap-2 rounded-full bg-[#80142b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#9e1c36]" aria-label="Watch live Mass">
+            <a href="#live-telecast" className="inline-flex items-center gap-2 rounded-full bg-[#80142b] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#9e1c36]" aria-label="Watch live Mass telecast">
               <Play className="h-4 w-4" />
               Live Mass
-            </Link>
+            </a>
           </div>
         </div>
       </section>

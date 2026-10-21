@@ -235,7 +235,7 @@ export default function TamilBibleClient({
       </section>
 
       {/* 2. COMPACT STICKY READING TOOLBAR */}
-      <header className="sticky top-20 z-40 border-b border-[#e6dbc8] bg-white/95 backdrop-blur-md shadow-xs no-print">
+      <header className="sticky top-[120px] z-30 border-b border-[#e6dbc8] bg-white/95 backdrop-blur-md shadow-xs no-print">
         <div className="container-site max-w-5xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
           {/* Left: Book & Chapter Quick Dropdowns + Visual Selector Button */}
           <div className="flex items-center gap-2 flex-wrap">

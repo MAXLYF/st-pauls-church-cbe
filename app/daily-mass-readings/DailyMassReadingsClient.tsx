@@ -381,7 +381,7 @@ export default function DailyMassReadingsClient({
       </section>
 
       {/* Interactive Controls Bar: Language + Date Nav + Print (Screen Only) */}
-      <nav aria-label="Reading Controls" className="no-print sticky top-0 z-30 border-b border-[#e7dec8] bg-white/95 backdrop-blur-md shadow-xs">
+      <nav aria-label="Reading Controls" className="no-print sticky top-[120px] z-30 border-b border-[#e7dec8] bg-white/95 backdrop-blur-md shadow-xs">
         <div className="container-site py-3 flex flex-wrap items-center justify-between gap-3">
           {/* Left: Language Toggle (English | தமிழ்) */}
           <div className="flex items-center gap-2 bg-[#f4ece1] p-1 rounded-full border border-[#d8c7a8]">

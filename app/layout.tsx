@@ -32,8 +32,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <DailyReadingsBar />
+        <div className="sticky top-0 z-50 w-full no-print">
+          <Navbar />
+          <DailyReadingsBar />
+        </div>
         <main>{children}</main>
         <Footer />
       </body>

@@ -66,6 +66,7 @@ const timelineMilestones = [
     title: "A Stream, A Cross & A Temporary Shed",
     description:
       "About 50 years ago, the area north of the Sanganur Pallam rivulet was a rural expanse of farms and scattered dwellings that turned into impassable slush during monsoon rains. Old Coimbatore was expanding rapidly, drawing families seeking livelihood from surrounding villages. Catholics from the Cathedral Parish (including weavers of ancient Kannuvakkarai, Gobichettipalayam, and Vellalas from Madurai) formed the major Catholic population. Until a bridge crossed the wild mountain rivulet (colloquially called 'Ellennai Pallam — Mountain Stream of 7 Buffaloes' after a legendary flood), faithful struggled to reach Gandhipuram parish for sacraments. Community elders approached Bishop Savarimuthu, who with Mr. Paul Raj and others purchased land and erected a 50 ft × 20 ft temporary shed for Sunday Mass. Facing municipal acquisition attempts on the eastern plot, Catholics courageously planted a Cross and a shed right where the Main Altar stands today, launching the Calvary devotions under the Capuchin Fathers of Gandhipuram."
+  },
   {
     year: "Choosing Our Patron",
     title: "From St. Sebastian to St. Paul the Apostle",

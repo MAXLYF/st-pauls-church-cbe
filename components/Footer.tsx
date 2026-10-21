@@ -22,7 +22,7 @@ export default function Footer() {
             <Link href="/daily-mass-readings" className="hover:text-[#f1cf7a] transition-colors font-medium text-[#f1cf7a]/90">Daily Mass Readings</Link>
             <Link href="/about" className="hover:text-[#f1cf7a] transition-colors">About Parish</Link>
             <Link href="/about/pastors" className="hover:text-[#f1cf7a] transition-colors">Our Priests</Link>
-            <Link href="/about/sons-of-parish" className="hover:text-[#f1cf7a] transition-colors">Sons of Parish</Link>
+            <Link href="/about/sons-of-the-soil" className="hover:text-[#f1cf7a] transition-colors">Sons of the Soil</Link>
             <Link href="/#mass-timings" className="hover:text-[#f1cf7a] transition-colors">Mass Timings</Link>
             <Link href="/prayer" className="hover:text-[#f1cf7a] transition-colors">Prayer Resources</Link>
             <Link href="/prayer-request" className="hover:text-[#f1cf7a] transition-colors">Prayer Request</Link>
