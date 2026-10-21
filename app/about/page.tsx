@@ -65,43 +65,42 @@ const timelineMilestones = [
     year: "Early Origins (~50 Years Ago)",
     title: "A Stream, A Cross & A Temporary Shed",
     description:
-      "About 50 years ago, the area north of the Sanganur Pallam rivulet was a rural expanse of farms and scattered dwellings that turned into impassable slush during monsoon rains. Old Coimbatore..."
+      "About 50 years ago, the area north of the Sanganur Pallam rivulet was a rural expanse of farms and scattered dwellings that turned into impassable slush during monsoon rains. Old Coimbatore was expanding rapidly, drawing families seeking livelihood from surrounding villages. Catholics from the Cathedral Parish (including weavers of ancient Kannuvakkarai, Gobichettipalayam, and Vellalas from Madurai) formed the major Catholic population. Until a bridge crossed the wild mountain rivulet (colloquially called 'Ellennai Pallam — Mountain Stream of 7 Buffaloes' after a legendary flood), faithful struggled to reach Gandhipuram parish for sacraments. Community elders approached Bishop Savarimuthu, who with Mr. Paul Raj and others purchased land and erected a 50 ft × 20 ft temporary shed for Sunday Mass. Facing municipal acquisition attempts on the eastern plot, Catholics courageously planted a Cross and a shed right where the Main Altar stands today, launching the Calvary devotions under the Capuchin Fathers of Gandhipuram."
   },
   {
     year: "Choosing Our Patron",
     title: "From St. Sebastian to St. Paul the Apostle",
     description:
-      "The young men who settled in Rathinapuri formed an active Association dedicated to St. Sebastian and celebrated his annual feast with high devotion. When time came to choose the parish patr..."
-  },
+      "The young men who settled in Rathinapuri formed an active Association dedicated to St. Sebastian and celebrated his annual feast with high devotion. When time came to choose the parish patron, St. Sebastian was the popular expectation. However, Bishop Savarimuthu gently persuaded the community to dedicate the church to St. Paul the Apostle, noting that there was not a single church dedicated in his honour across the entire Diocese of Coimbatore. Thus, St. Paul became the patron saint and spiritual exemplar of our parish."
   {
     year: "March 6, 1983",
     title: "Canonical Erection of St. Paul's Parish",
     description:
-      "Bishop Ambrose officially erected the territory between Sanganur Pallam (south), the railway line (west), Sathyamangalam Road (east), and Sanganur-Ganapathy Road (north) as an independent p..."
+      "Bishop Ambrose officially erected the territory between Sanganur Pallam (south), the railway line (west), Sathyamangalam Road (east), and Sanganur-Ganapathy Road (north) as an independent parish. Fr. John Xavier (popularly known as 'Illango' for his Tamil poetic brilliance) was appointed the first Parish Priest. Working from a humble rented house, he took on the monumental task of completing the parish census and tirelessly defended the church land."
   },
   {
     year: "Community Growth & Nursery School",
     title: "Fr. D. Arokiaswamy ('Fr. Mani')",
     description:
-      "Beloved by all parishioners, Fr. Mani fostered deep unity and communion across families. Heeding the community's yearning for education, he initiated an English Medium Nursery School right ..."
+      "Beloved by all parishioners, Fr. Mani fostered deep unity and communion across families. Heeding the community's yearning for education, he initiated an English Medium Nursery School right within the temporary shed, continuing his residence as parish priest in the rented house."
   },
   {
     year: "1992 – 1996",
     title: "A Monumental Church with Innovative Crypt Chapel",
     description:
-      "The dynamic Fr. M. Aruldas expanded the shed with two modest rooms for his living quarters and built compound walls and pilgrim shelters. Supported by Fr. A. Manthara as Socius, he made rep..."
+      "The dynamic Fr. M. Aruldas expanded the shed with two modest rooms for his living quarters and built compound walls and pilgrim shelters. Supported by Fr. A. Manthara as Socius, he made repeated journeys to Madras to win crucial legal battles for the site. He traveled as far as Bombay to mobilize funds. On August 11, 1992, the foundation stone was laid for the grand new church, architecturally distinguished by an underground Crypt Chapel for quiet adoration. The magnificent new sanctuary was solemnly consecrated by Bishop Ambrose on February 16, 1996."
   },
   {
     year: "1996 – 1998",
     title: "Presbytery & Unique Underground Parish Hall",
     description:
-      "On May 31, 1996, the foundation was laid for a two-floor presbytery featuring a unique underground Parish Hall. The first floor was blessed on December 7, 1996, and the complete complex was..."
+      "On May 31, 1996, the foundation was laid for a two-floor presbytery featuring a unique underground Parish Hall. The first floor was blessed on December 7, 1996, and the complete complex was blessed on June 29, 1998."
   },
   {
     year: "1998 – 2003",
     title: "School Buildings, Modern Sound & Sacred Grottos",
     description:
-      "Fr. B. Ephraem (1997–1999) constructed the ground floor of the new school building, blessed on June 29, 1998. Assistant Parish Priest Fr. Paul Antony tirelessly installed a modern sound ..."
+      "Fr. B. Ephraem (1997–1999) constructed the ground floor of the new school building, blessed on June 29, 1998. Assistant Parish Priest Fr. Paul Antony tirelessly installed a modern sound system throughout the church. Earlier, Fr. Aruldas built the wayside Grotto of Our Lady of Velankanni at the school campus. In 2003, Fr. Kulandai Raj completed the school's first floor. To commemorate the Year of the Holy Rosary, Fr. Amalraj erected the Rosary Grotto, solemnly blessed by Bishop Thomas Aquinas on March 25, 2003."
   }
 ];
 
