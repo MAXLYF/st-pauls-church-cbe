@@ -69,8 +69,7 @@ const timelineMilestones = [
       "Catholics crossing the Sanganur Pallam rivulet gathered under a temporary palm-leaf shed, courageously planting a Cross on the very site where the Main Sanctuary stands today.",
     description:
       "About 50 years ago, the land north of the Sanganur Pallam rivulet was a rural expanse of fields and scattered dwellings that turned into impassable slush during monsoon torrents. As Coimbatore industrialised, migrant Catholic families—including traditional weavers from Kannuvakkarai, Gobichettipalayam, and Vellalas from Madurai—settled in Rathinapuri. Before a permanent bridge spanned the unpredictable stream (colloquially called 'Ellennai Pallam'), reaching Gandhipuram for Sunday Mass was hazardous. Bishop Savarimuthu, assisted by community elders including Mr. Paul Raj, acquired land and built a 50 ft × 20 ft temporary shed. When municipal authorities surveyed the eastern plot for potential acquisition, faithful parishioners courageously planted a holy Cross and erected a shed right where the Main Altar stands today, establishing open-air Calvary devotions under the Capuchin Fathers of Gandhipuram.",
-    tags: ["Early Settlers", "Sanganur Pallam", "Capuchin Fathers", "First Cross Planted"],
-    image: null
+    tags: ["Early Settlers", "Sanganur Pallam", "Capuchin Fathers", "First Cross Planted"]
   },
   {
     period: "Pre-1983",
@@ -80,9 +79,7 @@ const timelineMilestones = [
       "While local youth fervently celebrated St. Sebastian, Bishop Savarimuthu guided the fledgling community to dedicate the church to St. Paul the Apostle—the first in the diocese.",
     description:
       "The spirited young men of Rathinapuri had originally established an active youth association dedicated to St. Sebastian and celebrated his annual feast with great devotion. When the community petitioned for the formal naming of their church, St. Sebastian was the natural popular choice. However, the Most Rev. Bishop Savarimuthu gently advised the elders that throughout the entire Roman Catholic Diocese of Coimbatore, not a single church had been dedicated to St. Paul, the great Apostle to the Nations. Graciously accepting the Bishop's pastoral vision, the parish adopted St. Paul as its patron saint, drawing enduring inspiration from his missionary zeal.",
-    tags: ["Patron Saint", "Bishop Savarimuthu", "St. Sebastian Association", "Missionary Calling"],
-    image: "/images/sebastian.jpeg",
-    imageCaption: "Historic veneration image of St. Sebastian, treasured by the early youth association."
+    tags: ["Patron Saint", "Bishop Savarimuthu", "St. Sebastian Association", "Missionary Calling"]
   },
   {
     period: "March 6, 1983",
@@ -92,8 +89,7 @@ const timelineMilestones = [
       "Most Rev. Bishop Ambrose canonically erected St. Paul's Parish; renowned Tamil scholar Fr. John Xavier was appointed first parish priest.",
     description:
       "On March 6, 1983, Most Rev. Bishop Ambrose formally decreed the establishment of St. Paul's Church as an independent parish, carving its boundaries between Sanganur Pallam to the south, the railway line to the west, Sathyamangalam Road to the east, and Sanganur-Ganapathy Road to the north. Fr. John Xavier (affectionately known as 'Illango' for his exceptional Tamil literary eloquence) took charge as the first Parish Priest. Operating selflessly from a rented house in the neighborhood, he completed the first thorough parish census and vigorously defended the ecclesiastical title to the parish grounds.",
-    tags: ["March 6, 1983", "Bishop Ambrose", "Fr. John Xavier (Illango)", "Canonical Decree"],
-    image: null
+    tags: ["March 6, 1983", "Bishop Ambrose", "Fr. John Xavier (Illango)", "Canonical Decree"]
   },
   {
     period: "1983 – 1989",
@@ -103,8 +99,7 @@ const timelineMilestones = [
       "Beloved pastor Fr. Mani nurtured deep community harmony and inaugurated an English Medium Nursery School within the temporary church shed.",
     description:
       "Fr. D. Arokiaswamy, warmly remembered across Rathinapuri as 'Fr. Mani', served as parish priest from 1983 to 1989. Known for his compassionate approachability, he unified the diverse families of the parish. Responding to the urgent need for quality education among local children, Fr. Mani initiated an English Medium Nursery School directly inside the temporary shed. Continuing to reside in modest rented quarters, he laid the pedagogical and spiritual foundations for future parish institutions.",
-    tags: ["Fr. Mani (1983–1989)", "Nursery School Founded", "Community Fellowship"],
-    image: null
+    tags: ["Fr. Mani (1983–1989)", "Nursery School Founded", "Community Fellowship"]
   },
   {
     period: "1989 – 1996",
@@ -114,9 +109,7 @@ const timelineMilestones = [
       "Fr. M. Aruldas spearheaded legal victories, fundraising, and the construction of the landmark sanctuary, solemnly consecrated on February 16, 1996.",
     description:
       "The tenure of Fr. M. Aruldas (1989–1997) was marked by transformative monumental development. Accompanied by Fr. A. Manthara as Socius, Fr. Aruldas made multiple journeys to Madras to secure crucial legal confirmations for the church land and traveled extensively as far as Bombay to mobilize funds. On August 11, 1992, the foundation stone was blessed and laid for a spacious, modern church. Uniquely in the diocese, the architectural plan incorporated an underground Crypt Chapel beneath the main altar for perpetual Eucharistic adoration and silent prayer. On February 16, 1996, Most Rev. Bishop Ambrose solemnly consecrated the magnificent completed sanctuary before thousands of joyful faithful.",
-    tags: ["Foundation Aug 11, 1992", "Consecration Feb 16, 1996", "Fr. M. Aruldas", "Crypt Chapel"],
-    image: "/images/church-front.png",
-    imageCaption: "The magnificent facade of St. Paul's Church, Rathinapuri, consecrated on February 16, 1996."
+    tags: ["Foundation Aug 11, 1992", "Consecration Feb 16, 1996", "Fr. M. Aruldas", "Crypt Chapel"]
   },
   {
     period: "1996 – 1998",
@@ -126,8 +119,7 @@ const timelineMilestones = [
       "On May 31, 1996, foundation was laid for the presbytery with an underground hall, completely blessed on June 29, 1998 on the Feast of Saints Peter & Paul.",
     description:
       "To provide permanent residence for resident priests and adequate meeting space for parish associations, the foundation stone for the two-storey presbytery was laid on May 31, 1996. Architecturally innovative, the complex included a subterranean multipurpose Parish Hall. The first floor was blessed on December 7, 1996, and the entire residential and community complex was solemnly blessed on June 29, 1998, coinciding with the Solemnity of Saints Peter and Paul.",
-    tags: ["Presbytery", "Underground Parish Hall", "Blessed June 29, 1998"],
-    image: null
+    tags: ["Presbytery", "Underground Parish Hall", "Blessed June 29, 1998"]
   },
   {
     period: "1998 – 2003",
@@ -137,9 +129,7 @@ const timelineMilestones = [
       "Subsequent pastors expanded the school to two storeys, installed advanced church acoustics, and erected the wayside Velankanni Grotto and Rosary Grotto.",
     description:
       "Fr. B. Ephrem (1997–1999) constructed the ground floor of the new St. Paul's Nursery and Primary School building, blessed on June 29, 1998. Assistant Priest Fr. Paul Antony modernised the church interior with a comprehensive sound system. Fr. Kulandai Raj (1999–2002) completed the school's second floor in 2003 to accommodate growing student enrollment. To commemorate the universal Year of the Rosary proclaimed by Pope John Paul II, Fr. Amulraj (2002–2007) constructed the serene Rosary Grotto, solemnly blessed by Most Rev. Bishop Thomas Aquinas on March 25, 2003.",
-    tags: ["School Expansion", "Bishop Thomas Aquinas", "Rosary Grotto (2003)", "Sound System"],
-    image: "/images/church-interior.jpg",
-    imageCaption: "Sacred interior and altar of St. Paul's Church, enhanced through acoustic and sanctuary works."
+    tags: ["School Expansion", "Bishop Thomas Aquinas", "Rosary Grotto (2003)", "Sound System"]
   },
   {
     period: "2007 – 2021",
@@ -149,8 +139,7 @@ const timelineMilestones = [
       "Successive parish priests enriched liturgical life, youth ministry, and community outreach through dedicated tenures.",
     description:
       "The spiritual journey of St. Paul's Church continued to flourish under the pastoral guidance of Fr. Irudaya Raj (2007–2009), Fr. Rayappan (2009–2014), Fr. Johnpaul Vincent (2014–2016), Fr. Joseph Sagayam (2016–2021), and Fr. Joseph Dhanaraj (2021). Each shepherd enriched parish life through devout liturgical celebrations, Eucharistic adorations, youth animation, family counseling, and benevolent outreach to the poor and marginalized across the Coimbatore suburbs.",
-    tags: ["Pastoral Lineage", "Spiritual Renewal", "Decades of Devotion"],
-    image: null
+    tags: ["Pastoral Lineage", "Spiritual Renewal", "Decades of Devotion"]
   },
   {
     period: "Present Day",
@@ -160,9 +149,7 @@ const timelineMilestones = [
       "Under Parish Priest Fr. J. Antony Vinodh and Assistant Priest Fr. Naveen Rosario, the parish unites over 6,000 parishioners and coordinates pastoral care at St. Dominic Chapel.",
     description:
       "Today, St. Paul's Catholic Church stands as a dynamic hub of Catholic faith and social charity. Led by Parish Priest Fr. J. Antony Vinodh and Assistant Priest Fr. Naveen Rosario, the parish serves over 1,300 registered Catholic families (more than 6,000 faithful) organized into 16 active Basic Christian Communities (Anbiyams). The parish oversees Sunday Catechesis, vibrant liturgical choirs, Legion of Mary, Vincent de Paul Society, youth ministry, and faithful spiritual care at its historic sub-station, St. Dominic Chapel in Karunanithi Nagar.",
-    tags: ["Fr. J. Antony Vinodh", "Fr. Naveen Rosario", "1,300+ Families", "16 Anbiyams"],
-    image: "/images/church-banner.jpg",
-    imageCaption: "The vibrant parish community gathered in prayer and celebration at St. Paul's Church."
+    tags: ["Fr. J. Antony Vinodh", "Fr. Naveen Rosario", "1,300+ Families", "16 Anbiyams"]
   }
 ];
 
@@ -340,26 +327,6 @@ export default function AboutPage() {
                     <p className="mt-4 text-slate-700 leading-relaxed text-sm md:text-base">
                       {milestone.description}
                     </p>
-
-                    {/* Optional Historical Photograph */}
-                    {milestone.image && (
-                      <div className="mt-6 overflow-hidden rounded-2xl border border-[#e2d7c5] bg-[#faf6ee]">
-                        <div className="relative h-64 sm:h-72 w-full">
-                          <Image
-                            src={milestone.image}
-                            alt={milestone.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 700px"
-                            className="object-cover"
-                          />
-                        </div>
-                        {milestone.imageCaption && (
-                          <div className="p-3 text-xs text-slate-600 italic bg-white border-t border-[#e8dfcb]">
-                            📷 {milestone.imageCaption}
-                          </div>
-                        )}
-                      </div>
-                    )}
 
                     {/* Topic Tags */}
                     {milestone.tags && milestone.tags.length > 0 && (
