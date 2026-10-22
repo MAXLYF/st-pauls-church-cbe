@@ -14,13 +14,13 @@ export const parishAssociations: ParishAssociation[] = [
   },
   {
     id: "st-pauls-resurrection-club",
-    name: "St. Paul's Resurrection Club",
+    name: "St. Paul's Resurrection Club (SPRC)",
     order: 2,
     iconName: "Sun"
   },
   {
     id: "christian-family-movement",
-    name: "Christian Family Movement",
+    name: "Christian Family Movement (CFO)",
     order: 3,
     iconName: "Users"
   },
@@ -44,7 +44,7 @@ export const parishAssociations: ParishAssociation[] = [
   },
   {
     id: "choir",
-    name: "Choir",
+    name: "St.Paul's Choir",
     order: 7,
     iconName: "Music"
   },
@@ -68,7 +68,7 @@ export const parishAssociations: ParishAssociation[] = [
   },
   {
     id: "secular-franciscan-order",
-    name: "Secular Franciscan Order",
+    name: "Secular Franciscan Order(SFO)",
     order: 11,
     iconName: "Cross"
   },
@@ -80,7 +80,7 @@ export const parishAssociations: ParishAssociation[] = [
   },
   {
     id: "legion-of-mary-mirror-of-justice",
-    name: "Legion of Mary - Mirror of Justice",
+    name: "Legion of Mary - Our Lady of Mirror of Justice",
     order: 13,
     iconName: "Crown"
   },
