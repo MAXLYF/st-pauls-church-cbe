@@ -102,7 +102,7 @@ export default function Home() {
               </div>
               <h3 className="text-3xl font-bold text-[#1f040b]">A place of prayer and fellowship</h3>
               <p className="mt-5 leading-8 text-slate-600">
-                Discover parish life, celebrate the Eucharist with us, take part in ministries and events, and stay connected with announcements from the parish.
+                Discover parish life, celebrate the Eucharist with us, take part in associations and events, and stay connected with announcements from the parish.
               </p>
               <Link href="/about" className="mt-7 inline-flex items-center gap-2 font-bold text-[#80142b] hover:text-[#9e1c36] transition-colors">Learn more <ArrowRight className="h-4 w-4" /></Link>
             </div>

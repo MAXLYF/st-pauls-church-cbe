@@ -29,7 +29,7 @@ export default function Footer() {
             <Link href="/events" className="hover:text-[#f1cf7a] transition-colors">Events</Link>
             <Link href="/gallery" className="hover:text-[#f1cf7a] transition-colors">Gallery</Link>
             <Link href="/anbiyam" className="hover:text-[#f1cf7a] transition-colors">Anbiyam</Link>
-            <Link href="/ministries" className="hover:text-[#f1cf7a] transition-colors">Ministries</Link>
+            <Link href="/associations" className="hover:text-[#f1cf7a] transition-colors">Associations</Link>
             <Link href="/contact" className="hover:text-[#f1cf7a] transition-colors">Contact</Link>
           </div>
         </div>

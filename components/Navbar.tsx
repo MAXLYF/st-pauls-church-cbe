@@ -46,7 +46,7 @@ const aboutSubmenu = [
 const mainLinks = [
   { label: "Home", href: "/" },
   { label: "Mass Timings", href: "/#mass-timings" },
-  { label: "Ministries", href: "/ministries" },
+  { label: "Associations", href: "/associations" },
   { label: "Anbiyam", href: "/anbiyam" },
   { label: "Prayer", href: "/prayer" },
   { label: "Prayer Request", href: "/prayer-request", tamilLabel: "ஜெப வேண்டுகோள்" },
@@ -337,10 +337,12 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Main Links (Mass Timings, Ministries, Anbiyam, Prayer, Prayer Request, Tamil Bible, Contact) */}
+          {/* Main Links (Mass Timings, Associations, Anbiyam, Prayer, Prayer Request, Tamil Bible, Contact) */}
           {mainLinks.slice(1).map((link) => {
             const isActive =
               pathname === link.href ||
+              (link.href === "/associations" &&
+                (pathname === "/associations" || pathname.startsWith("/associations") || pathname === "/ministries")) ||
               (link.href === "/mass-timings" &&
                 (pathname === "/mass-timings" || pathname.startsWith("/mass-timings"))) ||
               (link.href === "/tamil-bible" && pathname.startsWith("/tamil-bible"));
@@ -535,17 +537,17 @@ export default function Navbar() {
                   Mass Timings
                 </Link>
 
-                {/* Ministries */}
+                {/* Associations */}
                 <Link
-                  href="/ministries"
+                  href="/associations"
                   onClick={() => setMobileDrawerOpen(false)}
                   className={`flex h-12 items-center rounded-xl px-4 text-sm font-semibold transition-colors ${
-                    pathname === "/ministries"
+                    pathname === "/associations" || pathname === "/ministries"
                       ? "bg-[#80142b]/10 text-[#80142b]"
                       : "text-slate-800 hover:bg-slate-100"
                   }`}
                 >
-                  Ministries
+                  Associations
                 </Link>
 
                 {/* Anbiyam */}

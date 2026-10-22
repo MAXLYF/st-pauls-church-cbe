@@ -15,7 +15,7 @@ const items = [
   ["Gallery", "/gallery"],
   ["Videos", "/videos"],
   ["Prayer Requests", "/prayer-request"],
-  ["Ministries", "/ministries"],
+  ["Associations", "/associations"],
   ["Sacraments", "/sacraments"],
   ["Contact Settings", "/contact"]
 ];
