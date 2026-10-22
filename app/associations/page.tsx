@@ -19,19 +19,26 @@ import { parishAssociations, ParishAssociation } from "@/lib/data/associations";
 export const metadata: Metadata = {
   title: "Parish Associations | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Explore the 14 parish associations of St. Paul's Catholic Church, Rathinapuri uniting our faithful community in prayer, fellowship, service, and charity.",
+    "Explore the 5 parish ministry entries of St. Paul's Catholic Church, Rathinapuri, including the choir and youth commission groups.",
   keywords: [
     "St. Paul's Church Associations",
     "Parish Associations Rathinapuri",
     "Catholic Associations Coimbatore",
-    "Society of Saint Vincent de Paul",
-    "Legion of Mary Rathinapuri",
-    "Altar Servers Rathinapuri"
+    "Main choir",
+    "Youth choir",
+    "Kids choir",
+    "Boys Youth Commission",
+    "Girls Youth Commission"
   ]
 };
 
 // Map each association ID to a corresponding Lucide icon component
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  "main-choir": Music,
+  "youth-choir": Music,
+  "kids-choir": Music,
+  "boys-youth-commission": Compass,
+  "girls-youth-commission": Compass,
   "society-saint-vincent-de-paul": HeartHandshake,
   "st-pauls-resurrection-club": Sun,
   "christian-family-movement": Users,
@@ -65,7 +72,7 @@ function AssociationCard({
         {/* Association Icon Badge */}
         <div
           aria-hidden="true"
-          className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#781226]/10 to-[#4e0917]/10 text-[#80142b] border border-[#d4af37]/35 shadow-xs transition-colors group-hover:bg-[#80142b] group-hover:text-[#f5d77f]"
+          className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#781226]/10 to-[#4e0917]/10 text-[#80142b] border border-[#d4af37]/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]"
         >
           <IconComponent className="h-5 w-5 sm:h-6 sm:w-6" />
         </div>
@@ -107,7 +114,7 @@ export default function AssociationsPage() {
         <div className="container-site relative z-10">
           <div className="mx-auto max-w-3xl">
             {/* Pill Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-[0_0_0_1px_rgba(213,177,86,0.2)]">
               <Cross className="h-3.5 w-3.5 text-[#f5d77f]" />
               PARISH ASSOCIATIONS
             </div>
@@ -122,7 +129,7 @@ export default function AssociationsPage() {
 
             {/* Introductory Description */}
             <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-200">
-              Our parish associations bring together faithful members of the community through prayer, fellowship, service, faith formation, and charitable activities. Explore the various associations of St. Paul’s Church, Rathinapuri.
+              Our parish ministry groups bring together faithful members of the community through prayer, fellowship, service, faith formation, and charitable activities. Explore the individual choir and youth commission entries below.
             </p>
           </div>
         </div>
@@ -147,3 +154,134 @@ export default function AssociationsPage() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+after total maybe?
