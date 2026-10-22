@@ -14,31 +14,30 @@ import {
   Shield,
   Crown
 } from "lucide-react";
-import { parishAssociations, ParishAssociation } from "@/lib/data/associations";
+import {
+  parishAssociations,
+  ParishAssociation,
+  SubAssociation
+} from "@/lib/data/associations";
+import { AssociationImageArea } from "@/components/AssociationImageArea";
 
 export const metadata: Metadata = {
   title: "Parish Associations | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Explore the 5 parish ministry entries of St. Paul's Catholic Church, Rathinapuri, including the choir and youth commission groups.",
+    "Explore the 13 parish associations of St. Paul's Catholic Church, Rathinapuri uniting our faithful community in prayer, fellowship, service, and charity.",
   keywords: [
     "St. Paul's Church Associations",
     "Parish Associations Rathinapuri",
     "Catholic Associations Coimbatore",
-    "Main choir",
-    "Youth choir",
-    "Kids choir",
-    "Boys Youth Commission",
-    "Girls Youth Commission"
+    "Society of Saint Vincent de Paul",
+    "Choir Rathinapuri",
+    "Legion of Mary Rathinapuri",
+    "Altar Servers Rathinapuri"
   ]
 };
 
 // Map each association ID to a corresponding Lucide icon component
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  "main-choir": Music,
-  "youth-choir": Music,
-  "kids-choir": Music,
-  "boys-youth-commission": Compass,
-  "girls-youth-commission": Compass,
   "society-saint-vincent-de-paul": HeartHandshake,
   "st-pauls-resurrection-club": Sun,
   "christian-family-movement": Users,
@@ -48,12 +47,50 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   choir: Music,
   catechism: BookOpen,
   "altar-servers": Flame,
-  "youth-mission": Compass,
+  "st-pauls-youth-mission": Compass,
   "secular-franciscan-order": Cross,
   "st-sebastian-association": Shield,
-  "legion-of-mary-mirror-of-justice": Crown,
-  "legion-of-mary-mother-of-the-church": Crown
+  "legion-of-mary": Crown,
+  // Sub-associations
+  "senior-choir": Music,
+  "youth-choir": Music,
+  "children-choir": Music,
+  "mirror-of-justice": Crown,
+  "mother-of-the-church": Crown,
+  Music: Music,
+  Crown: Crown
 };
+
+function SubAssociationCard({ sub }: { sub: SubAssociation }) {
+  const IconComponent =
+    iconMap[sub.id] || (sub.iconName ? iconMap[sub.iconName] : null) || Church;
+
+  return (
+    <div className="flex items-start gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-[#ece4d5] bg-[#fdfbf7] p-3 sm:p-4 transition-all hover:border-[#c59b27]/60 hover:bg-white hover:shadow-xs">
+      {/* Sub-association reserved image placeholder */}
+      <AssociationImageArea
+        src={sub.image}
+        alt={`${sub.name} logo or photo`}
+        imageType={sub.imageType}
+        size="sub"
+      />
+
+      {/* Sub-association Info */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-1.5 mb-0.5">
+          <IconComponent className="h-3.5 w-3.5 text-[#80142b]/80 shrink-0" />
+          <h4 className="text-sm sm:text-base font-bold text-[#1f040b] tracking-tight leading-snug break-words">
+            {sub.name}
+          </h4>
+        </div>
+
+        <p className="mt-1 text-xs sm:text-sm text-slate-500 font-medium">
+          {sub.description || "Details will be updated soon."}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function AssociationCard({
   association,
@@ -67,20 +104,22 @@ function AssociationCard({
   const IconComponent = iconMap[association.id] || Church;
 
   return (
-    <article className="group rounded-2xl sm:rounded-3xl border border-[#e5dcce] bg-white p-5 sm:p-7 shadow-xs hover:border-[#c59b27]/60 hover:shadow-md transition-all duration-200">
-      <div className="flex items-start sm:items-center gap-4 sm:gap-5">
-        {/* Association Icon Badge */}
-        <div
-          aria-hidden="true"
-          className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#781226]/10 to-[#4e0917]/10 text-[#80142b] border border-[#d4af37]/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]"
-        >
-          <IconComponent className="h-5 w-5 sm:h-6 sm:w-6" />
-        </div>
+    <article className="group rounded-2xl sm:rounded-3xl border border-[#e5dcce] bg-white p-4 sm:p-6 md:p-7 shadow-xs hover:border-[#c59b27]/60 hover:shadow-md transition-all duration-200">
+      {/* Main Card Header with Image Placeholder and Details */}
+      <div className="flex items-start gap-3.5 sm:gap-5 md:gap-6">
+        {/* Main Association Reserved Image Placeholder */}
+        <AssociationImageArea
+          src={association.image}
+          alt={`${association.name} logo or photo`}
+          imageType={association.imageType}
+          size="main"
+        />
 
         {/* Association Heading & Update Notice */}
         <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-            <span className="text-[11px] font-bold text-[#80142b] uppercase tracking-wider">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#781226]/10 to-[#4e0917]/10 border border-[#d4af37]/35 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold text-[#80142b] uppercase tracking-wider">
+              <IconComponent className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#80142b]" />
               Association #{index + 1}
             </span>
           </div>
@@ -90,10 +129,28 @@ function AssociationCard({
           </h2>
 
           <p className="mt-1.5 text-xs sm:text-sm text-slate-500 font-medium">
-            Details will be updated soon.
+            {association.description || "Details will be updated soon."}
           </p>
         </div>
       </div>
+
+      {/* Sub-Associations Section (Nested cards inside parent card) */}
+      {association.subAssociations && association.subAssociations.length > 0 && (
+        <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-[#f0e8db]">
+          <div className="mb-3 sm:mb-3.5 flex items-center justify-between">
+            <h3 className="text-xs sm:text-sm font-bold text-[#80142b] uppercase tracking-wider flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#c59b27]" />
+              Sub-Associations ({association.subAssociations.length})
+            </h3>
+          </div>
+
+          <div className="space-y-2.5 sm:space-y-3">
+            {association.subAssociations.map((sub) => (
+              <SubAssociationCard key={sub.id} sub={sub} />
+            ))}
+          </div>
+        </div>
+      )}
     </article>
   );
 }
@@ -114,7 +171,7 @@ export default function AssociationsPage() {
         <div className="container-site relative z-10">
           <div className="mx-auto max-w-3xl">
             {/* Pill Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-[0_0_0_1px_rgba(213,177,86,0.2)]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#781226]/40 px-4 py-1.5 text-xs font-bold tracking-[.25em] text-[#f5d77f] uppercase shadow-sm backdrop-blur">
               <Cross className="h-3.5 w-3.5 text-[#f5d77f]" />
               PARISH ASSOCIATIONS
             </div>
@@ -129,7 +186,7 @@ export default function AssociationsPage() {
 
             {/* Introductory Description */}
             <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-200">
-              Our parish ministry groups bring together faithful members of the community through prayer, fellowship, service, faith formation, and charitable activities. Explore the individual choir and youth commission entries below.
+              Our parish associations bring together faithful members of the community through prayer, fellowship, service, faith formation, and charitable activities. Explore the various associations of St. Paul’s Church, Rathinapuri.
             </p>
           </div>
         </div>
@@ -154,134 +211,3 @@ export default function AssociationsPage() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-after total maybe?
