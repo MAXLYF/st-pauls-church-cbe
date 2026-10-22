@@ -245,7 +245,7 @@ export default function DailyReadingsBar() {
   return (
     <aside
       aria-label="Daily Mass Readings"
-      className="relative z-40 w-full border-b border-[#c59b27]/30 bg-gradient-to-r from-[#3b0812] via-[#630f20] to-[#3b0812] text-white shadow-xs transition-colors duration-200 print:hidden"
+      className="relative z-30 w-full border-b border-[#c59b27]/30 bg-gradient-to-r from-[#3b0812] via-[#630f20] to-[#3b0812] text-white shadow-xs transition-colors duration-200 print:hidden"
     >
       <div className="relative flex h-10 w-full items-center overflow-hidden px-2.5 sm:px-4">
         {/* Left pinned compact badge for brand identity */}
