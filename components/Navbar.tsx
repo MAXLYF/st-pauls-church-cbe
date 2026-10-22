@@ -622,17 +622,6 @@ export default function Navbar() {
                   Contact
                 </Link>
               </div>
-
-              {/* Drawer Footer with Quick Live Mass Link */}
-              <div className="p-4 border-t border-slate-200/80 bg-slate-50/50 shrink-0">
-                <Link
-                  href="/mass-timings#live-telecast"
-                  onClick={() => setMobileDrawerOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#781226] via-[#8c1830] to-[#6a0f21] px-4 py-3 text-center text-xs font-bold text-white shadow-sm border border-[#d4af37]/35 hover:shadow-md transition-all"
-                >
-                  <span>📺 Mass Will Be Live Telecasted</span>
-                </Link>
-              </div>
             </div>
           </div>,
           document.body

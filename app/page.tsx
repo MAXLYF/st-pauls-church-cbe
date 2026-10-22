@@ -5,7 +5,6 @@ import SectionTitle from "@/components/SectionTitle";
 import Map from "@/components/Map";
 import MediaCard from "@/components/MediaCard";
 import TodayMassTimings from "@/components/TodayMassTimings";
-import LiveMassTelecastSection from "@/components/LiveMassTelecastSection";
 
 const events = [
   { date: "UPCOMING", title: "Parish Feast & Celebrations", text: "Details and schedule will be updated by the parish office." },
@@ -267,9 +266,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Live Mass Telecast Section */}
-      <LiveMassTelecastSection />
 
       <section className="section-pad bg-[#fbf9f5]">
         <div className="container-site">
