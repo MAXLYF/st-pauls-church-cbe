@@ -71,7 +71,10 @@ export const parishAssociations: ParishAssociation[] = [
       {
         id: "youth-choir",
         name: "Youth Choir",
-        iconName: "Music"
+        iconName: "Music",
+        image: "/images/associations/youth-choir.jpg",
+        imageAlt: "St. Paul's Church Youth Choir",
+        imageType: "photo"
       },
       {
         id: "children-choir",

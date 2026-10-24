@@ -25,7 +25,11 @@ export function AssociationImageArea({
   return (
     <div
       className={`relative shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border transition-all ${
-        isMain
+        showImage
+          ? isMain
+            ? "h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 border-[#d4af37]/60 shadow-xs bg-slate-100"
+            : "h-14 w-14 sm:h-16 sm:w-16 border-[#d4af37]/60 shadow-xs bg-slate-100"
+          : isMain
           ? "h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 bg-[#faf7f0] border-dashed border-[#d4af37]/55 shadow-xs"
           : "h-14 w-14 sm:h-16 sm:w-16 bg-[#faf7f0] border-dashed border-[#d4af37]/45 shadow-xs"
       }`}
@@ -38,7 +42,7 @@ export function AssociationImageArea({
           fill
           sizes={isMain ? "(max-width: 640px) 80px, 112px" : "64px"}
           className={`transition-transform duration-300 group-hover:scale-105 ${
-            imageType === "logo" ? "object-contain p-2" : "object-cover"
+            imageType === "logo" ? "object-contain p-2" : "object-cover object-center"
           }`}
           onError={() => setHasError(true)}
         />
