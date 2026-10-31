@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 
 // Map each association ID to a corresponding Lucide icon component
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  "society-saint-vincent-de-paul": HeartHandshake,
+  "saint-vincent-de-paul": HeartHandshake,
   "st-pauls-resurrection-club": Sun,
-  "christian-family-movement": Users,
+  "catholic-family-movement": Users,
   "catholic-association": Church,
   "our-lady-of-good-health-welfare": Heart,
   "saint-veronica-womens-commission": UsersRound,
