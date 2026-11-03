@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "St. Paul's Church Associations",
     "Parish Associations Rathinapuri",
     "Catholic Associations Coimbatore",
-    "Society of Saint Vincent de Paul",
+    "Saint Vincent de Paul",
     "Choir Rathinapuri",
     "Legion of Mary Rathinapuri",
     "Altar Servers Rathinapuri"
