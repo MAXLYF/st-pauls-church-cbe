@@ -1,0 +1,31 @@
+[
+  {
+    "id": "default-exterior-1",
+    "categoryId": "church-exterior",
+    "src": "/images/church-front.png",
+    "title": "St. Paul's Catholic Church Exterior",
+    "caption": "Front facade and twin bell towers of St. Paul's Catholic Church, Rathinapuri",
+    "uploadedAt": "2026-01-01T00:00:00.000Z",
+    "isDefault": true
+  },
+  {
+    "id": "default-interior-1",
+    "categoryId": "church-interior",
+    "src": "/images/church-interior.jpg",
+    "title": "Main Sanctuary & Altar",
+    "caption": "Inside the sanctuary prepared for Holy Mass and community worship",
+    "uploadedAt": "2026-01-01T00:00:00.000Z",
+    "isDefault": true
+  },
+  {
+    "id": "photo-church-interior-1793713979605-4a5y4",
+    "categoryId": "church-interior",
+    "src": "/images/gallery/church-interior/1793713979605-4a5y4-StPaulsChurch-Rathinapuri-Coimbatore1-150x150.webp",
+    "title": "StPaulsChurch Rathinapuri Coimbatore1 150x150",
+    "caption": "Church Interior • St. Paul's Catholic Church, Rathinapuri",
+    "uploadedAt": "2026-11-03T13:53:00.728Z",
+    "fileName": "StPaulsChurch-Rathinapuri-Coimbatore1-150x150.webp",
+    "fileSize": 5030,
+    "isDefault": false
+  }
+]

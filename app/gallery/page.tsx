@@ -1,27 +1,32 @@
 import type { Metadata } from "next";
-import SectionTitle from "@/components/SectionTitle";
-import MediaCard from "@/components/MediaCard";
+import { promises as fs } from "fs";
+import path from "path";
+import GalleryClient from "./GalleryClient";
+import { GalleryPhoto, INITIAL_GALLERY_PHOTOS } from "@/lib/data/gallery-data";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Parish Gallery | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Photo and media gallery capturing worship, community life, celebrations, and events at St. Paul's Catholic Church, Rathinapuri, Coimbatore.",
+    "Photo and media gallery capturing worship, community life, celebrations, and events at St. Paul's Catholic Church, Rathinapuri, Coimbatore."
 };
 
-export default function Gallery() {
-  return (
-    <section className="section-pad">
-      <div className="container-site">
-        <SectionTitle
-          eyebrow="MEDIA"
-          title="Parish Gallery"
-          description="Photo and media archives from liturgical celebrations, festivals, and community life at St. Paul's Catholic Church, Rathinapuri."
-        />
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <MediaCard src="/images/church-front.png" title="Church Exterior" label="Church" />
-          <MediaCard src="/images/church-interior.jpg" title="Church Interior" label="Worship" />
-        </div>
-      </div>
-    </section>
-  );
+async function getInitialGalleryPhotos(): Promise<GalleryPhoto[]> {
+  try {
+    const filePath = path.join(process.cwd(), "data", "gallery-photos.json");
+    const raw = await fs.readFile(filePath, "utf-8");
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return parsed;
+    }
+  } catch {
+    // Fallback to initial defaults if file hasn't been created yet
+  }
+  return INITIAL_GALLERY_PHOTOS;
+}
+
+export default async function Gallery() {
+  const initialPhotos = await getInitialGalleryPhotos();
+  return <GalleryClient initialPhotos={initialPhotos} />;
 }
