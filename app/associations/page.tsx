@@ -42,7 +42,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "st-pauls-resurrection-club": Sun,
   "catholic-family-movement": Users,
   "catholic-association": Church,
-  "our-lady-of-good-health-welfare": Heart,
+  "Arokiya-maatha-narpani-iyakkam": Heart,
   "saint-veronica-womens-commission": UsersRound,
   choir: Music,
   catechism: BookOpen,
