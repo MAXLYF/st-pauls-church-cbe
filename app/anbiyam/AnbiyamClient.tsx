@@ -180,13 +180,13 @@ export default function AnbiyamClient({ anbiyams }: AnbiyamClientProps) {
                   className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#c59b27]/50 hover:shadow-md"
                 >
                   {/* Photo Area */}
-                  <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#25050c]">
+                  <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-[#1b0308] via-[#3d0813] to-[#25050c]" style={{ aspectRatio: "1 / 1" }}>
                     {!hasImgError ? (
                       <img
                         src={anbiyam.photo}
                         alt={`${anbiyam.name} - St. Paul's Catholic Church, Rathinapuri`}
                         onError={() => handleImageError(anbiyam.id)}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
                     ) : (

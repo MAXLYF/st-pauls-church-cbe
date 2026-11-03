@@ -23,7 +23,7 @@ export interface ParishAssociation {
 export const parishAssociations: ParishAssociation[] = [
   {
     id: "society-saint-vincent-de-paul",
-    name: "Society of Saint Vincent de Paul",
+    name: "Saint Vincent de Paul",
     order: 1,
     iconName: "HeartHandshake"
   },
@@ -35,7 +35,7 @@ export const parishAssociations: ParishAssociation[] = [
   },
   {
     id: "christian-family-movement",
-    name: "Christian Family Movement",
+    name: "Catholic Family Movement",
     order: 3,
     iconName: "Users"
   },
@@ -47,7 +47,7 @@ export const parishAssociations: ParishAssociation[] = [
   },
   {
     id: "our-lady-of-good-health-welfare",
-    name: "Our Lady of Good Health Welfare/Social Service Association",
+    name: "Arokiya Maatha Narpani Iyakkam",
     order: 5,
     iconName: "Heart"
   },
