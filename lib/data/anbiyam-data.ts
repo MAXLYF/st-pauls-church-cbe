@@ -18,7 +18,7 @@ export const anbiyams: AnbiyamItem[] = [
     photo: "/images/Anbiyam_images/1.png",
     address: "P.M. சாமி காலனி, இந்திரா நகர், கணேஷ் நகர்",
     description: "",
-    coordinator: "",
+    coordinator: "ஆல்பர்ட்",
     meetingDay: "",
     meetingTime: "",
     contact: ""
