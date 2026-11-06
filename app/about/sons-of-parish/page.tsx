@@ -1,24 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { parishVocations } from "@/lib/data/sons-of-parish";
+import {
+  parishVocations,
+  religiousBrothersAndSisters
+} from "@/lib/data/sons-of-parish";
 import ParishVocationCard from "@/components/ParishVocationCard";
+import ReligiousServantCard from "@/components/ReligiousServantCard";
 import { HeartHandshake, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Sons of the Soil | St. Paul's Catholic Church, Rathinapuri",
   description:
-    "Discover the priests and religious sisters connected with St. Paul's Catholic Church, Rathinapuri and celebrate their vocation and service to the Church.",
+    "Discover the priests and religious brothers and sisters connected with St. Paul's Catholic Church, Rathinapuri and celebrate their vocation and service to the Church.",
   keywords: [
     "Sons of the Soil St. Paul's Catholic Church",
     "Priestly Vocations Rathinapuri",
-    "Religious Sisters Coimbatore",
+    "Religious Brothers and Sisters Coimbatore",
     "Catholic Vocations St. Paul's Catholic Church"
   ]
 };
 
 export default function SonsOfTheSoilPage() {
-  const vocations = parishVocations.filter((person) => person.published !== false);
+  const vocations = parishVocations.filter(
+    (person) => person.published !== false
+  );
+  const religiousServants = religiousBrothersAndSisters.filter(
+    (person) => person.published !== false
+  );
 
   return (
     <div className="min-h-screen bg-[#fbf8f1] text-[#172033]">
@@ -46,7 +55,7 @@ export default function SonsOfTheSoilPage() {
 
             {/* Main Heading */}
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-              Sons of the Soil
+              &ldquo;Sons of the Soil&rdquo;
             </h1>
 
             {/* Gold Divider */}
@@ -80,7 +89,7 @@ export default function SonsOfTheSoilPage() {
       {/* Profile Cards List Section */}
       <section className="py-14 md:py-20">
         <div className="container-site max-w-5xl">
-          {/* Vertical list of separate horizontal profile cards */}
+          {/* 1. Fathers Profile Cards List */}
           <div className="space-y-8 md:space-y-12">
             {vocations.map((person, index) => (
               <ParishVocationCard
@@ -89,6 +98,51 @@ export default function SonsOfTheSoilPage() {
                 index={index}
               />
             ))}
+          </div>
+
+          {/* Ornamental Gold Section Divider */}
+          <div
+            className="my-16 md:my-20 flex items-center justify-center gap-4"
+            aria-hidden="true"
+          >
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#c59b27]/70 to-[#c59b27]" />
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#c59b27]/50 bg-white text-[#80142b] shadow-sm">
+              <span className="text-base font-bold text-[#c59b27]">✝</span>
+            </div>
+            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#c59b27]/70 to-[#c59b27]" />
+          </div>
+
+          {/* 2. Religious Brothers & Sisters Section */}
+          <div aria-labelledby="religious-servants-heading">
+            <div className="mx-auto mb-10 md:mb-12 max-w-2xl text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/35 bg-[#80142b]/10 px-4 py-1 text-[11px] font-bold uppercase tracking-[0.24em] text-[#80142b]">
+                <span>✝ CONSECRATED VOCATIONS</span>
+              </div>
+
+              <h2
+                id="religious-servants-heading"
+                className="mt-3 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#1f040b] uppercase"
+              >
+                RELIGIOUS BROTHERS &amp; SISTERS
+              </h2>
+
+              <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-[#c59b27] to-transparent" />
+
+              <p className="mt-4 text-sm sm:text-base font-medium text-slate-600 leading-relaxed">
+                Honouring the dedicated religious servants of our parish.
+              </p>
+            </div>
+
+            {/* Responsive 3-Card Showcase (1 col mobile, 2 col tablet, 3 col desktop) */}
+            <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+              {religiousServants.map((profile, index) => (
+                <ReligiousServantCard
+                  key={profile.id}
+                  profile={profile}
+                  index={index}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Footer Vocation Prayer Message */}

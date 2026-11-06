@@ -60,6 +60,11 @@ export type SonOfParish = {
   vocation?: string;
   photo?: string;
   photoUrl?: string;
+  dateOfBirth?: string;
+  dob?: string;
+  dateOfOrdination?: string | number;
+  dateOfProfession?: string | number;
+  feastDay?: string;
   ordained?: string | number;
   ordinationYear?: string | number;
   profession?: string | number;
@@ -80,6 +85,24 @@ export type SonOfParish = {
 };
 
 export type ParishVocation = SonOfParish;
+
+export type ReligiousServantProfile = {
+  id: string;
+  role: "brother" | "sister";
+  designation: "Rev. Bro." | "Sister" | string;
+  badgeLabel?: string;
+  name: string;
+  photo?: string;
+  photoUrl?: string;
+  dateOfBirth?: string;
+  dateOfProfession?: string;
+  feastDay?: string;
+  congregation?: string;
+  currentService?: string;
+  about?: string;
+  order?: number;
+  published?: boolean;
+};
 
 export type PrayerResourceType =
   | "novena"

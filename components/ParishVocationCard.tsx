@@ -25,9 +25,9 @@ export default function ParishVocationCard({ person }: ParishVocationCardProps) 
   // Initials for clerical fallback
   const getInitials = (name: string) => {
     const cleaned = name
-      .replace(/^(Rev\.\s*Fr\.|Rev\.\s*Sis\.|Rev\.\s*Sr\.|Fr\.|Sr\.|Rev\.)\s*/i, "")
+      .replace(/^(Rev\.?\s*Fr\.?|Rev\.?\s*Sis\.?|Rev\.?\s*Sr\.?|Fr\.?|Sr\.?|Rev\.?)\s*/i, "")
       .trim();
-    const parts = cleaned.split(/\s+/);
+    const parts = cleaned.split(/[\s.]+/).filter(Boolean);
     if (parts.length >= 2) {
       return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
     }
@@ -36,14 +36,32 @@ export default function ParishVocationCard({ person }: ParishVocationCardProps) 
 
   const initials = getInitials(person.name);
 
-  // Field values
-  const ordainedYear = person.ordained || person.ordinationYear;
-  const professionYear = person.profession || person.professionYear;
-  const ministry = person.ministry;
-  const currentService = person.currentService;
-  const diocese = person.diocese;
-  const congregation = person.congregation;
+  // Dynamic field values mapped to the 5 required rows
+  const displayName = person.name || "Details coming soon";
+  const dateOfBirth = person.dateOfBirth || person.dob || "Details coming soon";
+  const dateOfOrdination =
+    person.dateOfOrdination ||
+    person.ordained ||
+    person.ordinationYear ||
+    person.dateOfProfession ||
+    person.profession ||
+    person.professionYear ||
+    "Details coming soon";
+  const feastDay = person.feastDay || "Details coming soon";
+  const currentService =
+    person.currentService ||
+    person.diocese ||
+    person.congregation ||
+    "Details coming soon";
   const aboutText = person.about || person.description || person.biography;
+
+  const infoRows = [
+    { label: "Name", value: displayName },
+    { label: "Date of Birth", value: dateOfBirth },
+    { label: "Date of Ordination", value: dateOfOrdination },
+    { label: "Feast Day", value: feastDay },
+    { label: "Current Service", value: currentService }
+  ];
 
   return (
     <article
@@ -64,7 +82,7 @@ export default function ParishVocationCard({ person }: ParishVocationCardProps) 
                   alt={`${person.name} portrait`}
                   fill
                   sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, 288px"
-                  className="object-cover object-top transition duration-500 group-hover:scale-105"
+                  className="object-cover object-center transition duration-500 group-hover:scale-105"
                   onError={() => setImgError(true)}
                 />
               ) : (
@@ -128,65 +146,25 @@ export default function ParishVocationCard({ person }: ParishVocationCardProps) 
             <span>{badgeText}</span>
           </div>
 
-          {/* Structured Information Table / List */}
+          {/* Structured Information Table / List (5 Rows) */}
           <div className="mt-6 space-y-2.5 rounded-2xl bg-[#fbf8f1] p-4 sm:p-5 border border-[#e7dec8]/80 text-sm">
-            {/* Ordained or Profession */}
-            {isSister ? (
-              professionYear && (
-                <div className="flex flex-col sm:flex-row sm:items-center">
-                  <span className="font-semibold text-[#1f040b] sm:w-36 flex items-center gap-1.5">
-                    <span className="text-[#c59b27] text-xs">✝</span> Profession:
-                  </span>
-                  <span className="text-slate-700 font-medium">{professionYear}</span>
-                </div>
-              )
-            ) : (
-              ordainedYear && (
-                <div className="flex flex-col sm:flex-row sm:items-center">
-                  <span className="font-semibold text-[#1f040b] sm:w-36 flex items-center gap-1.5">
-                    <span className="text-[#c59b27] text-xs">✝</span> Ordained:
-                  </span>
-                  <span className="text-slate-700 font-medium">{ordainedYear}</span>
-                </div>
-              )
+            {infoRows.map(
+              (row) =>
+                row.value && (
+                  <div
+                    key={row.label}
+                    className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-3"
+                  >
+                    <span className="font-semibold text-[#1f040b] sm:w-44 shrink-0 flex items-center gap-1.5">
+                      <span className="text-[#c59b27] text-xs">✝</span>
+                      <span>{row.label}:</span>
+                    </span>
+                    <span className="text-slate-700 font-medium break-words min-w-0 flex-1">
+                      {row.value}
+                    </span>
+                  </div>
+                )
             )}
-
-            {/* Ministry */}
-            {ministry && (
-              <div className="flex flex-col sm:flex-row sm:items-center">
-                <span className="font-semibold text-[#1f040b] sm:w-36 flex items-center gap-1.5">
-                  <span className="text-[#c59b27] text-xs">✝</span> Ministry:
-                </span>
-                <span className="text-slate-700 font-medium">{ministry}</span>
-              </div>
-            )}
-
-            {/* Current Service */}
-            {currentService && (
-              <div className="flex flex-col sm:flex-row sm:items-center">
-                <span className="font-semibold text-[#1f040b] sm:w-36 flex items-center gap-1.5">
-                  <span className="text-[#c59b27] text-xs">✝</span> Current Service:
-                </span>
-                <span className="text-slate-700 font-medium">{currentService}</span>
-              </div>
-            )}
-
-            {/* Diocese or Congregation */}
-            {congregation ? (
-              <div className="flex flex-col sm:flex-row sm:items-center">
-                <span className="font-semibold text-[#1f040b] sm:w-36 flex items-center gap-1.5">
-                  <span className="text-[#c59b27] text-xs">✝</span> Congregation:
-                </span>
-                <span className="text-slate-700 font-medium">{congregation}</span>
-              </div>
-            ) : diocese ? (
-              <div className="flex flex-col sm:flex-row sm:items-center">
-                <span className="font-semibold text-[#1f040b] sm:w-36 flex items-center gap-1.5">
-                  <span className="text-[#c59b27] text-xs">✝</span> Diocese:
-                </span>
-                <span className="text-slate-700 font-medium">{diocese}</span>
-              </div>
-            ) : null}
           </div>
 
           {/* ABOUT Section */}

@@ -20,9 +20,13 @@ function PriestTimelineCard({
 }) {
   const [imgError, setImgError] = useState(false);
 
-  // Extract initials (e.g. Fr. Arockiasamy -> AS)
+  // Extract initials (e.g. Rev. Fr. Arockiasamy -> AR)
   const getInitials = (name: string) => {
-    const parts = name.replace(/^Fr\.\s*/i, "").trim().split(/\s+/);
+    const parts = name
+      .replace(/^(Rev\.?\s*)?Fr\.?\s*/i, "")
+      .trim()
+      .split(/[\s.]+/)
+      .filter(Boolean);
     if (parts.length >= 2) {
       return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
     }
@@ -71,14 +75,14 @@ function PriestTimelineCard({
         {/* Card Body */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-7 items-start">
           {/* Priest Portrait / Monogram Frame */}
-          <div className="relative h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-[#781226] to-[#3a0812] border-2 border-[#d4af37]/60 shadow-md flex items-center justify-center text-white">
+          <div className="relative h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-[#781226] to-[#3a0812] border-2 border-[#d4af37]/70 shadow-md flex items-center justify-center text-white">
             {!imgError && photoSrc ? (
               <Image
                 src={photoSrc}
                 alt={`${pastor.name} portrait`}
                 fill
-                sizes="(max-width: 640px) 96px, 128px"
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 112px, 144px"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 onError={() => setImgError(true)}
               />
             ) : (
